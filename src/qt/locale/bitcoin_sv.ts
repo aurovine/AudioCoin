@@ -3,24 +3,24 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About GrowCoin</source>
-        <translation>Vad du behöver veta om GrowCoin</translation>
+        <source>About AudioCoin</source>
+        <translation>Vad du behöver veta om AudioCoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;GrowCoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;GrowCoin&lt;/b&gt; version</translation>
+        <source>&lt;b&gt;AudioCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;AudioCoin&lt;/b&gt; version</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
 Copyright © 2014 The BlackCoin developers
-Copyright © 2014 The GrowCoin developers</source>
+Copyright © 2014 The AudioCoin developers</source>
         <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
 Copyright © 2014 The BlackCoin developers
-Copyright © 2014 The GrowCoin developers</translation>
+Copyright © 2014 The AudioCoin developers</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -68,8 +68,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your GrowCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Dessa är dina GrowCoin adesser för att mottaga betalningsförsändelser. Du kan även använda olika adresser för varje avsändare för att enkelt hålla koll på vem som har skickat en betalning.</translation>
+        <source>These are your AudioCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Dessa är dina AudioCoin adesser för att mottaga betalningsförsändelser. Du kan även använda olika adresser för varje avsändare för att enkelt hålla koll på vem som har skickat en betalning.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -83,8 +83,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a GrowCoin address</source>
-        <translation>Signera ett meddelande för att bevisa att du äger GrowCoin adressen</translation>
+        <source>Sign a message to prove you own a AudioCoin address</source>
+        <translation>Signera ett meddelande för att bevisa att du äger AudioCoin adressen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -98,8 +98,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified GrowCoin address</source>
-        <translation>Verifiera ett meddelande för att försäkra dig över att det var signerat av en specifik GrowCoin adress</translation>
+        <source>Verify a message to ensure it was signed with a specified AudioCoin address</source>
+        <translation>Verifiera ett meddelande för att försäkra dig över att det var signerat av en specifik AudioCoin adress</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -266,8 +266,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-58"/>
-        <source>GrowCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>GrowCoin plånboken kommer nu att stängas för att slutföra krypteringen: Kom ihåg att även en krypterad plånboks säkerhet kan äventyras genom keyloggers eller dylika malwares.</translation>
+        <source>AudioCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>AudioCoin plånboken kommer nu att stängas för att slutföra krypteringen: Kom ihåg att även en krypterad plånboks säkerhet kan äventyras genom keyloggers eller dylika malwares.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -380,8 +380,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about GrowCoin</source>
-        <translation>Visa information om GrowCoin</translation>
+        <source>Show information about AudioCoin</source>
+        <translation>Visa information om AudioCoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -430,13 +430,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-62"/>
-        <source>Send coins to a GrowCoin address</source>
-        <translation>Skicka coins till en GrowCoin adress</translation>
+        <source>Send coins to a AudioCoin address</source>
+        <translation>Skicka coins till en AudioCoin adress</translation>
     </message>
     <message>
         <location line="+45"/>
-        <source>Modify configuration options for GrowCoin</source>
-        <translation>Modifiera konfigurations-alternativ för GrowCoin</translation>
+        <source>Modify configuration options for AudioCoin</source>
+        <translation>Modifiera konfigurations-alternativ för AudioCoin</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -475,8 +475,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-200"/>
-        <source>GrowCoin</source>
-        <translation>GrowCoin</translation>
+        <source>AudioCoin</source>
+        <translation>AudioCoin</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -485,8 +485,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+178"/>
-        <source>&amp;About GrowCoin</source>
-        <translation>&amp;Om GrowCoin</translation>
+        <source>&amp;About AudioCoin</source>
+        <translation>&amp;Om AudioCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -542,13 +542,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>GrowCoin client</source>
-        <translation>GrowCoin klient</translation>
+        <source>AudioCoin client</source>
+        <translation>AudioCoin klient</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
-        <source>%n active connection(s) to GrowCoin network</source>
-        <translation><numerusform>%n aktiv anslutning till GrowCoin nätverket</numerusform><numerusform>%n aktiva anslutning till GrowCoin nätverket</numerusform></translation>
+        <source>%n active connection(s) to AudioCoin network</source>
+        <translation><numerusform>%n aktiv anslutning till AudioCoin nätverket</numerusform><numerusform>%n aktiva anslutning till AudioCoin nätverket</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -662,8 +662,8 @@ Adress: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid GrowCoin address or malformed URI parameters.</source>
-        <translation>URI:n kan inte tolkas! Detta kan bero på en ogiltig GrowCoin adress eller felaktiga URI parametrar.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid AudioCoin address or malformed URI parameters.</source>
+        <translation>URI:n kan inte tolkas! Detta kan bero på en ogiltig AudioCoin adress eller felaktiga URI parametrar.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -722,8 +722,8 @@ Adress: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. GrowCoin can no longer continue safely and will quit.</source>
-        <translation>Ett fatalt fel uppstod. GrowCoin kan inte fortsätta och stänger programmet.</translation>
+        <source>A fatal error occurred. AudioCoin can no longer continue safely and will quit.</source>
+        <translation>Ett fatalt fel uppstod. AudioCoin kan inte fortsätta och stänger programmet.</translation>
     </message>
 </context>
 <context>
@@ -1017,7 +1017,7 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="+10"/>
         <source>The label associated with this address book entry</source>
-        <translation>Namnet som kopplats till denna GrowCoin-adress</translation>
+        <translation>Namnet som kopplats till denna AudioCoin-adress</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1056,8 +1056,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid GrowCoin address.</source>
-        <translation>Den inslagna adressen &quot;%1&quot; är inte en giltig GrowCoin adress.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid AudioCoin address.</source>
+        <translation>Den inslagna adressen &quot;%1&quot; är inte en giltig AudioCoin adress.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1075,8 +1075,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>GrowCoin-Qt</source>
-        <translation>GrowCoin-Qt</translation>
+        <source>AudioCoin-Qt</source>
+        <translation>AudioCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1148,13 +1148,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start GrowCoin after logging in to the system.</source>
-        <translation>Starta GrowCoin automatiskt vid inloggning.</translation>
+        <source>Automatically start AudioCoin after logging in to the system.</source>
+        <translation>Starta AudioCoin automatiskt vid inloggning.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start GrowCoin on system login</source>
-        <translation>&amp;Starta GrowCoin vid inloggning</translation>
+        <source>&amp;Start AudioCoin on system login</source>
+        <translation>&amp;Starta AudioCoin vid inloggning</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1173,8 +1173,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the GrowCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna automatiskt GrowCoin klientens port på routern. Detta fungerar endast om din router stödjer UPnP och det är aktiverat.</translation>
+        <source>Automatically open the AudioCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Öppna automatiskt AudioCoin klientens port på routern. Detta fungerar endast om din router stödjer UPnP och det är aktiverat.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1183,8 +1183,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the GrowCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Anslut till GrowCoin nätverket via en SOCKS proxy (t.ex. när du ansluter genom Tor).</translation>
+        <source>Connect to the AudioCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Anslut till AudioCoin nätverket via en SOCKS proxy (t.ex. när du ansluter genom Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1258,8 +1258,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting GrowCoin.</source>
-        <translation>Användargränssnittets språk kan ställas in här. Inställningen börjar gälla efter omstart av GrowCoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting AudioCoin.</source>
+        <translation>Användargränssnittets språk kan ställas in här. Inställningen börjar gälla efter omstart av AudioCoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1273,8 +1273,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show GrowCoin addresses in the transaction list or not.</source>
-        <translation>Om GrowCoin adresser skall visas i transaktionslistan eller inte.</translation>
+        <source>Whether to show AudioCoin addresses in the transaction list or not.</source>
+        <translation>Om AudioCoin adresser skall visas i transaktionslistan eller inte.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1320,8 +1320,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting GrowCoin.</source>
-        <translation>Inställningen börjar gälla efter omstart av GrowCoin.</translation>
+        <source>This setting will take effect after restarting AudioCoin.</source>
+        <translation>Inställningen börjar gälla efter omstart av AudioCoin.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1339,8 +1339,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GrowCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara gammal. Din plånbok synkroniseras automatiskt med GrowCoin nätverket efter att en anslutning skapats, men denna process är inte klar än.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the AudioCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Den visade informationen kan vara gammal. Din plånbok synkroniseras automatiskt med AudioCoin nätverket efter att en anslutning skapats, men denna process är inte klar än.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1555,8 +1555,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the GrowCoin-Qt help message to get a list with possible GrowCoin command-line options.</source>
-        <translation>Visa GrowCoin-Qt hjälp meddelandet för att få en lista över möjliga GrowCoin kommandoradsalternativ.</translation>
+        <source>Show the AudioCoin-Qt help message to get a list with possible AudioCoin command-line options.</source>
+        <translation>Visa AudioCoin-Qt hjälp meddelandet för att få en lista över möjliga AudioCoin kommandoradsalternativ.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1575,13 +1575,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>GrowCoin - Debug window</source>
-        <translation>GrowCoin - Felsökningsfönster</translation>
+        <source>AudioCoin - Debug window</source>
+        <translation>AudioCoin - Felsökningsfönster</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>GrowCoin Core</source>
-        <translation>GrowCoin Core</translation>
+        <source>AudioCoin Core</source>
+        <translation>AudioCoin Core</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1590,8 +1590,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the GrowCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna GrowCoin felsöknings-loggfilen från nuvarande data mapp. Detta kan kan ta ett par minuter för stora log filer.</translation>
+        <source>Open the AudioCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öppna AudioCoin felsöknings-loggfilen från nuvarande data mapp. Detta kan kan ta ett par minuter för stora log filer.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1600,8 +1600,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the GrowCoin RPC console.</source>
-        <translation>Välkommen till GrowCoin RPC konsoll.</translation>
+        <source>Welcome to the AudioCoin RPC console.</source>
+        <translation>Välkommen till AudioCoin RPC konsoll.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1759,8 +1759,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Fyll i en GrowCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Fyll i en AudioCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1859,8 +1859,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid GrowCoin address</source>
-        <translation>VARNING: Ogiltig GrowCoin adress</translation>
+        <source>WARNING: Invalid AudioCoin address</source>
+        <translation>VARNING: Ogiltig AudioCoin adress</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1933,8 +1933,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Fyll i en GrowCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Fyll i en AudioCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
 </context>
 <context>
@@ -1994,8 +1994,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this GrowCoin address</source>
-        <translation>Signera meddelandet för att verifiera att du äger denna GrowCoin adressen</translation>
+        <source>Sign the message to prove you own this AudioCoin address</source>
+        <translation>Signera meddelandet för att verifiera att du äger denna AudioCoin adressen</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2026,8 +2026,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified GrowCoin address</source>
-        <translation>Verifiera meddelandet för att vara säker på att det var signerat med den angivna GrowCoin adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified AudioCoin address</source>
+        <translation>Verifiera meddelandet för att vara säker på att det var signerat med den angivna AudioCoin adressen</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2037,8 +2037,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Fyll i en GrowCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Fyll i en AudioCoin adress (t.ex. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2047,8 +2047,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter GrowCoin signature</source>
-        <translation>Fyll i GrowCoin signatur</translation>
+        <source>Enter AudioCoin signature</source>
+        <translation>Fyll i AudioCoin signatur</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2618,8 +2618,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>GrowCoin version</source>
-        <translation>GrowCoin version</translation>
+        <source>AudioCoin version</source>
+        <translation>AudioCoin version</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2628,8 +2628,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or growcoind</source>
-        <translation>Skicka kommando till -server eller growcoind</translation>
+        <source>Send command to -server or audiocoind</source>
+        <translation>Skicka kommando till -server eller audiocoind</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2648,13 +2648,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: growcoin.conf)</source>
-        <translation>Ange konfigurationsfilen (standard: growcoin.conf)</translation>
+        <source>Specify configuration file (default: audiocoin.conf)</source>
+        <translation>Ange konfigurationsfilen (standard: audiocoin.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: growcoind.pid)</source>
-        <translation>Ange pid filen (standard growcoind.pid)</translation>
+        <source>Specify pid file (default: audiocoind.pid)</source>
+        <translation>Ange pid filen (standard audiocoind.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2803,8 +2803,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong GrowCoin will not work properly.</source>
-        <translation>Varning: Kolla att din dators tid och datum är rätt. GrowCoin kan inte fungera ordentligt om tiden i datorn är fel.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong AudioCoin will not work properly.</source>
+        <translation>Varning: Kolla att din dators tid och datum är rätt. AudioCoin kan inte fungera ordentligt om tiden i datorn är fel.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -2993,24 +2993,24 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=growcoinrpc
+rpcuser=audiocoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;GrowCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;AudioCoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, du måste sätta rpcpassword i konfigurationsfilen:
  %s
 Det är rekommenderat att du använder följande slumpmässiga lösenord:
-rpcuser=growcoinrpc
+rpcuser=audiocoinrpc
 rpcpassword=%s
 (du behöver inte komma ihåg detta lösenord)
 Användarnamnet och lösenordet FÅR INTE vara samma.
 Om filen inte finns, skapa den med endast ägarrättigheter.
 Det är också rekommenderat att sätta alertnotify så du blir notifierad om problem;
-till exempel: alertnotify=echo %%s | mail -s &quot;GrowCoin Varning&quot; admin@foo.com
+till exempel: alertnotify=echo %%s | mail -s &quot;AudioCoin Varning&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3135,13 +3135,13 @@ till exempel: alertnotify=echo %%s | mail -s &quot;GrowCoin Varning&quot; admin@
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  GrowCoin is probably already running.</source>
-        <translation>Kan inte låsa datan i mappen %s. GrowCoin är kanske redan startad.</translation>
+        <source>Cannot obtain a lock on data directory %s.  AudioCoin is probably already running.</source>
+        <translation>Kan inte låsa datan i mappen %s. AudioCoin är kanske redan startad.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>GrowCoin</source>
-        <translation>GrowCoin</translation>
+        <source>AudioCoin</source>
+        <translation>AudioCoin</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3175,13 +3175,13 @@ till exempel: alertnotify=echo %%s | mail -s &quot;GrowCoin Varning&quot; admin@
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of GrowCoin</source>
-        <translation>Kunde inte ladda wallet.dat: En nyare version av GrowCoin krävs</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of AudioCoin</source>
+        <translation>Kunde inte ladda wallet.dat: En nyare version av AudioCoin krävs</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart GrowCoin to complete</source>
-        <translation>Plånboken måste skrivas om: Starta om GrowCoin för att slutföra</translation>
+        <source>Wallet needed to be rewritten: restart AudioCoin to complete</source>
+        <translation>Plånboken måste skrivas om: Starta om AudioCoin för att slutföra</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3250,8 +3250,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;GrowCoin Varning&quot; admin@
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. GrowCoin is probably already running.</source>
-        <translation>Kan inte binda till %s på denna dator. GrowCoin är sannolikt redan startad.</translation>
+        <source>Unable to bind to %s on this computer. AudioCoin is probably already running.</source>
+        <translation>Kan inte binda till %s på denna dator. AudioCoin är sannolikt redan startad.</translation>
     </message>
     <message>
         <location line="-97"/>

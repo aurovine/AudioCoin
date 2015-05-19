@@ -3,20 +3,20 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About GrowCoin</source>
-        <translation>O GrowCoin</translation>
+        <source>About AudioCoin</source>
+        <translation>O AudioCoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;GrowCoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;GrowCoin&lt;/b&gt; verzija</translation>
+        <source>&lt;b&gt;AudioCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;AudioCoin&lt;/b&gt; verzija</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
 Copyright © 2014 The BlackCoin developers
-Copyright © 2014 The GrowCoin developers</source>
+Copyright © 2014 The AudioCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -64,8 +64,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your GrowCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>To so vaši GrowCoin naslovi za prejemanje plačil. Priporočeno je da vsakemu pošiljatelju namenite drugega in tako dobite večji pregled nad svojimi nakazili.</translation>
+        <source>These are your AudioCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>To so vaši AudioCoin naslovi za prejemanje plačil. Priporočeno je da vsakemu pošiljatelju namenite drugega in tako dobite večji pregled nad svojimi nakazili.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -79,8 +79,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a GrowCoin address</source>
-        <translation>Podpišite sporočilo, kot dokazilo lastništva GrowCoin naslova</translation>
+        <source>Sign a message to prove you own a AudioCoin address</source>
+        <translation>Podpišite sporočilo, kot dokazilo lastništva AudioCoin naslova</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -94,8 +94,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified GrowCoin address</source>
-        <translation>Potrdi sporočilo, da zagotovite, da je bilo podpisano z izbranim GrowCoin naslovom</translation>
+        <source>Verify a message to ensure it was signed with a specified AudioCoin address</source>
+        <translation>Potrdi sporočilo, da zagotovite, da je bilo podpisano z izbranim AudioCoin naslovom</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -262,8 +262,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="-58"/>
-        <source>GrowCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>GrowCoin se bo sedaj zaprl, da dokonča proces šifriranje. Pomnite, da tudi šifriranje vaše denarnice ne more v celoti zaščititi vaših kovancev pred krajo z zlonamernimi programi in računalniškimi virusi, če ti okužijo vaš računalnik.</translation>
+        <source>AudioCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>AudioCoin se bo sedaj zaprl, da dokonča proces šifriranje. Pomnite, da tudi šifriranje vaše denarnice ne more v celoti zaščititi vaših kovancev pred krajo z zlonamernimi programi in računalniškimi virusi, če ti okužijo vaš računalnik.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -376,8 +376,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about GrowCoin</source>
-        <translation>Pokaži informacije o GrowCoin</translation>
+        <source>Show information about AudioCoin</source>
+        <translation>Pokaži informacije o AudioCoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -426,13 +426,13 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="-62"/>
-        <source>Send coins to a GrowCoin address</source>
-        <translation>Pošlji kovance na GrowCoin naslov</translation>
+        <source>Send coins to a AudioCoin address</source>
+        <translation>Pošlji kovance na AudioCoin naslov</translation>
     </message>
     <message>
         <location line="+45"/>
-        <source>Modify configuration options for GrowCoin</source>
-        <translation>Spremeni nastavitve za GrowCoin</translation>
+        <source>Modify configuration options for AudioCoin</source>
+        <translation>Spremeni nastavitve za AudioCoin</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -471,8 +471,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="-200"/>
-        <source>GrowCoin</source>
-        <translation>GrowCoin</translation>
+        <source>AudioCoin</source>
+        <translation>AudioCoin</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -481,8 +481,8 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     </message>
     <message>
         <location line="+178"/>
-        <source>&amp;About GrowCoin</source>
-        <translation>&amp;O GrowCoin</translation>
+        <source>&amp;About AudioCoin</source>
+        <translation>&amp;O AudioCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -538,13 +538,13 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>GrowCoin client</source>
-        <translation>GrowCoin program</translation>
+        <source>AudioCoin client</source>
+        <translation>AudioCoin program</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
-        <source>%n active connection(s) to GrowCoin network</source>
-        <translation><numerusform>%n aktivne povezave na GrowCoin omrežje</numerusform><numerusform>%n aktivnih povezav na GrowCoin omrežje</numerusform><numerusform>%n aktivnih povezav na GrowCoin omrežje</numerusform><numerusform>%n aktivnih povezav na GrowCoin omrežje</numerusform></translation>
+        <source>%n active connection(s) to AudioCoin network</source>
+        <translation><numerusform>%n aktivne povezave na AudioCoin omrežje</numerusform><numerusform>%n aktivnih povezav na AudioCoin omrežje</numerusform><numerusform>%n aktivnih povezav na AudioCoin omrežje</numerusform><numerusform>%n aktivnih povezav na AudioCoin omrežje</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -658,8 +658,8 @@ Naslov: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid GrowCoin address or malformed URI parameters.</source>
-        <translation>URI ne more biti razčlenjen! To se lahko zgodi zaradi neveljavnega GrowCoin naslova ali slabih parametrov URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid AudioCoin address or malformed URI parameters.</source>
+        <translation>URI ne more biti razčlenjen! To se lahko zgodi zaradi neveljavnega AudioCoin naslova ali slabih parametrov URI.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -718,8 +718,8 @@ Naslov: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. GrowCoin can no longer continue safely and will quit.</source>
-        <translation>Prišlo je do usodne napake. Program GrowCoin se ne more več varno nadaljevati in se bo zato zaprl. </translation>
+        <source>A fatal error occurred. AudioCoin can no longer continue safely and will quit.</source>
+        <translation>Prišlo je do usodne napake. Program AudioCoin se ne more več varno nadaljevati in se bo zato zaprl. </translation>
     </message>
 </context>
 <context>
@@ -1052,8 +1052,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid GrowCoin address.</source>
-        <translation>Vneseni naslov &quot;%1&quot; ni veljaven GrowCoin naslov.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid AudioCoin address.</source>
+        <translation>Vneseni naslov &quot;%1&quot; ni veljaven AudioCoin naslov.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1071,8 +1071,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>GrowCoin-Qt</source>
-        <translation>GrowCoin-Qt</translation>
+        <source>AudioCoin-Qt</source>
+        <translation>AudioCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1144,13 +1144,13 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start GrowCoin after logging in to the system.</source>
-        <translation>Avtomatično zaženi GrowCoin ob zagonu sistema.</translation>
+        <source>Automatically start AudioCoin after logging in to the system.</source>
+        <translation>Avtomatično zaženi AudioCoin ob zagonu sistema.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start GrowCoin on system login</source>
-        <translation>&amp;Zaženi GrowCoin ob prijavi v sistem</translation>
+        <source>&amp;Start AudioCoin on system login</source>
+        <translation>&amp;Zaženi AudioCoin ob prijavi v sistem</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1169,8 +1169,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the GrowCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Avtomatično odpri vrata na routerju za GrowCoin program. To deluje le če vaš router podpira UPnP in je ta omogočen. </translation>
+        <source>Automatically open the AudioCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Avtomatično odpri vrata na routerju za AudioCoin program. To deluje le če vaš router podpira UPnP in je ta omogočen. </translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1179,8 +1179,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the GrowCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Poveži se na GrowCoin omrežje skozi SOCKS proxy (npr. ko se povezujete prek Tora)</translation>
+        <source>Connect to the AudioCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Poveži se na AudioCoin omrežje skozi SOCKS proxy (npr. ko se povezujete prek Tora)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1254,8 +1254,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting GrowCoin.</source>
-        <translation>Tu lahko nastavite jezik uporabniškega vmesnika. Nastavitve bodo pričele delovati ob ponovnem zagonu GrowCoin aplikacije. </translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting AudioCoin.</source>
+        <translation>Tu lahko nastavite jezik uporabniškega vmesnika. Nastavitve bodo pričele delovati ob ponovnem zagonu AudioCoin aplikacije. </translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1269,8 +1269,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show GrowCoin addresses in the transaction list or not.</source>
-        <translation>Izbira prikaza GrowCoin naslovov v seznamu transakcij.</translation>
+        <source>Whether to show AudioCoin addresses in the transaction list or not.</source>
+        <translation>Izbira prikaza AudioCoin naslovov v seznamu transakcij.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1316,8 +1316,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting GrowCoin.</source>
-        <translation>Ta nastavitev bo pričela delovati ob ponovnem zagonu GrowCoin aplikacije</translation>
+        <source>This setting will take effect after restarting AudioCoin.</source>
+        <translation>Ta nastavitev bo pričela delovati ob ponovnem zagonu AudioCoin aplikacije</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1335,8 +1335,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GrowCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazane informacije so morda zastarele. Vaša denarnica se avtomatično sinhronizira z GrowCoin omrežjem, ko je vzpostavljena povezava, toda ta proces še ni bil zaključen.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the AudioCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Prikazane informacije so morda zastarele. Vaša denarnica se avtomatično sinhronizira z AudioCoin omrežjem, ko je vzpostavljena povezava, toda ta proces še ni bil zaključen.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1551,8 +1551,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the GrowCoin-Qt help message to get a list with possible GrowCoin command-line options.</source>
-        <translation>Prikaži GrowCoin-Qt sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice GrowCoin aplikacije</translation>
+        <source>Show the AudioCoin-Qt help message to get a list with possible AudioCoin command-line options.</source>
+        <translation>Prikaži AudioCoin-Qt sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice AudioCoin aplikacije</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1571,13 +1571,13 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="-104"/>
-        <source>GrowCoin - Debug window</source>
-        <translation>GrowCoin - okno za odpravljanje napak</translation>
+        <source>AudioCoin - Debug window</source>
+        <translation>AudioCoin - okno za odpravljanje napak</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>GrowCoin Core</source>
-        <translation>GrowCoin jedro</translation>
+        <source>AudioCoin Core</source>
+        <translation>AudioCoin jedro</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1586,8 +1586,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the GrowCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Odpri GrowCoin datoteko zapisov odpravljanja napak iz trenutnega direktorija podatkov. Če so datoteke zapisov velike, to lahko traja nekaj sekund.</translation>
+        <source>Open the AudioCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Odpri AudioCoin datoteko zapisov odpravljanja napak iz trenutnega direktorija podatkov. Če so datoteke zapisov velike, to lahko traja nekaj sekund.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1596,8 +1596,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the GrowCoin RPC console.</source>
-        <translation>Dobrodošli v GrowCoin RPC konzoli.</translation>
+        <source>Welcome to the AudioCoin RPC console.</source>
+        <translation>Dobrodošli v AudioCoin RPC konzoli.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1755,8 +1755,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Vnesite GrowCoin naslov (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Vnesite AudioCoin naslov (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1855,8 +1855,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid GrowCoin address</source>
-        <translation>OPOZORILO: Neveljaven GrowCoin naslov</translation>
+        <source>WARNING: Invalid AudioCoin address</source>
+        <translation>OPOZORILO: Neveljaven AudioCoin naslov</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1929,8 +1929,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Vnesite GrowCoin naslov (npr. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Vnesite AudioCoin naslov (npr. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
 </context>
 <context>
@@ -1990,8 +1990,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this GrowCoin address</source>
-        <translation>Podpišite sporočilo, kot dokazilo lastništva GrowCoin naslova</translation>
+        <source>Sign the message to prove you own this AudioCoin address</source>
+        <translation>Podpišite sporočilo, kot dokazilo lastništva AudioCoin naslova</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2022,8 +2022,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified GrowCoin address</source>
-        <translation>Potrdite sporočilo, da zagotovite, da je bilo podpisano z izbranim GrowCoin naslovom</translation>
+        <source>Verify the message to ensure it was signed with the specified AudioCoin address</source>
+        <translation>Potrdite sporočilo, da zagotovite, da je bilo podpisano z izbranim AudioCoin naslovom</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2033,8 +2033,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a GrowCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
-        <translation>Vnesite GrowCoin naslov (npr. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
+        <source>Enter a AudioCoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</source>
+        <translation>Vnesite AudioCoin naslov (npr. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2043,8 +2043,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter GrowCoin signature</source>
-        <translation>Vnesite GrowCoin podpis</translation>
+        <source>Enter AudioCoin signature</source>
+        <translation>Vnesite AudioCoin podpis</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2614,8 +2614,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>GrowCoin version</source>
-        <translation>GrowCoin različica</translation>
+        <source>AudioCoin version</source>
+        <translation>AudioCoin različica</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2624,8 +2624,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or growcoind</source>
-        <translation>Pošlji ukaz na -server ali growcoind</translation>
+        <source>Send command to -server or audiocoind</source>
+        <translation>Pošlji ukaz na -server ali audiocoind</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2644,13 +2644,13 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: growcoin.conf)</source>
-        <translation>Določi konfiguracijsko datoteko (privzeto: growcoin.conf)</translation>
+        <source>Specify configuration file (default: audiocoin.conf)</source>
+        <translation>Določi konfiguracijsko datoteko (privzeto: audiocoin.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: growcoind.pid)</source>
-        <translation>Določi pid datoteko (privzeto: growcoind.pid)</translation>
+        <source>Specify pid file (default: audiocoind.pid)</source>
+        <translation>Določi pid datoteko (privzeto: audiocoind.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2799,8 +2799,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong GrowCoin will not work properly.</source>
-        <translation>Opozorilo: Prosimo preverite svoj datum in čas svojega računalnika! Če je vaša ura nastavljena napačno GrowCoin ne bo deloval.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong AudioCoin will not work properly.</source>
+        <translation>Opozorilo: Prosimo preverite svoj datum in čas svojega računalnika! Če je vaša ura nastavljena napačno AudioCoin ne bo deloval.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -2989,24 +2989,24 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=growcoinrpc
+rpcuser=audiocoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;GrowCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;AudioCoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, nastaviti morate rpcgeslo v konfiguracijski datoteki: 
  %s
 Priporočeno je, da uporabite naslednje naključno geslo:
-rpcuser=growcoinrpc
+rpcuser=audiocoinrpc
 rpcpassword=%s
 (tega gesla si vam ni potrebno zapomniti)
 Uporabniško ime in geslo NE SMETA biti ista. 
 Če datoteka ne obstaja, jo ustvarite z lastniškimi dovoljenji za datoteke. 
 Prav tako je priporočeno, da nastavite alernotify, tkako da vas opozori na probleme;
-na primer: alertnotify=echo %%s | mail -s &quot;GrowCoin Alarm&quot; admin@foo.com
+na primer: alertnotify=echo %%s | mail -s &quot;AudioCoin Alarm&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3131,13 +3131,13 @@ na primer: alertnotify=echo %%s | mail -s &quot;GrowCoin Alarm&quot; admin@foo.c
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  GrowCoin is probably already running.</source>
-        <translation>Ni bilo mogoče najti podatkovnega imenika %s. Aplikacija GrowCoin je verjetno že zagnana.</translation>
+        <source>Cannot obtain a lock on data directory %s.  AudioCoin is probably already running.</source>
+        <translation>Ni bilo mogoče najti podatkovnega imenika %s. Aplikacija AudioCoin je verjetno že zagnana.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>GrowCoin</source>
-        <translation>GrowCoin</translation>
+        <source>AudioCoin</source>
+        <translation>AudioCoin</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3171,13 +3171,13 @@ na primer: alertnotify=echo %%s | mail -s &quot;GrowCoin Alarm&quot; admin@foo.c
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of GrowCoin</source>
-        <translation>Napaka pri nalaganju wallet.dat: denarnica zahteva novejšo verzijo GrowCoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of AudioCoin</source>
+        <translation>Napaka pri nalaganju wallet.dat: denarnica zahteva novejšo verzijo AudioCoin</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart GrowCoin to complete</source>
-        <translation>Denarnica mora biti prepisana: ponovno odprite GrowCoin za dokončanje</translation>
+        <source>Wallet needed to be rewritten: restart AudioCoin to complete</source>
+        <translation>Denarnica mora biti prepisana: ponovno odprite AudioCoin za dokončanje</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3246,8 +3246,8 @@ na primer: alertnotify=echo %%s | mail -s &quot;GrowCoin Alarm&quot; admin@foo.c
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. GrowCoin is probably already running.</source>
-        <translation>Navezava v %s  na tem računalniku ni mogoča GrowCoin aplikacija je verjetno že zagnana.</translation>
+        <source>Unable to bind to %s on this computer. AudioCoin is probably already running.</source>
+        <translation>Navezava v %s  na tem računalniku ni mogoča AudioCoin aplikacija je verjetno že zagnana.</translation>
     </message>
     <message>
         <location line="-97"/>
