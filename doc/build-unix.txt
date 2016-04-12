@@ -1,0 +1,52 @@
+UNIX BUILD NOTES
+================
+
+To Build headless AudioCoin daemon:
+--------
+
+Install all necessary dependencies:
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+sudo apt-get install build-essential
+sudo apt-get install libssl-dev
+sudo apt-get install libdb++-dev
+sudo apt-get install libboost-all-dev
+sudo apt-get install libqrencode-dev
+sudo apt-get install qt5-default 
+sudo apt-get install qt5-qmake 
+sudo apt-get install qtbase5-dev-tools 
+sudo apt-get install qttools5-dev-tools 
+sudo apt-get install libboost-dev 
+sudo apt-get install libboost-system-dev 
+sudo apt-get install libboost-filesystem-dev 
+sudo apt-get install libboost-program-options-dev 
+sudo apt-get install libboost-thread-dev 
+sudo apt-get install libminiupnpc-dev
+
+Clone the AudioCoin source using git:
+
+git clone https://github.com/aurovine/AudioCoin.git
+
+cd into the AudioCoin directory src file:
+
+cd AudioCoin/src/
+
+compile using the following command:
+
+make -f makefile.unix 
+
+When that is complete you can start the audiocoin daemon using the following command:
+
+
+
+**To build the GUI wallet see readme-qt.rst for instructions.
+
+miniupnpc may be used for UPnP port mapping.  It can be downloaded from
+http://miniupnp.tuxfamily.org/files/.  UPnP support is compiled in and
+turned off by default.  Set USE_UPNP to a different value to control this:
+ USE_UPNP=-    No UPnP support - miniupnp not required
+ USE_UPNP=0    (the default) UPnP support turned off by default at runtime
+ USE_UPNP=1    UPnP support turned on by default at runtime
+ 
