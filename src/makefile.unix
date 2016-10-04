@@ -3,6 +3,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 USE_UPNP:=0
+USE_WALLET:=1
 
 LINK:=$(CXX)
 ARCH:=$(system lscpu | head -n 1 | awk '{print $2}')
@@ -12,15 +13,13 @@ DEFS=-DBOOST_SPIRIT_THREADSAFE
 DEFS += $(addprefix -I,$(CURDIR) $(CURDIR)/obj $(BOOST_INCLUDE_PATH) $(BDB_INCLUDE_PATH) $(OPENSSL_INCLUDE_PATH))
 LIBS = $(addprefix -L,$(BOOST_LIB_PATH) $(BDB_LIB_PATH) $(OPENSSL_LIB_PATH))
 
-DEFS += -DIS_ARCH_64
-
 LMODE = dynamic
 LMODE2 = dynamic
 ifdef STATIC
-    LMODE = static
-    ifeq (${STATIC}, all)
-        LMODE2 = static
-    endif
+	LMODE = static
+	ifeq (${STATIC}, all)
+		LMODE2 = static
+	endif
 endif
 
 # for boost 1.37, add -mt to the boost libraries
@@ -35,11 +34,11 @@ LIBS += \
    -l crypto
 
 ifndef USE_UPNP
-    override USE_UPNP = -
+	override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
-    LIBS += -l miniupnpc
-    DEFS += -DUSE_UPNP=$(USE_UPNP)
+	LIBS += -l miniupnpc
+	DEFS += -DUSE_UPNP=$(USE_UPNP)
 endif
 
 LIBS+= \
@@ -108,27 +107,26 @@ OBJS= \
     obj/addrman.o \
     obj/crypter.o \
     obj/key.o \
-    obj/db.o \
     obj/init.o \
-    obj/irc.o \
+    obj/bitcoind.o \
     obj/keystore.o \
-    obj/miner.o \
+    obj/core.o \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
-    obj/bitcoinrpc.o \
-    obj/rpcdump.o \
+    obj/rpcclient.o \
+    obj/rpcprotocol.o \
+    obj/rpcserver.o \
+    obj/rpcmisc.o \
     obj/rpcnet.o \
-    obj/rpcmining.o \
-    obj/rpcwallet.o \
     obj/rpcblockchain.o \
     obj/rpcrawtransaction.o \
-    obj/rpcsmessage.o \
+    obj/timedata.o \
     obj/script.o \
     obj/sync.o \
+    obj/txmempool.o \
     obj/util.o \
-    obj/wallet.o \
-    obj/walletdb.o \
+    obj/hash.o \
     obj/noui.o \
     obj/kernel.o \
     obj/pbkdf2.o \
@@ -136,9 +134,19 @@ OBJS= \
     obj/scrypt-arm.o \
     obj/scrypt-x86.o \
     obj/scrypt-x86_64.o \
-    obj/smessage.o \
-    obj/stealth.o 
+    obj/chainparams.o
 
+ifeq (${USE_WALLET}, 1)
+    DEFS += -DENABLE_WALLET
+    OBJS += \
+        obj/db.o \
+        obj/miner.o \
+        obj/rpcdump.o \
+        obj/rpcmining.o \
+        obj/rpcwallet.o \
+        obj/wallet.o \
+        obj/walletdb.o
+endif
 
 all: audiocoind
 
@@ -149,7 +157,6 @@ OBJS += obj/txdb-leveldb.o
 leveldb/libleveldb.a:
 	@echo "Building LevelDB ..."; cd leveldb; make libleveldb.a libmemenv.a; cd ..;
 obj/txdb-leveldb.o: leveldb/libleveldb.a
-
 
 # auto-generated dependencies:
 -include obj/*.P
@@ -171,9 +178,9 @@ obj/scrypt-arm.o: scrypt-arm.S
 obj/%.o: %.cpp
 	$(CXX) -c $(xCXXFLAGS) -MMD -MF $(@:%.o=%.d) -o $@ $<
 	@cp $(@:%.o=%.d) $(@:%.o=%.P); \
-		sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
-		-e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
-	rm -f $(@:%.o=%.d)
+	  sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
+	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
+	  rm -f $(@:%.o=%.d)
 
 audiocoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)

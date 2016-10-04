@@ -20,7 +20,7 @@ static const char* ppszTypeName[] =
 
 CMessageHeader::CMessageHeader()
 {
-    memcpy(pchMessageStart, ::pchMessageStart, sizeof(pchMessageStart));
+    memcpy(pchMessageStart, Params().MessageStart(), sizeof(Params().MessageStart()));
     memset(pchCommand, 0, sizeof(pchCommand));
     pchCommand[1] = 1;
     nMessageSize = -1;
@@ -29,7 +29,7 @@ CMessageHeader::CMessageHeader()
 
 CMessageHeader::CMessageHeader(const char* pszCommand, unsigned int nMessageSizeIn)
 {
-    memcpy(pchMessageStart, ::pchMessageStart, sizeof(pchMessageStart));
+    memcpy(pchMessageStart, Params().MessageStart(), sizeof(Params().MessageStart()));
     strncpy(pchCommand, pszCommand, COMMAND_SIZE);
     nMessageSize = nMessageSizeIn;
     nChecksum = 0;
@@ -46,7 +46,7 @@ std::string CMessageHeader::GetCommand() const
 bool CMessageHeader::IsValid() const
 {
     // Check start string
-    if (memcmp(pchMessageStart, ::pchMessageStart, sizeof(pchMessageStart)) != 0)
+    if (memcmp(pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE) != 0)
         return false;
 
     // Check the command string for errors
@@ -66,7 +66,7 @@ bool CMessageHeader::IsValid() const
     // Message size
     if (nMessageSize > MAX_SIZE)
     {
-        printf("CMessageHeader::IsValid() : (%s, %u bytes) nMessageSize > MAX_SIZE\n", GetCommand().c_str(), nMessageSize);
+        LogPrintf("CMessageHeader::IsValid() : (%s, %u bytes) nMessageSize > MAX_SIZE\n", GetCommand(), nMessageSize);
         return false;
     }
 
@@ -117,7 +117,7 @@ CInv::CInv(const std::string& strType, const uint256& hashIn)
         }
     }
     if (i == ARRAYLEN(ppszTypeName))
-        throw std::out_of_range(strprintf("CInv::CInv(string, uint256) : unknown type '%s'", strType.c_str()));
+        throw std::out_of_range(strprintf("CInv::CInv(string, uint256) : unknown type '%s'", strType));
     hash = hashIn;
 }
 
@@ -140,11 +140,5 @@ const char* CInv::GetCommand() const
 
 std::string CInv::ToString() const
 {
-    return strprintf("%s %s", GetCommand(), hash.ToString().substr(0,20).c_str());
+    return strprintf("%s %s", GetCommand(), hash.ToString());
 }
-
-void CInv::print() const
-{
-    printf("CInv(%s)\n", ToString().c_str());
-}
-

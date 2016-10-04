@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>740</width>
-    <height>510</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>audiocoin - Debug window</string>
+   <string>Audiocoin - Debug window</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -36,7 +36,7 @@
           </font>
          </property>
          <property name="text">
-          <string>audiocoin Core</string>
+          <string>Audiocoin Core</string>
          </property>
         </widget>
        </item>
@@ -248,36 +248,13 @@
         </widget>
        </item>
        <item row="11" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Estimated total blocks</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
-        <widget class="QLabel" name="totalBlocks">
-         <property name="cursor">
-          <cursorShape>IBeamCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-         </property>
-        </widget>
-       </item>
-       <item row="12" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>Last block time</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="11" column="1">
         <widget class="QLabel" name="lastBlockTime">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
@@ -293,7 +270,7 @@
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="12" column="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -306,7 +283,7 @@
          </property>
         </spacer>
        </item>
-       <item row="14" column="0">
+       <item row="13" column="0">
         <widget class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
@@ -319,10 +296,10 @@
          </property>
         </widget>
        </item>
-       <item row="15" column="0">
+       <item row="14" column="0">
         <widget class="QPushButton" name="openDebugLogfileButton">
          <property name="toolTip">
-          <string>Open the audiocoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
+          <string>Open the Audiocoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -332,7 +309,7 @@
          </property>
         </widget>
        </item>
-       <item row="16" column="0">
+       <item row="15" column="0">
         <widget class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
@@ -345,10 +322,10 @@
          </property>
         </widget>
        </item>
-       <item row="17" column="0">
+       <item row="16" column="0">
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
-          <string>Show the audiocoin-Qt help message to get a list with possible audiocoin command-line options.</string>
+          <string>Show the Audiocoin-Qt help message to get a list with possible Audiocoin command-line options.</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -358,7 +335,7 @@
          </property>
         </widget>
        </item>
-       <item row="18" column="0">
+       <item row="17" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

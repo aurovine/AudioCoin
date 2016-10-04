@@ -1,7 +1,8 @@
 #include "transactionrecord.h"
 
-#include "wallet.h"
 #include "base58.h"
+#include "timedata.h"
+#include "wallet.h"
 
 /* Return positive answer if transaction should be shown in list.
  */
@@ -30,20 +31,15 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     int64_t nNet = nCredit - nDebit;
     uint256 hash = wtx.GetHash(), hashPrev = 0;
     std::map<std::string, std::string> mapValue = wtx.mapValue;
-    
-    char cbuf[256];
-    
+
     if (nNet > 0 || wtx.IsCoinBase() || wtx.IsCoinStake())
     {
         //
         // Credit
         //
-        
-        for (unsigned int nOut = 0; nOut < wtx.vout.size(); nOut++)
+        BOOST_FOREACH(const CTxOut& txout, wtx.vout)
         {
-            const CTxOut& txout = wtx.vout[nOut];
-            
-            if (wallet->IsMine(txout))
+            if(wallet->IsMine(txout))
             {
                 TransactionRecord sub(hash, nTime);
                 CTxDestination address;
@@ -61,12 +57,6 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     sub.type = TransactionRecord::RecvFromOther;
                     sub.address = mapValue["from"];
                 }
-                
-                snprintf(cbuf, sizeof(cbuf), "n_%u", nOut);
-                mapValue_t::const_iterator mi = wtx.mapValue.find(cbuf);
-                if (mi != wtx.mapValue.end() && !mi->second.empty())
-                    sub.narration = mi->second;
-                
                 if (wtx.IsCoinBase())
                 {
                     // Generated (proof-of-work)
@@ -92,44 +82,18 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     {
         bool fAllFromMe = true;
         BOOST_FOREACH(const CTxIn& txin, wtx.vin)
-        {
-            if (wallet->IsMine(txin))
-                continue;
-            fAllFromMe = false;
-            break;
-        };
+            fAllFromMe = fAllFromMe && wallet->IsMine(txin);
 
         bool fAllToMe = true;
         BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-        {
-            opcodetype firstOpCode;
-            CScript::const_iterator pc = txout.scriptPubKey.begin();
-            if (txout.scriptPubKey.GetOp(pc, firstOpCode)
-                && firstOpCode == OP_RETURN)
-                continue;
-            if (wallet->IsMine(txout))
-                continue;
-            
-            fAllToMe = false;
-            break;
-        };
-        
+            fAllToMe = fAllToMe && wallet->IsMine(txout);
+
         if (fAllFromMe && fAllToMe)
         {
             // Payment to self
             int64_t nChange = wtx.GetChange();
-            
-            std::string narration("");
-            mapValue_t::const_iterator mi;
-            for (mi = wtx.mapValue.begin(); mi != wtx.mapValue.end(); ++mi)
-            {
-                if (mi->first.compare(0, 2, "n_") != 0)
-                    continue;
-                narration = mi->second;
-                break;
-            };
-            
-            parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "", narration,
+
+            parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "",
                             -(nDebit - nChange), nCredit - nChange));
         }
         else if (fAllFromMe)
@@ -138,21 +102,14 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             // Debit
             //
             int64_t nTxFee = nDebit - wtx.GetValueOut();
-            
-            
+
             for (unsigned int nOut = 0; nOut < wtx.vout.size(); nOut++)
             {
                 const CTxOut& txout = wtx.vout[nOut];
                 TransactionRecord sub(hash, nTime);
                 sub.idx = parts.size();
-                
-                opcodetype firstOpCode;
-                CScript::const_iterator pc = txout.scriptPubKey.begin();
-                if (txout.scriptPubKey.GetOp(pc, firstOpCode)
-                    && firstOpCode == OP_RETURN)
-                    continue;
 
-                if (wallet->IsMine(txout))
+                if(wallet->IsMine(txout))
                 {
                     // Ignore parts sent to self, as this is usually the change
                     // from a transaction sent back to our own address.
@@ -172,11 +129,6 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     sub.type = TransactionRecord::SendToOther;
                     sub.address = mapValue["to"];
                 }
-                
-                snprintf(cbuf, sizeof(cbuf), "n_%u", nOut);
-                mapValue_t::const_iterator mi = wtx.mapValue.find(cbuf);
-                if (mi != wtx.mapValue.end() && !mi->second.empty())
-                    sub.narration = mi->second;
 
                 int64_t nValue = txout.nValue;
                 /* Add fee to first output */
@@ -195,7 +147,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             //
             // Mixed debit transaction, can't break down payees
             //
-            parts.append(TransactionRecord(hash, nTime, TransactionRecord::Other, "", "", nNet, 0));
+            parts.append(TransactionRecord(hash, nTime, TransactionRecord::Other, "", nNet, 0));
         }
     }
 
@@ -223,12 +175,12 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx)
     status.depth = wtx.GetDepthInMainChain();
     status.cur_num_blocks = nBestHeight;
 
-    if (!wtx.IsFinal())
+    if (!IsFinalTx(wtx, nBestHeight + 1))
     {
         if (wtx.nLockTime < LOCKTIME_THRESHOLD)
         {
             status.status = TransactionStatus::OpenUntilBlock;
-            status.open_for = nBestHeight - wtx.nLockTime;
+            status.open_for = wtx.nLockTime - nBestHeight;
         }
         else
         {
@@ -293,8 +245,13 @@ bool TransactionRecord::statusUpdateNeeded()
     return status.cur_num_blocks != nBestHeight;
 }
 
-std::string TransactionRecord::getTxID()
+QString TransactionRecord::getTxID() const
 {
-    return hash.ToString() + strprintf("-%03d", idx);
+    return formatSubTxId(hash, idx);
+}
+
+QString TransactionRecord::formatSubTxId(const uint256 &hash, int vout)
+{
+    return QString::fromStdString(hash.ToString() + strprintf("-%03d", vout));
 }
 
