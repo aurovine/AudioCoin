@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("audiocoins");
-    case mBTC: return QString("Milli-audiocoins (1 / 1,000)");
-    case uBTC: return QString("Micro-audiocoins (1 / 1,000,000)");
+    case BTC: return QString("Audiocoins");
+    case mBTC: return QString("Milli-Audiocoins (1 / 1,000)");
+    case uBTC: return QString("Micro-Audiocoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
