@@ -33,10 +33,21 @@ ClientModel::~ClientModel()
     unsubscribeFromCoreSignals();
 }
 
-int ClientModel::getNumConnections() const
+//Added from commit https://github.com/bitcoin/bitcoin/commit/d713384435bed0919ab7745674be1dc584765a50#diff-2c51f64a3430117d2f6c7cb55355be66
+int ClientModel::getNumConnections(unsigned int flags) const
 {
-    return vNodes.size();
+  LOCK(cs_vNodes);
+     if (flags == CONNECTIONS_ALL) // Shortcut if we want total
+         return vNodes.size();
+
+     int nNum = 0;
+     BOOST_FOREACH(CNode* pnode, vNodes)
+     if (flags & (pnode->fInbound ? CONNECTIONS_IN : CONNECTIONS_OUT))
+         nNum++;
+
+    return nNum;
 }
+
 
 int ClientModel::getNumBlocks() const
 {

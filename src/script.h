@@ -69,6 +69,8 @@ enum
 // details.
 static const unsigned int MANDATORY_SCRIPT_VERIFY_FLAGS = SCRIPT_VERIFY_NULLDUMMY |
                                                           SCRIPT_VERIFY_STRICTENC |
+                                                          SCRIPT_VERIFY_ALLOW_EMPTY_SIG |
+                                                          SCRIPT_VERIFY_FIX_HASHTYPE |
                                                           SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY;
 
 // Standard script verification flags that standard transactions will comply

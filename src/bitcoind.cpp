@@ -46,7 +46,7 @@ bool AppInit(int argc, char* argv[])
             Shutdown();
         }
         ReadConfigFile(mapArgs, mapMultiArgs);
-
+        
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client

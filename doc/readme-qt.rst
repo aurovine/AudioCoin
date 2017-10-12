@@ -4,11 +4,19 @@ AudioCoin-qt: Qt5 GUI for Audiocoin
 Build instructions
 ===================
 
-Debian
+Debian Jessie
 -------
 
 First, make sure that the required packages for Qt5 development of your
 distribution are installed, for Debian and Ubuntu these are:
+
+An executable named `audiocoin-qt` will be built.
+
+Debian Stretch
+--------------
+
+ Install libssl1.0-dev instead of libssl-dev
+
 
 ::
 
@@ -20,15 +28,15 @@ distribution are installed, for Debian and Ubuntu these are:
     sudo apt-get install libdb++-dev
     sudo apt-get install libboost-all-dev
     sudo apt-get install libqrencode-dev
-    sudo apt-get install qt5-default 
-    sudo apt-get install qt5-qmake 
-    sudo apt-get install qtbase5-dev-tools 
-    sudo apt-get install qttools5-dev-tools 
-    sudo apt-get install libboost-dev 
-    sudo apt-get install libboost-system-dev 
-    sudo apt-get install libboost-filesystem-dev 
-    sudo apt-get install libboost-program-options-dev 
-    sudo apt-get install libboost-thread-dev 
+    sudo apt-get install qt5-default
+    sudo apt-get install qt5-qmake
+    sudo apt-get install qtbase5-dev-tools
+    sudo apt-get install qttools5-dev-tools
+    sudo apt-get install libboost-dev
+    sudo apt-get install libboost-system-dev
+    sudo apt-get install libboost-filesystem-dev
+    sudo apt-get install libboost-program-options-dev
+    sudo apt-get install libboost-thread-dev
     sudo apt-get install libminiupnpc-dev
 
 Clone the AudioCoin source using git
@@ -124,8 +132,8 @@ FreeDesktop notification interface through DBUS using the following qmake option
 Generation of QR codes
 -----------------------
 
-libqrencode may be used to generate QRCode images for payment requests. 
-It can be downloaded from http://fukuchi.org/works/qrencode/index.html.en, or installed via your package manager. Pass the USE_QRCODE 
+libqrencode may be used to generate QRCode images for payment requests.
+It can be downloaded from http://fukuchi.org/works/qrencode/index.html.en, or installed via your package manager. Pass the USE_QRCODE
 flag to qmake to control this:
 
 +--------------+--------------------------------------------------------------------------+

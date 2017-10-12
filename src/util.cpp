@@ -28,6 +28,7 @@ namespace boost {
         std::string to_internal(const std::string&);
     }
 }
+using namespace std;
 
 #include <boost/program_options/detail/config_file.hpp>
 #include <boost/program_options/parsers.hpp>
@@ -1037,9 +1038,54 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     {
         // Don't overwrite existing settings so command line settings override bitcoin.conf
         string strKey = string("-") + it->string_key;
+
+        /*
+          By default the application refers to the audiocoin.conf file either -conf is specified or not.
+          The below if condition checks , if audiocoin.conf has key addnode.
+          If YES
+          Hardcoded IP's are added in the if part.
+          If NO
+          Hardcoded IP's are added in the else part.
+          Thus it ensures in any case that the Hardcoded IP's gets added no matter what.
+        */
+
+        //Check if strkey is addnode
+        if ((! (strcmp(strKey.c_str() ,"-addnode" ))) && mapSettingsRet.count(strKey) == 0) {
+
+          //Insertes the first IP
+          mapSettingsRet[strKey] = "52.56.111.222";
+          mapMultiSettingsRet[strKey].push_back("52.56.111.222");
+
+          //Insertes the second IP
+          mapSettingsRet[strKey] = "35.176.14.149";
+          mapMultiSettingsRet[strKey].push_back("35.176.14.149");
+
+          //Insertes the third IP
+          mapSettingsRet[strKey] = "52.56.175.189";
+          mapMultiSettingsRet[strKey].push_back("52.56.175.189");
+        }else{
+          //If there is no -addnode in the config file then.
+          //By default it reads the audiocoin.conf file
+
+          //Insertes the first IP
+          mapSettingsRet["-addnode"] = "52.56.111.222";
+          mapMultiSettingsRet["-addnode"].push_back("52.56.111.222");
+
+          //Insertes the second IP
+          mapSettingsRet["-addnode"] = "35.176.14.149";
+          mapMultiSettingsRet["-addnode"].push_back("35.176.14.149");
+
+          //Insertes the third IP
+          mapSettingsRet["-addnode"] = "52.56.175.189";
+          mapMultiSettingsRet["-addnode"].push_back("52.56.175.189");
+        }
+
+
         if (mapSettingsRet.count(strKey) == 0)
         {
+        //  std::cout << "it-value is " << '\n';
             mapSettingsRet[strKey] = it->value[0];
+            //std::cout << it->value[0] << '\n';
             // interpret nofoo=1 as foo=0 (and nofoo=0 as foo=1) as long as foo not set)
             InterpretNegativeSetting(strKey, mapSettingsRet);
         }
