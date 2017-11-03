@@ -264,6 +264,10 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
 {
     hSocketRet = INVALID_SOCKET;
 
+//std::cout << "addrConnect is *********************" << '\n';
+//std::cout << addrConnect.ToString() << '\n';
+//std::cout << "addrConnect is *********************" << '\n';
+
     struct sockaddr_storage sockaddr;
     socklen_t len = sizeof(sockaddr);
     if (!addrConnect.GetSockAddr((struct sockaddr*)&sockaddr, &len)) {

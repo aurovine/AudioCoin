@@ -116,7 +116,7 @@ bool GetLocal(CService& addr, const CNetAddr *paddrPeer)
 // one by discovery.
 CAddress GetLocalAddress(const CNetAddr *paddrPeer)
 {
-    CAddress ret(CService("0.0.0.0",GetListenPort()),0);
+    CAddress ret(CService("10.0.10.39",GetListenPort()),0);
     CService addr;
     if (GetLocal(addr, paddrPeer))
     {
@@ -429,7 +429,7 @@ void CNode::PushVersion()
 {
     /// when NTP implemented, change to just nTime = GetAdjustedTime()
     int64_t nTime = (fInbound ? GetAdjustedTime() : GetTime());
-    CAddress addrYou = (addr.IsRoutable() && !IsProxy(addr) ? addr : CAddress(CService("0.0.0.0",0)));
+    CAddress addrYou = (addr.IsRoutable() && !IsProxy(addr) ? addr : CAddress(CService("10.0.10.39",0)));
     CAddress addrMe = GetLocalAddress(&addr);
     RAND_bytes((unsigned char*)&nLocalHostNonce, sizeof(nLocalHostNonce));
     LogPrint("net", "send version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", PROTOCOL_VERSION, nBestHeight, addrMe.ToString(), addrYou.ToString(), addr.ToString());
@@ -523,7 +523,7 @@ void CNode::copyStats(CNodeStats &stats)
     // Raw ping time is in microseconds, but show it to user as whole seconds (Bitcoin users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
-    
+
     // Leave string empty if addrLocal invalid (not filled in yet)
     stats.addrLocal = addrLocal.IsValid() ? addrLocal.ToString() : "";
 }
@@ -1105,8 +1105,8 @@ void ThreadDNSAddressSeed()
         if (HaveNameProxy()) {
             AddOneShot(seed.host);
         } else {
-            vector<CNetAddr> vIPs;
-            vector<CAddress> vAdd;
+          vector<CNetAddr> vIPs;
+          vector<CAddress> vAdd;
             if (LookupHost(seed.host.c_str(), vIPs))
             {
                 BOOST_FOREACH(CNetAddr& ip, vIPs)
@@ -1119,10 +1119,12 @@ void ThreadDNSAddressSeed()
                 }
             }
             addrman.Add(vAdd, CNetAddr(seed.name, true));
+
         }
     }
 
     LogPrintf("%d addresses found from DNS seeds\n", found);
+
 }
 
 
@@ -1204,10 +1206,8 @@ void ThreadOpenConnections()
             }
         }
 
-        //
         // Choose an address to connect to based on most recently seen
-        //
-        CAddress addrConnect;
+           CAddress addrConnect;
 
         // Only connect out to one peer per network group (/16 for IPv4).
         // Do this here so we don't have to critsect vNodes inside mapAddresses critsect.
@@ -1331,6 +1331,8 @@ void ThreadOpenAddedConnections()
         }
         MilliSleep(120000); // Retry every 2 minutes
     }
+  //  std::cout << " lAddresses are " << lAddresses << '\n';
+   //std::cout << "/* lservAddressesToAdd are */" << lservAddressesToAdd << '\n';
 }
 
 // if successful, this moves the passed grant to the constructed node

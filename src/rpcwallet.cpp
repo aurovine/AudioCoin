@@ -264,7 +264,8 @@ Value sendtoaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
             "sendtoaddress <audiocoinaddress> <amount> [comment] [comment-to]\n"
-            "<amount> is a real and is rounded to the nearest 0.000001"
+          //  "<amount> is a real and is rounded to the nearest 0.000001"
+          "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
@@ -290,6 +291,45 @@ Value sendtoaddress(const Array& params, bool fHelp)
 
     return wtx.GetHash().GetHex();
 }
+
+
+//added from commit https://github.com/bitcoin/bitcoin/commit/b0bf9eb77c777c42dcdb59f43609ad07117be8ad
+Value burn(const Array& params, bool fHelp)
+ {
+     if (fHelp || params.size() < 1 || params.size() > 2)
+         throw runtime_error(
+             "burn <amount> [hex string]\n"
+             "<amount> is a real and is rounded to the nearest 0.00000001"
+             + HelpRequiringPassphrase());
+
+     CScript scriptPubKey;
+
+     if (params.size() > 1) {
+         vector<unsigned char> data;
+         if (params[1].get_str().size() > 0){
+             data = ParseHexV(params[1], "data");
+         } else {
+             // Empty data is valid
+         }
+         scriptPubKey = CScript() << OP_RETURN << data;
+     } else {
+         scriptPubKey = CScript() << OP_RETURN;
+     }
+
+     // Amount
+     int64_t nAmount = AmountFromValue(params[0]);
+
+     if (pwalletMain->IsLocked())
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+
+     CWalletTx wtx;
+     string strError = pwalletMain->SendMoney(scriptPubKey, nAmount, wtx);
+     if (strError != "")
+         throw JSONRPCError(RPC_WALLET_ERROR, strError);
+
+     return wtx.GetHash().GetHex();
+ }
+
 
 Value listaddressgroupings(const Array& params, bool fHelp)
 {
@@ -590,7 +630,8 @@ Value sendfrom(const Array& params, bool fHelp)
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
             "sendfrom <fromaccount> <toaudiocoinaddress> <amount> [minconf=1] [comment] [comment-to]\n"
-            "<amount> is a real and is rounded to the nearest 0.000001"
+             "<amount> is a real and is rounded to the nearest 0.00000001"
+          //  "<amount> is a real and is rounded to the nearest 0.000001"
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
@@ -1553,7 +1594,7 @@ Value makekeypair(const Array& params, bool fHelp)
     string strPrefix = "";
     if (params.size() > 0)
         strPrefix = params[0].get_str();
- 
+
     CKey key;
     key.MakeNewKey(false);
 

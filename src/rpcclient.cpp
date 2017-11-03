@@ -106,6 +106,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "stop", 0 },
     { "getaddednodeinfo", 0 },
     { "sendtoaddress", 1 },
+    //added below line from commit https://github.com/bitcoin/bitcoin/commit/b0bf9eb77c777c42dcdb59f43609ad07117be8ad
+    { "burn", 1 },
     { "settxfee", 0 },
     { "getreceivedbyaddress", 1 },
     { "getreceivedbyaccount", 1 },

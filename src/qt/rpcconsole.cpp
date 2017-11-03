@@ -343,11 +343,19 @@ void RPCConsole::message(int category, const QString &message, bool html)
     ui->messagesWidget->append(out);
 }
 
+
+//added from commit https://github.com/bitcoin/bitcoin/commit/d713384435bed0919ab7745674be1dc584765a50#diff-2c15c5b52f35ea388ebab757eaab0f1c
 void RPCConsole::setNumConnections(int count)
 {
-    ui->numberOfConnections->setText(QString::number(count));
-}
+    if (!clientModel)
+        return;
 
+    QString connections = QString::number(count) + " (";
+    connections += tr("In:") + " " + QString::number(clientModel->getNumConnections(CONNECTIONS_IN)) + " / ";
+    connections += tr("Out:") + " " + QString::number(clientModel->getNumConnections(CONNECTIONS_OUT)) + ")";
+
+    ui->numberOfConnections->setText(connections);
+ }
 void RPCConsole::setNumBlocks(int count)
 {
     ui->numberOfBlocks->setText(QString::number(count));
