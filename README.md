@@ -1,3 +1,5 @@
+# This repository is in maintenance only as we prepare ADC to become a sidechain of BPL. The only updates now will be critical patches. None are on the horizon.
+
 AudioCoin Official Development Repo
 ==================================
 
