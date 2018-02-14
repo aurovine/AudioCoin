@@ -2792,7 +2792,8 @@ string GetWarnings(string strFor)
             {
                 nPriority = alert.nPriority;
                 strStatusBar = alert.strStatusBar;
-
+                if (nPriority > 1000)
+                    strRPC = strStatusBar;
                 //Removed below lines from commit: revert: PPCoin: Enter safe mode with high priority alert
                 //https://github.com/bitcoin/bitcoin/commit/4a90ade35a289ad3bce43dada5b7ad6038def080
                 //if (nPriority > 1000)
