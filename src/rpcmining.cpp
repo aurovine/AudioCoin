@@ -122,7 +122,7 @@ Value getstakinginfo(const Array& params, bool fHelp)
 
     double nWeight = 0;
     if (pwalletMain)
-        nWeight = pwalletMain->GetStakeWeight() / COIN;
+        nWeight = (double)pwalletMain->GetStakeWeight() / COIN;
 
     double nNetworkWeight = GetPoSKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nWeight;
