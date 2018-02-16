@@ -85,31 +85,31 @@ Value getmininginfo(const Array& params, bool fHelp)
 
     uint64_t nWeight = 0;
     if (pwalletMain)
-        nWeight = pwalletMain->GetStakeWeight();
+        nWeight = pwalletMain->GetStakeWeight() / COIN;
 
     Object obj, diff, weight;
-    obj.push_back(Pair("blocks",        (int)nBestHeight));
-    obj.push_back(Pair("currentblocksize",(uint64_t)nLastBlockSize));
-    obj.push_back(Pair("currentblocktx",(uint64_t)nLastBlockTx));
+    obj.push_back(Pair("blocks", (int)nBestHeight));
+    obj.push_back(Pair("currentblocksize", (uint64_t)nLastBlockSize));
+    obj.push_back(Pair("currentblocktx", (uint64_t)nLastBlockTx));
 
-    diff.push_back(Pair("proof-of-work",        GetDifficulty()));
-    diff.push_back(Pair("proof-of-stake",       GetDifficulty(GetLastBlockIndex(pindexBest, true))));
-    diff.push_back(Pair("search-interval",      (int)nLastCoinStakeSearchInterval));
-    obj.push_back(Pair("difficulty",    diff));
+    diff.push_back(Pair("proof-of-work", GetDifficulty()));
+    diff.push_back(Pair("proof-of-stake", GetDifficulty(GetLastBlockIndex(pindexBest, true))));
+    diff.push_back(Pair("search-interval", (int)nLastCoinStakeSearchInterval));
+    obj.push_back(Pair("difficulty", diff));
 
-    obj.push_back(Pair("blockvalue",    (uint64_t)GetProofOfWorkReward(999999, 0)));
-    obj.push_back(Pair("netmhashps",     GetPoWMHashPS()));
-    obj.push_back(Pair("netstakeweight", GetPoSKernelPS()));
-    obj.push_back(Pair("errors",        GetWarnings("statusbar")));
-    obj.push_back(Pair("pooledtx",      (uint64_t)mempool.size()));
+    obj.push_back(Pair("blockvalue", (uint64_t)GetProofOfWorkReward(999999, 0)));
+    obj.push_back(Pair("netmhashps", GetPoWMHashPS()));
+    obj.push_back(Pair("netstakeweight", (uint64_t)GetPoSKernelPS()));
+    obj.push_back(Pair("errors", GetWarnings("statusbar")));
+    obj.push_back(Pair("pooledtx", (uint64_t)mempool.size()));
 
-    weight.push_back(Pair("minimum",    (uint64_t)nWeight));
-    weight.push_back(Pair("maximum",    (uint64_t)0));
-    weight.push_back(Pair("combined",  (uint64_t)nWeight));
+    weight.push_back(Pair("minimum", nWeight));
+    weight.push_back(Pair("maximum", (uint64_t)0));
+    weight.push_back(Pair("combined", nWeight));
     obj.push_back(Pair("stakeweight", weight));
 
-    obj.push_back(Pair("stakeinterest",    (uint64_t)COIN_YEAR_REWARD));
-    obj.push_back(Pair("testnet",       TestNet()));
+    obj.push_back(Pair("stakeinterest", (uint64_t)COIN_YEAR_REWARD));
+    obj.push_back(Pair("testnet", TestNet()));
     return obj;
 }
 
@@ -120,15 +120,15 @@ Value getstakinginfo(const Array& params, bool fHelp)
             "getstakinginfo\n"
             "Returns an object containing staking-related information.");
 
-    uint64_t nWeight = 0;
+    double nWeight = 0;
     if (pwalletMain)
-        nWeight = pwalletMain->GetStakeWeight();
+        nWeight = (double)pwalletMain->GetStakeWeight() / COIN;
 
-    uint64_t nNetworkWeight = GetPoSKernelPS();
+    double nNetworkWeight = GetPoSKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nWeight;
     uint64_t nExpectedTime = staking ? (GetTargetSpacing(nBestHeight) * nNetworkWeight / nWeight) : 0;
 
-    Object obj;
+    Object obj, time;
 
     obj.push_back(Pair("enabled", GetBoolArg("-staking", true)));
     obj.push_back(Pair("staking", staking));
@@ -141,10 +141,36 @@ Value getstakinginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("difficulty", GetDifficulty(GetLastBlockIndex(pindexBest, true))));
     obj.push_back(Pair("search-interval", (int)nLastCoinStakeSearchInterval));
 
-    obj.push_back(Pair("weight", (uint64_t)nWeight));
-    obj.push_back(Pair("netstakeweight", (uint64_t)nNetworkWeight));
+    obj.push_back(Pair("weight", nWeight));
+    obj.push_back(Pair("netstakeweight", nNetworkWeight));
 
     obj.push_back(Pair("expectedtime", nExpectedTime));
+
+    if (staking)
+    {
+        string unit = "second(s)";
+
+        if (nExpectedTime >= 60 && nExpectedTime < (60 * 60))
+        {
+            nExpectedTime /= 60;
+            unit = "minute(s)";
+        }
+        else if (nExpectedTime < (24 * 60 * 60))
+        {
+            nExpectedTime /= (60 * 60);
+            unit = "hour(s)";
+        }
+        else
+        {
+            nExpectedTime /= (60 * 60 * 24);
+            unit = "day(s)";
+        }
+
+        time.push_back(Pair("value", nExpectedTime));
+        time.push_back(Pair("unit", unit));
+
+        obj.push_back(Pair("humanized_expectedtime", time));
+    }
 
     return obj;
 }
