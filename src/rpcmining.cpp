@@ -144,8 +144,9 @@ Value getstakinginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("weight", nWeight));
     obj.push_back(Pair("netstakeweight", nNetworkWeight));
 
+    obj.push_back(Pair("expectedtime", nExpectedTime));
 
-    if (nExpectedTime)
+    if (staking)
     {
         string unit = "second(s)";
 
@@ -168,11 +169,7 @@ Value getstakinginfo(const Array& params, bool fHelp)
         time.push_back(Pair("value", nExpectedTime));
         time.push_back(Pair("unit", unit));
 
-        obj.push_back(Pair("expectedtime", time));
-    }
-    else
-    {
-        obj.push_back(Pair("expectedtime", 0));
+        obj.push_back(Pair("humanized_expectedtime", time));
     }
 
     return obj;
