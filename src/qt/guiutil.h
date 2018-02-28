@@ -44,7 +44,7 @@ namespace GUIUtil
         is selected.
        @param[in] column  Data column to extract from the model
        @param[in] role    Data role to extract from the model
-       @see  TransactionView::copyLabel, TransactionView::copyAmount, TransactionView::copyAddress
+       @see  TransactionsPage::copyLabel, TransactionsPage::copyAmount, TransactionsPage::copyAddress
      */
     void copyEntryData(QAbstractItemView *view, int column, int role=Qt::EditRole);
 

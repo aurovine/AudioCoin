@@ -84,7 +84,6 @@ private slots:
     void radioListMode(bool);
     void viewItemChanged(QTreeWidgetItem*, int);
     void headerSectionClicked(int);
-    void buttonBoxClicked(QAbstractButton*);
     void buttonSelectAllClicked();
     //void updateLabelLocked();
 };

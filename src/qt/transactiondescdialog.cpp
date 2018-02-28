@@ -14,6 +14,11 @@ TransactionDescDialog::TransactionDescDialog(const QModelIndex &idx, QWidget *pa
     ui->detailText->setHtml(desc);
 }
 
+void TransactionDescDialog::on_closeButton_clicked()
+{
+    reject();
+}
+
 TransactionDescDialog::~TransactionDescDialog()
 {
     delete ui;

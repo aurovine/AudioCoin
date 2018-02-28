@@ -100,7 +100,7 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
     connect(ui->treeWidget->header(), SIGNAL(sectionClicked(int)), this, SLOT(headerSectionClicked(int)));
 
     // ok button
-    connect(ui->buttonBox, SIGNAL(clicked( QAbstractButton*)), this, SLOT(buttonBoxClicked(QAbstractButton*)));
+    connect(ui->confirmButton, SIGNAL(clicked()), this, SLOT(accept()));
 
     // (un)select all
     connect(ui->pushButtonSelectAll, SIGNAL(clicked()), this, SLOT(buttonSelectAllClicked()));
@@ -145,13 +145,6 @@ QString CoinControlDialog::strPad(QString s, int nPadLength, QString sPadding)
         s = sPadding + s;
 
     return s;
-}
-
-// ok button
-void CoinControlDialog::buttonBoxClicked(QAbstractButton* button)
-{
-    if (ui->buttonBox->buttonRole(button) == QDialogButtonBox::AcceptRole)
-        done(QDialog::Accepted); // closes the dialog
 }
 
 // (un)select all
@@ -248,7 +241,7 @@ void CoinControlDialog::copyTransactionHash()
     COutPoint outpt(uint256(contextMenuItem->text(COLUMN_TXHASH).toStdString()), contextMenuItem->text(COLUMN_VOUT_INDEX).toUInt());
     model->lockCoin(outpt);
     contextMenuItem->setDisabled(true);
-    contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/lock_closed"));
+    contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/md/lock_closed"));
     updateLabelLocked();
 }*/
 
@@ -522,26 +515,26 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     QLabel *l8 = dialog->findChild<QLabel *>("labelCoinControlChange");
     
     // enable/disable "low output" and "change"
-    dialog->findChild<QLabel *>("labelCoinControlLowOutputText")->setEnabled(nPayAmount > 0);
-    dialog->findChild<QLabel *>("labelCoinControlLowOutput")    ->setEnabled(nPayAmount > 0);
-    dialog->findChild<QLabel *>("labelCoinControlChangeText")   ->setEnabled(nPayAmount > 0);
-    dialog->findChild<QLabel *>("labelCoinControlChange")       ->setEnabled(nPayAmount > 0);
+    // dialog->findChild<QLabel *>("labelCoinControlLowOutputText")->setEnabled(nPayAmount > 0);
+    // dialog->findChild<QLabel *>("labelCoinControlLowOutput")    ->setEnabled(nPayAmount > 0);
+    // dialog->findChild<QLabel *>("labelCoinControlChangeText")   ->setEnabled(nPayAmount > 0);
+    // dialog->findChild<QLabel *>("labelCoinControlChange")       ->setEnabled(nPayAmount > 0);
     
     // stats
-    l1->setText(QString::number(nQuantity));                                 // Quantity        
-    l2->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nAmount));        // Amount
-    l3->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nPayFee));        // Fee
-    l4->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nAfterFee));      // After Fee
-    l5->setText(((nBytes > 0) ? "~" : "") + QString::number(nBytes));                                    // Bytes
-    l6->setText(sPriorityLabel);                                             // Priority
-    l7->setText((fLowOutput ? (fDust ? tr("DUST") : tr("yes")) : tr("no"))); // Low Output / Dust
-    l8->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nChange));        // Change
+    l1->setText(QString::number(nQuantity));                                        // Quantity        
+    l2->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nAmount));               // Amount
+    l3->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nPayFee));               // Fee
+    l4->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nAfterFee));             // After Fee
+    l5->setText(((nBytes > 0) ? "~" : "") + QString::number(nBytes));               // Bytes
+    l6->setText(!sPriorityLabel.isEmpty() ? sPriorityLabel : "-");                  // Priority
+    l7->setText((fLowOutput ? (fDust ? tr("DUST") : tr("yes")) : tr("no")));        // Low Output / Dust
+    l8->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, nChange));               // Change
     
     // turn labels "red"
-    l5->setStyleSheet((nBytes >= 10000) ? "color:red;" : "");               // Bytes >= 10000
-    l6->setStyleSheet((dPriority <= 576000) ? "color:red;" : "");         // Priority < "medium"
-    l7->setStyleSheet((fLowOutput) ? "color:red;" : "");                    // Low Output = "yes"
-    l8->setStyleSheet((nChange > 0 && nChange < CENT) ? "color:red;" : ""); // Change < 0.01BTC
+    l5->setStyleSheet((nBytes >= 10000) ? "color:red;" : "color:#757575;");            // Bytes >= 10000
+    l6->setStyleSheet((dPriority <= 576000) ? "color:red;" : "color:#757575;");        // Priority < "medium"
+    l7->setStyleSheet((fLowOutput) ? "color:red;" : "color:#757575;");                 // Low Output = "yes"
+    l8->setStyleSheet((nChange < 0) ? "color:red;" : "color:#757575;");                // Change < 0.01
         
     // tool tips
     l5->setToolTip(tr("This label turns red, if the transaction size is bigger than 10000 bytes.\n\n This means a fee of at least %1 per kb is required.\n\n Can vary +/- 1 Byte per input.").arg(BitcoinUnits::formatWithUnit(nDisplayUnit, CENT)));
@@ -554,9 +547,9 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     dialog->findChild<QLabel *>("labelCoinControlChangeText")   ->setToolTip(l8->toolTip());
    
     // Insufficient funds
-    QLabel *label = dialog->findChild<QLabel *>("labelCoinControlInsuffFunds");
-    if (label)
-        label->setVisible(nChange < 0);
+    QPushButton *button = dialog->findChild<QPushButton *>("sendButton");
+    if (button)
+        button->setEnabled(nChange >= 0);
 }
 
 void CoinControlDialog::updateView()
@@ -683,7 +676,7 @@ void CoinControlDialog::updateView()
                 COutPoint outpt(txhash, out.i);
                 coinControl->UnSelect(outpt); // just to be sure
                 itemOutput->setDisabled(true);
-                itemOutput->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/lock_closed"));
+                itemOutput->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/md/lock_closed"));
             }*/
               
             // set checkbox

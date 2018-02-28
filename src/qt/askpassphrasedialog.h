@@ -27,6 +27,7 @@ public:
     ~AskPassphraseDialog();
 
     void accept();
+    void reject();
 
     void setModel(WalletModel *model);
 

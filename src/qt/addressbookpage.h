@@ -58,6 +58,7 @@ private:
     QString newAddressToSelect;
 
 private slots:
+    void on_okButton_clicked();
     /** Delete currently selected address entry */
     void on_deleteButton_clicked();
     /** Create a new address for receiving coins and / or add a new address book entry */

@@ -1113,9 +1113,9 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     </message>
 </context>
 <context>
-    <name>OptionsDialog</name>
+    <name>SettingsPage</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
+        <location filename="../forms/settingspage.ui" line="+14"/>
         <source>Options</source>
         <translation>Opties</translation>
     </message>
@@ -1305,7 +1305,7 @@ Dit betekend dat een fee van %2 is vereist.</translation>
         <translation>&amp;Toepassen</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+55"/>
+        <location filename="../settingspage.cpp" line="+55"/>
         <source>default</source>
         <translation>standaard</translation>
     </message>
@@ -2436,7 +2436,7 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     </message>
 </context>
 <context>
-    <name>TransactionView</name>
+    <name>TransactionsPage</name>
     <message>
         <location filename="../transactionview.cpp" line="+55"/>
         <location line="+16"/>

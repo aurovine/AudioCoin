@@ -1112,9 +1112,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>OptionsDialog</name>
+    <name>SettingsPage</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
+        <location filename="../forms/settingspage.ui" line="+14"/>
         <source>Options</source>
         <translation>設定</translation>
     </message>
@@ -1304,7 +1304,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>適用する</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+55"/>
+        <location filename="../settingspage.cpp" line="+55"/>
         <source>default</source>
         <translation>初期値</translation>
     </message>
@@ -2435,7 +2435,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>TransactionView</name>
+    <name>TransactionsPage</name>
     <message>
         <location filename="../transactionview.cpp" line="+55"/>
         <location line="+16"/>

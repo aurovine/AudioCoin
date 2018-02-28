@@ -2,6 +2,7 @@
 #define SENDCOINSENTRY_H
 
 #include <QFrame>
+#include <QHoverEvent>
 
 namespace Ui {
     class SendCoinsEntry;
@@ -17,6 +18,8 @@ class SendCoinsEntry : public QFrame
 public:
     explicit SendCoinsEntry(QWidget *parent = 0);
     ~SendCoinsEntry();
+
+    SendCoinsEntry(QWidget *parent = 0, int index = 0);
 
     void setModel(WalletModel *model);
     bool validate();
@@ -34,7 +37,9 @@ public:
     void setFocus();
 
 public slots:
+    void setButtonVisibility(bool visible);
     void setRemoveEnabled(bool enabled);
+    void setCountLabelText(QString text);
     void clear();
 
 signals:
@@ -46,11 +51,13 @@ private slots:
     void on_payTo_textChanged(const QString &address);
     void on_addressBookButton_clicked();
     void on_pasteButton_clicked();
+    void on_payAmount_textChanged();
     void updateDisplayUnit();
 
 private:
     Ui::SendCoinsEntry *ui;
     WalletModel *model;
+
 };
 
 #endif // SENDCOINSENTRY_H

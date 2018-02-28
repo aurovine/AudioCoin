@@ -18,7 +18,6 @@
 
 #ifdef Q_OS_MAC
 #include <ApplicationServices/ApplicationServices.h>
-// extern bool qt_mac_execute_apple_script(const QString &script, AEDesc *ret);
 #include "macnotificationhandler.h"
 #endif
 

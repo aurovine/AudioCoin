@@ -47,6 +47,11 @@ private:
     AddressTableModel *model;
 
     QString address;
+
+private slots:
+    void textChanged(const QString &address);
+    void on_confirmButton_clicked();
+    void on_cancelButton_clicked();
 };
 
 #endif // EDITADDRESSDIALOG_H

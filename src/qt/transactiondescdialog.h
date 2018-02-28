@@ -2,6 +2,7 @@
 #define TRANSACTIONDESCDIALOG_H
 
 #include <QDialog>
+#include <QAbstractButton>
 
 namespace Ui {
     class TransactionDescDialog;
@@ -22,6 +23,9 @@ public:
 
 private:
     Ui::TransactionDescDialog *ui;
+
+private slots:
+    void on_closeButton_clicked();
 };
 
 #endif // TRANSACTIONDESCDIALOG_H

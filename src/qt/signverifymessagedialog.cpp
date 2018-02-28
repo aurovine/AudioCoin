@@ -22,14 +22,27 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+#ifdef Q_OS_MAC
+    ui->addressIn_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->messageIn_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->signatureOut_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->addressIn_VM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->messageIn_VM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->signatureIn_VM->setAttribute(Qt::WA_MacShowFocusRect, 0);
+#endif
+
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addressIn_SM->setPlaceholderText(tr("Enter a Audiocoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
+    ui->addressIn_SM->setPlaceholderText(tr("Audiocoin address (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)"));
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a Audiocoin address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)"));
-    ui->signatureIn_VM->setPlaceholderText(tr("Enter Audiocoin signature"));
+    ui->addressIn_VM->setPlaceholderText(tr("Audiocoin address (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)"));
+    ui->signatureIn_VM->setPlaceholderText(tr("Audiocoin signature"));
 #endif
+
+    setContentsMargins(0, 0, 0, 0);
+
+    ui->SignVerifyMessageDialogLayout->setSizeConstraint(QLayout::SetFixedSize);
 
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);
     GUIUtil::setupAddressWidget(ui->addressIn_VM, this);
@@ -69,15 +82,30 @@ void SignVerifyMessageDialog::setAddress_VM(QString address)
 
 void SignVerifyMessageDialog::showTab_SM(bool fShow)
 {
-    ui->tabWidget->setCurrentIndex(0);
+    ui->signMessageWidget->show();
+    ui->verifyMessageWidget->hide();
+    setWindowTitle(tr("Signatures - Sign a Message"));
 
     if (fShow)
         this->show();
 }
 
+void SignVerifyMessageDialog::on_signCancelButton_clicked()
+{
+    reject();
+}
+
+void SignVerifyMessageDialog::on_verifyCancelButton_clicked()
+{
+    reject();
+}
+
 void SignVerifyMessageDialog::showTab_VM(bool fShow)
 {
-    ui->tabWidget->setCurrentIndex(1);
+    ui->verifyMessageWidget->show();
+    ui->signMessageWidget->hide();
+    setWindowTitle(tr("Signatures - Verify a Message"));
+
     if (fShow)
         this->show();
 }
@@ -255,7 +283,7 @@ bool SignVerifyMessageDialog::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonPress || event->type() == QEvent::FocusIn)
     {
-        if (ui->tabWidget->currentIndex() == 0)
+        if (ui->verifyMessageWidget->isHidden())
         {
             /* Clear status message on focus change */
             ui->statusLabel_SM->clear();
@@ -267,7 +295,7 @@ bool SignVerifyMessageDialog::eventFilter(QObject *object, QEvent *event)
                 return true;
             }
         }
-        else if (ui->tabWidget->currentIndex() == 1)
+        else if (ui->signMessageWidget->isHidden())
         {
             /* Clear status message on focus change */
             ui->statusLabel_VM->clear();

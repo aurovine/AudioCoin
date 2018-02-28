@@ -6,6 +6,7 @@
 namespace Ui {
     class OverviewPage;
 }
+
 class ClientModel;
 class WalletModel;
 class TxViewDelegate;
@@ -15,7 +16,6 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Overview ("home") page widget */
 class OverviewPage : public QWidget
 {
     Q_OBJECT
@@ -50,6 +50,7 @@ private slots:
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
+    void on_transactionCountSelect_currentTextChanged(const QString &text);
 };
 
 #endif // OVERVIEWPAGE_H

@@ -17,11 +17,11 @@ void QValidatedLineEdit::setValid(bool valid)
 
     if(valid)
     {
-        setStyleSheet("");
+        setStyleSheet(INPUT_STYLE);
     }
     else
     {
-        setStyleSheet(STYLE_INVALID);
+        setStyleSheet(INPUT_STYLE_INVALID);
     }
     this->valid = valid;
 }

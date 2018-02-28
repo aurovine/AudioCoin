@@ -9,6 +9,8 @@ AboutDialog::AboutDialog(QWidget *parent) :
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
+
+    connect(ui->confirmButton, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
 void AboutDialog::setModel(ClientModel *model)

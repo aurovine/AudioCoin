@@ -9,9 +9,10 @@
 class TransactionTableModel;
 class ClientModel;
 class WalletModel;
-class TransactionView;
+class TransactionsPage;
 class OverviewPage;
 class AddressBookPage;
+class SettingsPage;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
 class Notificator;
@@ -61,10 +62,11 @@ private:
     QStackedWidget *centralStackedWidget;
 
     OverviewPage *overviewPage;
-    QWidget *transactionsPage;
+    TransactionsPage *transactionsPage;
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
+    SettingsPage *settingsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
 
     QLabel *labelEncryptionIcon;
@@ -77,6 +79,7 @@ private:
     QMenuBar *appMenuBar;
     QAction *overviewAction;
     QAction *historyAction;
+    QAction *settingsPageAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
     QAction *addressBookAction;
@@ -84,7 +87,7 @@ private:
     QAction *verifyMessageAction;
     QAction *aboutAction;
     QAction *receiveCoinsAction;
-    QAction *optionsAction;
+    QAction *settingsAction;
     QAction *toggleHideAction;
     QAction *exportAction;
     QAction *encryptWalletAction;
@@ -97,7 +100,6 @@ private:
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
-    TransactionView *transactionView;
     RPCConsole *rpcConsole;
 
     QMovie *syncIconMovie;
@@ -156,14 +158,14 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
+    /** Switch to settings page */
+    void gotoSettingsPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
 
-    /** Show configuration dialog */
-    void optionsClicked();
     /** Show about dialog */
     void aboutClicked();
 #ifndef Q_OS_MAC

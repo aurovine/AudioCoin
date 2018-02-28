@@ -41,6 +41,8 @@ private slots:
     void on_addressBookButton_VM_clicked();
     void on_verifyMessageButton_VM_clicked();
     void on_clearButton_VM_clicked();
+    void on_signCancelButton_clicked();
+    void on_verifyCancelButton_clicked();
 };
 
 #endif // SIGNVERIFYMESSAGEDIALOG_H

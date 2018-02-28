@@ -28,9 +28,10 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
-    ui->newAddressButton->setIcon(QIcon());
-    ui->copyToClipboard->setIcon(QIcon());
-    ui->deleteButton->setIcon(QIcon());
+    // ui->newAddressButton->setIcon(QIcon());
+    // ui->copyToClipboard->setIcon(QIcon());
+    // ui->deleteButton->setIcon(QIcon());
+    ui->tableView->setAttribute(Qt::WA_MacShowFocusRect, 0);
 #endif
 
 #ifndef USE_QRCODE
@@ -45,19 +46,26 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         ui->tableView->setFocus();
         break;
     case ForEditing:
-        ui->buttonBox->setVisible(false);
+        ui->okButton->hide();
         break;
     }
+
     switch(tab)
     {
     case SendingTab:
-        ui->labelExplanation->setVisible(false);
         ui->deleteButton->setVisible(true);
         ui->signMessage->setVisible(false);
+        ui->title->setText(tr("ADDRESS BOOK"));
+        ui->verifyMessage->show();
+        ui->signMessage->hide();
         break;
     case ReceivingTab:
+        ui->signMessage->show();
+        ui->verifyMessage->hide();
+        ui->helpLabel->setToolTip(tr("These are your Audiocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you."));
         ui->deleteButton->setVisible(false);
         ui->signMessage->setVisible(true);
+        ui->title->setText(tr("YOUR ADDRESSES"));
         break;
     }
 
@@ -96,9 +104,6 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(on_verifyMessage_clicked()));
 
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
-
-    // Pass through accept action from button box
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
 }
 
 AddressBookPage::~AddressBookPage()
@@ -134,10 +139,12 @@ void AddressBookPage::setModel(AddressTableModel *model)
     ui->tableView->sortByColumn(0, Qt::AscendingOrder);
 
     // Set column widths
-    ui->tableView->horizontalHeader()->resizeSection(
-            AddressTableModel::Address, 320);
     ui->tableView->horizontalHeader()->setResizeMode(
             AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setResizeMode(
+            AddressTableModel::Address, QHeaderView::Stretch);
+
+    ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(selectionChanged()));
@@ -152,6 +159,11 @@ void AddressBookPage::setModel(AddressTableModel *model)
 void AddressBookPage::setOptionsModel(OptionsModel *optionsModel)
 {
     this->optionsModel = optionsModel;
+}
+
+void AddressBookPage::on_okButton_clicked()
+{
+    accept();
 }
 
 void AddressBookPage::on_copyToClipboard_clicked()
