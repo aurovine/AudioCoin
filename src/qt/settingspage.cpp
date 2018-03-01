@@ -31,6 +31,10 @@ SettingsPage::SettingsPage(QWidget *parent) :
 #ifdef Q_OS_MAC
     ui->proxyIp->setAttribute(Qt::WA_MacShowFocusRect, 0);
     ui->proxyPort->setAttribute(Qt::WA_MacShowFocusRect, 0);
+
+    // disable windows specific setting checkboxes
+    ui->minimizeToTray->setEnabled(false);
+    ui->minimizeOnClose->setEnabled(false);
 #endif
 
     ui->proxyIp->setEnabled(false);
