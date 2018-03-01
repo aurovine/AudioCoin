@@ -23,7 +23,7 @@ QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1
 QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
 QPushButton:disabled { background-color: white; color: gray; }
 
-QTreeView::item, QTableView::item {
+QTreeWidget::item, QTableView::item {
 	border: 0;
 	padding: 0px 15px;
 	font-family: 'Open Sans';
@@ -770,6 +770,18 @@ QHeaderView::up_arrow {
         </property>
         <property name="styleSheet">
          <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
         </property>
         <property name="sortingEnabled">
          <bool>false</bool>
