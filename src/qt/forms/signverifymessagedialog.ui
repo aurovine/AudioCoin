@@ -2,16 +2,19 @@
 <ui version="4.0">
  <class>SignVerifyMessageDialog</class>
  <widget class="QDialog" name="SignVerifyMessageDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>1018</height>
+    <height>1073</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+   <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -38,7 +41,7 @@ QLineEdit:disabled { border-color: #899399; }
 QToolButton { border: none; }</string>
   </property>
   <property name="modal">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="SignVerifyMessageDialogLayout">
    <property name="spacing">
@@ -59,7 +62,7 @@ QToolButton { border: none; }</string>
    <item>
     <widget class="QWidget" name="signMessageWidget" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+      <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -159,8 +162,8 @@ QToolButton { border: none; }</string>
           <widget class="QLabel" name="infoLabel_SM">
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>10</pointsize>
+             <family>Open Sans</family>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -370,6 +373,24 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
    </item>
    <item>
     <widget class="QWidget" name="verifyMessageWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>500</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>500</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <layout class="QVBoxLayout" name="verifyMessageWidgetLayout" stretch="0,1,0">
       <property name="spacing">
        <number>0</number>
@@ -456,8 +477,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           <widget class="QLabel" name="infoLabel_VM">
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>10</pointsize>
+             <family>Open Sans</family>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">

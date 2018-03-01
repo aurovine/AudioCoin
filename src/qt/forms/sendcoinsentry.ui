@@ -128,7 +128,7 @@ QToolButton { border: none; }</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,3">
         <property name="spacing">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="leftMargin">
          <number>0</number>
@@ -209,7 +209,7 @@ QToolButton { border: none; }</string>
              </property>
              <property name="font">
               <font>
-               <family>Montserrat</family>
+               <family>Open Sans</family>
                <pointsize>12</pointsize>
               </font>
              </property>
@@ -265,6 +265,11 @@ QToolButton { border: none; }</string>
            </item>
            <item>
             <widget class="QValidatedLineEdit" name="addAsLabel">
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+              </font>
+             </property>
              <property name="toolTip">
               <string>Enter a label for this address to add it to your address book</string>
              </property>
@@ -341,7 +346,7 @@ QToolButton { border: none; }</string>
          <widget class="BitcoinAmountField" name="payAmount">
           <property name="font">
            <font>
-            <family>Montserrat</family>
+            <family>Open Sans</family>
             <pointsize>12</pointsize>
            </font>
           </property>

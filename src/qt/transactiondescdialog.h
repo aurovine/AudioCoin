@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QAbstractButton>
+#include "faderdialog.h"
 
 namespace Ui {
     class TransactionDescDialog;
@@ -13,7 +14,7 @@ class QModelIndex;
 QT_END_NAMESPACE
 
 /** Dialog showing transaction details. */
-class TransactionDescDialog : public QDialog
+class TransactionDescDialog : public FaderDialog
 {
     Q_OBJECT
 

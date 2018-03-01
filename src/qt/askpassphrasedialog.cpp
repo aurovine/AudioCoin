@@ -11,7 +11,7 @@
 extern bool fWalletUnlockStakingOnly;
 
 AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::AskPassphraseDialog),
     mode(mode),
     model(0),
@@ -86,6 +86,10 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
     }
 
     textChanged();
+
+    resize(width(), sizeHint().height());
+    move(parent->frameGeometry().center() - QPoint(width() / 2, height() / 2));
+
     connect(ui->passEdit1, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
     connect(ui->passEdit2, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
     connect(ui->passEdit3, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
@@ -103,11 +107,6 @@ AskPassphraseDialog::~AskPassphraseDialog()
 void AskPassphraseDialog::setModel(WalletModel *model)
 {
     this->model = model;
-}
-
-void AskPassphraseDialog::reject()
-{
-    done(QDialog::Rejected); // closes the dialog
 }
 
 void AskPassphraseDialog::accept()

@@ -5,7 +5,7 @@
 #include "version.h"
 
 AboutDialog::AboutDialog(QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);

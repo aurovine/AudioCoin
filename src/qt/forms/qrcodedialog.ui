@@ -249,6 +249,11 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
             <height>0</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
+          </property>
          </widget>
         </item>
        </layout>
@@ -280,7 +285,13 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="label"/>
+         <widget class="QLineEdit" name="label">
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -311,7 +322,13 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="message"/>
+         <widget class="QLineEdit" name="message">
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

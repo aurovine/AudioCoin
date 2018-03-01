@@ -265,7 +265,7 @@ QComboBox::down-arrow:on {
                <widget class="QLabel" name="labelTotal">
                 <property name="font">
                  <font>
-                  <family>Montserrat</family>
+                  <family>Open Sans</family>
                   <pointsize>16</pointsize>
                   <weight>50</weight>
                   <bold>false</bold>
@@ -450,7 +450,7 @@ QComboBox::down-arrow:on {
                   </property>
                   <property name="font">
                    <font>
-                    <family>Montserrat</family>
+                    <family>Open Sans</family>
                     <pointsize>12</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -505,7 +505,7 @@ QComboBox::down-arrow:on {
                   </property>
                   <property name="font">
                    <font>
-                    <family>Montserrat</family>
+                    <family>Open Sans</family>
                     <pointsize>12</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>
@@ -560,7 +560,7 @@ QComboBox::down-arrow:on {
                   </property>
                   <property name="font">
                    <font>
-                    <family>Montserrat</family>
+                    <family>Open Sans</family>
                     <pointsize>12</pointsize>
                     <weight>50</weight>
                     <bold>false</bold>

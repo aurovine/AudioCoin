@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>593</width>
-    <height>382</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -93,14 +93,14 @@
          <widget class="QLabel" name="label">
           <property name="font">
            <font>
-            <family>Montserrat</family>
+            <family>Helvetica Neue</family>
             <pointsize>24</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
           <property name="text">
-           <string>Audiocoin</string>
+           <string>AUDIOCOIN</string>
           </property>
          </widget>
         </item>
@@ -108,7 +108,7 @@
          <widget class="QLabel" name="versionLabel">
           <property name="font">
            <font>
-            <family>Montserrat</family>
+            <family>Open Sans</family>
             <pointsize>16</pointsize>
            </font>
           </property>
@@ -127,7 +127,7 @@
          <widget class="QLabel" name="copyrightLabel">
           <property name="font">
            <font>
-            <family>Montserrat</family>
+            <family>Open Sans</family>
             <pointsize>12</pointsize>
            </font>
           </property>
@@ -148,7 +148,7 @@ Copyright © 2014 The Audiocoin developers</string>
          <widget class="QLabel" name="label_2">
           <property name="font">
            <font>
-            <family>Montserrat</family>
+            <family>Open Sans</family>
             <pointsize>12</pointsize>
            </font>
           </property>

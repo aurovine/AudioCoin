@@ -6,7 +6,7 @@
 #include <QModelIndex>
 
 TransactionDescDialog::TransactionDescDialog(const QModelIndex &idx, QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::TransactionDescDialog)
 {
     ui->setupUi(this);

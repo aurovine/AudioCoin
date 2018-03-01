@@ -10,7 +10,7 @@
 #include <QMessageBox>
 
 EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::EditAddressDialog), mapper(0), mode(mode), model(0)
 {
     ui->setupUi(this);
@@ -57,6 +57,8 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 
     connect(ui->addressEdit, &QLineEdit::textChanged, this, &EditAddressDialog::textChanged);
+    connect(ui->cancelButton, &QPushButton::clicked, this, &EditAddressDialog::reject);
+    connect(ui->confirmButton, &QPushButton::clicked, this, &EditAddressDialog::accept);
 }
 
 EditAddressDialog::~EditAddressDialog()
@@ -161,7 +163,7 @@ void EditAddressDialog::accept()
         }
         return;
     }
-    QDialog::accept();
+    done(QDialog::Accepted);
 }
 
 QString EditAddressDialog::getAddress() const
@@ -174,14 +176,3 @@ void EditAddressDialog::setAddress(const QString &address)
     this->address = address;
     ui->addressEdit->setText(address);
 }
-
-void EditAddressDialog::on_confirmButton_clicked()
-{
-    accept();
-}
-
-void EditAddressDialog::on_cancelButton_clicked()
-{
-    reject();
-}
-

@@ -42,7 +42,7 @@ public:
         QColor color = option.palette.color(QPalette::Text);
 
         QFont font;
-        font.setFamily(QStringLiteral("Montserrat"));
+        font.setFamily(QStringLiteral("Open Sans"));
         font.setPointSize(12);
         font.setBold(false);
         // font.setCapitalization(QFont::AllUppercase);

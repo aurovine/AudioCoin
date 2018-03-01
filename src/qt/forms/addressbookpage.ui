@@ -157,7 +157,7 @@ QHeaderView::up_arrow {
           <widget class="QTableView" name="tableView">
            <property name="font">
             <font>
-             <family>Montserrat</family>
+             <family>Open Sans</family>
              <pointsize>12</pointsize>
             </font>
            </property>
@@ -169,7 +169,7 @@ QHeaderView::up_arrow {
            </property>
            <property name="styleSheet">
             <string notr="true">#tableView::item {
-	font-family: 'Montserrat';
+	font-family: 'Open Sans';
 	font-size: 12px;
 }</string>
            </property>

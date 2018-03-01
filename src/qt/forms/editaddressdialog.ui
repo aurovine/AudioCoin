@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>EditAddressDialog</class>
  <widget class="QDialog" name="EditAddressDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -38,6 +41,9 @@
    <string notr="true">#titleWidget, #bodyWidget { background-color: white; }
 
 QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; } QLineEdit:disabled { border-color: #899399; }</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="editAddressDialogLayout" stretch="0,0">
    <property name="spacing">
@@ -164,6 +170,11 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+              </font>
+             </property>
              <property name="toolTip">
               <string>The label associated with this address book entry</string>
              </property>
@@ -198,6 +209,11 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
                <width>16777215</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+              </font>
              </property>
              <property name="toolTip">
               <string>The address associated with this address book entry. This can only be modified for sending addresses.</string>

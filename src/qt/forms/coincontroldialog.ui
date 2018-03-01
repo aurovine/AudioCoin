@@ -21,7 +21,29 @@
 QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
 
 QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
-QPushButton:disabled { background-color: white; color: gray; }</string>
+QPushButton:disabled { background-color: white; color: gray; }
+
+QTreeView::item, QTableView::item {
+	border: 0;
+	padding: 0px 15px;
+	font-family: 'Open Sans';
+}
+
+QHeaderView::section {
+	font-family: 'Montserrat';
+	font-size: 10px;
+	padding: 5px 20px;
+	border: none;
+	text-transform: uppercase;
+}
+
+QHeaderView::down_arrow {
+	image: url(:/icons/md/arrow_down);
+}
+
+QHeaderView::up_arrow {
+	image: url(:/icons/md/arrow_up);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -197,8 +219,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlQuantity">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -222,8 +244,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlBytes">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -316,8 +338,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlAmount">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -341,8 +363,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlPriority">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -438,8 +460,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlFee">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -466,8 +488,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
               </property>
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -542,8 +564,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
              <widget class="QLabel" name="labelCoinControlAfterFee">
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -591,8 +613,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
               </property>
               <property name="font">
                <font>
-                <family>Montserrat</family>
-                <pointsize>13</pointsize>
+                <family>Open Sans</family>
+                <pointsize>12</pointsize>
                </font>
               </property>
               <property name="cursor">
@@ -737,7 +759,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
        <widget class="CoinControlTreeWidget" name="treeWidget">
         <property name="font">
          <font>
-          <family>Montserrat</family>
+          <family>Open Sans</family>
           <pointsize>10</pointsize>
           <weight>50</weight>
           <bold>false</bold>
@@ -747,9 +769,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
          <enum>Qt::CustomContextMenu</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true">CoinControlTreeWidgetItem {
-	font-family: &quot;Montserrat&quot;;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="sortingEnabled">
          <bool>false</bool>
@@ -757,8 +777,11 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         <property name="columnCount">
          <number>7</number>
         </property>
+        <attribute name="headerDefaultSectionSize">
+         <number>110</number>
+        </attribute>
         <attribute name="headerMinimumSectionSize">
-         <number>30</number>
+         <number>50</number>
         </attribute>
         <attribute name="headerShowSortIndicator" stdset="0">
          <bool>true</bool>

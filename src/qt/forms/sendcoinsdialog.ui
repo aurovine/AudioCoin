@@ -320,8 +320,8 @@
                      </property>
                      <property name="font">
                       <font>
-                       <family>Montserrat</family>
-                       <pointsize>12</pointsize>
+                       <family>Open Sans</family>
+                       <pointsize>13</pointsize>
                       </font>
                      </property>
                      <property name="styleSheet">
@@ -423,7 +423,7 @@
                        <widget class="QLabel" name="labelCoinControlQuantity">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -451,7 +451,7 @@
                        <widget class="QLabel" name="labelCoinControlBytes">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -548,7 +548,7 @@
                        <widget class="QLabel" name="labelCoinControlAmount">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -573,7 +573,7 @@
                        <widget class="QLabel" name="labelCoinControlPriority">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -670,7 +670,7 @@
                        <widget class="QLabel" name="labelCoinControlFee">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -894,7 +894,7 @@
                         </property>
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -991,7 +991,7 @@
                        <widget class="QLabel" name="labelCoinControlAfterFee">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>
@@ -1016,7 +1016,7 @@
                        <widget class="QLabel" name="labelCoinControlChange">
                         <property name="font">
                          <font>
-                          <family>Montserrat</family>
+                          <family>Open Sans</family>
                           <pointsize>12</pointsize>
                          </font>
                         </property>

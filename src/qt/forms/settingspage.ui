@@ -164,8 +164,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>811</width>
-        <height>550</height>
+        <width>796</width>
+        <height>554</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -303,8 +303,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                    <widget class="QLabel" name="transactionFeeInfoLabel">
                     <property name="font">
                      <font>
-                      <family>Montserrat</family>
-                      <pointsize>11</pointsize>
+                      <family>Open Sans</family>
+                      <pointsize>12</pointsize>
                      </font>
                     </property>
                     <property name="text">
@@ -312,6 +312,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                     </property>
                     <property name="textFormat">
                      <enum>Qt::PlainText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
                     </property>
                     <property name="wordWrap">
                      <bool>true</bool>
@@ -342,7 +345,13 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      </widget>
                     </item>
                     <item>
-                     <widget class="BitcoinAmountField" name="transactionFee"/>
+                     <widget class="BitcoinAmountField" name="transactionFee">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </item>
@@ -350,8 +359,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                    <widget class="QLabel" name="reserveBalanceInfoLabel">
                     <property name="font">
                      <font>
-                      <family>Montserrat</family>
-                      <pointsize>11</pointsize>
+                      <family>Open Sans</family>
+                      <pointsize>12</pointsize>
                      </font>
                     </property>
                     <property name="text">
@@ -359,6 +368,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                     </property>
                     <property name="textFormat">
                      <enum>Qt::PlainText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
                     </property>
                     <property name="wordWrap">
                      <bool>true</bool>
@@ -389,7 +401,13 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      </widget>
                     </item>
                     <item>
-                     <widget class="BitcoinAmountField" name="reserveBalance"/>
+                     <widget class="BitcoinAmountField" name="reserveBalance">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                     </widget>
                     </item>
                    </layout>
                   </item>
@@ -712,6 +730,11 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                           <height>16777215</height>
                          </size>
                         </property>
+                        <property name="font">
+                         <font>
+                          <family>Open Sans</family>
+                         </font>
+                        </property>
                         <property name="toolTip">
                          <string>IP address of the proxy (e.g. 127.0.0.1)</string>
                         </property>
@@ -755,6 +778,11 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                           <width>16777215</width>
                           <height>16777215</height>
                          </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Open Sans</family>
+                         </font>
                         </property>
                         <property name="toolTip">
                          <string>Port of the proxy (e.g. 9050)</string>
@@ -885,6 +913,11 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                     </item>
                     <item>
                      <widget class="QValueComboBox" name="unit">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
                       <property name="toolTip">
                        <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
                       </property>
@@ -917,6 +950,11 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                     </item>
                     <item>
                      <widget class="QValueComboBox" name="lang">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
                       <property name="toolTip">
                        <string>The user interface language can be set here. This setting will take effect after restarting Audiocoin.</string>
                       </property>

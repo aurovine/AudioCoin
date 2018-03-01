@@ -241,8 +241,8 @@ QDateEdit::drop-down {
            </property>
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>12</pointsize>
+             <family>Open Sans</family>
+             <pointsize>13</pointsize>
             </font>
            </property>
           </widget>
@@ -263,8 +263,8 @@ QDateEdit::drop-down {
            </property>
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>12</pointsize>
+             <family>Open Sans</family>
+             <pointsize>13</pointsize>
             </font>
            </property>
           </widget>
@@ -273,8 +273,8 @@ QDateEdit::drop-down {
           <widget class="QLineEdit" name="addressWidget">
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>12</pointsize>
+             <family>Open Sans</family>
+             <pointsize>13</pointsize>
             </font>
            </property>
           </widget>
@@ -295,8 +295,8 @@ QDateEdit::drop-down {
            </property>
            <property name="font">
             <font>
-             <family>Montserrat</family>
-             <pointsize>12</pointsize>
+             <family>Open Sans</family>
+             <pointsize>13</pointsize>
             </font>
            </property>
            <property name="alignment">
@@ -311,7 +311,7 @@ QDateEdit::drop-down {
        <widget class="QTableView" name="transactionView">
         <property name="font">
          <font>
-          <family>Montserrat</family>
+          <family>Open Sans</family>
           <pointsize>12</pointsize>
          </font>
         </property>
@@ -381,8 +381,8 @@ QDateEdit::drop-down {
        <widget class="QDateEdit" name="dateFrom">
         <property name="font">
          <font>
-          <family>Montserrat</family>
-          <pointsize>10</pointsize>
+          <family>Open Sans</family>
+          <pointsize>13</pointsize>
          </font>
         </property>
        </widget>
@@ -406,8 +406,8 @@ QDateEdit::drop-down {
        <widget class="QDateEdit" name="dateTo">
         <property name="font">
          <font>
-          <family>Montserrat</family>
-          <pointsize>10</pointsize>
+          <family>Open Sans</family>
+          <pointsize>13</pointsize>
          </font>
         </property>
        </widget>

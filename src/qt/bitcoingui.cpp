@@ -121,8 +121,6 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // transactionView = new TransactionView(this);
     // transactionsPage->setLayout(vbox);
 
-    signVerifyMessageDialog = new SignVerifyMessageDialog(this);
-
     centralStackedWidget = new QStackedWidget(this);
     centralStackedWidget->addWidget(overviewPage);
     centralStackedWidget->addWidget(receiveCoinsPage);
@@ -218,9 +216,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
 
     // Clicking on "Verify Message" in the address book sends you to the verify message tab
-    connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
+    connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(verifyMessage(QString)));
     // Clicking on "Sign Message" in the receive coins page sends you to the sign message tab
-    connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
+    connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(signMessage(QString)));
 
     gotoOverviewPage();
 }
@@ -341,8 +339,8 @@ void BitcoinGUI::createActions()
     connect(changePassphraseAction, SIGNAL(triggered()), this, SLOT(changePassphrase()));
     connect(unlockWalletAction, SIGNAL(triggered()), this, SLOT(unlockWallet()));
     connect(lockWalletAction, SIGNAL(triggered()), this, SLOT(lockWallet()));
-    connect(signMessageAction, SIGNAL(triggered()), this, SLOT(gotoSignMessageTab()));
-    connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
+    connect(signMessageAction, SIGNAL(triggered()), this, SLOT(signMessage()));
+    connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(verifyMessage()));
 }
 
 void BitcoinGUI::createMenuBar()
@@ -518,7 +516,6 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         transactionsPage->setModel(walletModel);
         addressBookPage->setModel(walletModel->getAddressTableModel());
         settingsPage->setModel(clientModel->getOptionsModel());
-        signVerifyMessageDialog->setModel(walletModel);
 
         setEncryptionStatus(walletModel->getEncryptionStatus());
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
@@ -885,22 +882,24 @@ void BitcoinGUI::gotoSettingsPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoSignMessageTab(QString addr)
+void BitcoinGUI::signMessage(QString addr)
 {
-    // call show() in showTab_SM()
-    signVerifyMessageDialog->showTab_SM(true);
+    if (!walletModel)
+        return;
 
-    if(!addr.isEmpty())
-        signVerifyMessageDialog->setAddress_SM(addr);
+    SignVerifyMessageDialog dlg(SignVerifyMessageDialog::Sign, addr, this);
+    dlg.setModel(walletModel);
+    dlg.exec();
 }
 
-void BitcoinGUI::gotoVerifyMessageTab(QString addr)
+void BitcoinGUI::verifyMessage(QString addr)
 {
-    // call show() in showTab_VM()
-    signVerifyMessageDialog->showTab_VM(true);
+    if (!walletModel)
+        return;
 
-    if(!addr.isEmpty())
-        signVerifyMessageDialog->setAddress_VM(addr);
+    SignVerifyMessageDialog dlg(SignVerifyMessageDialog::Verify, addr, this);
+    dlg.setModel(walletModel);
+    dlg.exec();
 }
 
 void BitcoinGUI::dragEnterEvent(QDragEnterEvent *event)

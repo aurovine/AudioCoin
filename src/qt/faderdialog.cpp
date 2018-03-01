@@ -11,11 +11,6 @@ FaderDialog::FaderDialog(QWidget *parent) :
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::WindowStaysOnTopHint);
 
-    // int x = (parent->size().width() - size().width()) / 2;
-    // int y = (parent->size().height() - size().height()) / 2;
-
-    // move(x, y);
-
     fadeInAnimation = new QPropertyAnimation(this, "windowOpacity");
     fadeInAnimation->setEasingCurve(QEasingCurve::InCubic);
     fadeInAnimation->setDuration(250);

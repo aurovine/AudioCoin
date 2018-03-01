@@ -14,8 +14,8 @@ static const int STATUSBAR_ICONSIZE = 18;
 #define STYLE_INVALID "background:#FF8080;"
 
 /* Base CSS for inputs */
-#define INPUT_STYLE "QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; } QLineEdit:disabled { border-color: #899399; }"
-#define INPUT_STYLE_INVALID "QLineEdit { border: none; border-bottom: 2px solid red; padding: 3px 5px; background: transparent; }"
+#define INPUT_STYLE "QLineEdit { font-family: 'Open Sans'; font-size: 12px; border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; } QLineEdit:disabled { border-color: #899399; }"
+#define INPUT_STYLE_INVALID "QLineEdit { font-family: 'Open Sans'; font-size: 12px; border: none; border-bottom: 2px solid red; padding: 3px 5px; background: transparent; }"
 
 #define SPINBOX_STYLE "border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 0; background: white; outline: none; padding-right: 10px;"
 

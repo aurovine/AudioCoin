@@ -15,8 +15,8 @@
 #include <string>
 #include <vector>
 
-SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
-    QDialog(parent),
+SignVerifyMessageDialog::SignVerifyMessageDialog(Mode mode, QString addr, QWidget *parent) :
+    FaderDialog(parent),
     ui(new Ui::SignVerifyMessageDialog),
     model(0)
 {
@@ -42,7 +42,7 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
     setContentsMargins(0, 0, 0, 0);
 
-    ui->SignVerifyMessageDialogLayout->setSizeConstraint(QLayout::SetFixedSize);
+    // ui->SignVerifyMessageDialogLayout->setSizeConstraint(QLayout::SetFixedSize);
 
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);
     GUIUtil::setupAddressWidget(ui->addressIn_VM, this);
@@ -56,6 +56,28 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
     ui->signatureOut_SM->setFont(GUIUtil::bitcoinAddressFont());
     ui->signatureIn_VM->setFont(GUIUtil::bitcoinAddressFont());
+
+    switch (mode)
+    {
+        case Sign:
+            setAddress_SM(addr);
+            ui->verifyMessageWidget->hide();
+            setWindowTitle(tr("Signatures - Sign a Message"));
+            break;
+        case Verify:
+            setAddress_VM(addr);
+            ui->signMessageWidget->hide();
+            setWindowTitle(tr("Signatures - Verify a Message"));
+            break;
+    }
+
+    // QApplication::processEvents();
+
+    resize(width(), sizeHint().height());
+    move(parent->frameGeometry().center() - QPoint(width() / 2, height() / 2));
+
+    connect(ui->signCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+    connect(ui->verifyCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
 }
 
 SignVerifyMessageDialog::~SignVerifyMessageDialog()
@@ -70,44 +92,20 @@ void SignVerifyMessageDialog::setModel(WalletModel *model)
 
 void SignVerifyMessageDialog::setAddress_SM(QString address)
 {
-    ui->addressIn_SM->setText(address);
-    ui->messageIn_SM->setFocus();
+    if (!address.isEmpty())
+    {
+        ui->addressIn_SM->setText(address);
+        ui->messageIn_SM->setFocus();
+    }
 }
 
 void SignVerifyMessageDialog::setAddress_VM(QString address)
 {
-    ui->addressIn_VM->setText(address);
-    ui->messageIn_VM->setFocus();
-}
-
-void SignVerifyMessageDialog::showTab_SM(bool fShow)
-{
-    ui->signMessageWidget->show();
-    ui->verifyMessageWidget->hide();
-    setWindowTitle(tr("Signatures - Sign a Message"));
-
-    if (fShow)
-        this->show();
-}
-
-void SignVerifyMessageDialog::on_signCancelButton_clicked()
-{
-    reject();
-}
-
-void SignVerifyMessageDialog::on_verifyCancelButton_clicked()
-{
-    reject();
-}
-
-void SignVerifyMessageDialog::showTab_VM(bool fShow)
-{
-    ui->verifyMessageWidget->show();
-    ui->signMessageWidget->hide();
-    setWindowTitle(tr("Signatures - Verify a Message"));
-
-    if (fShow)
-        this->show();
+    if (!address.isEmpty())
+    {
+        ui->addressIn_VM->setText(address);
+        ui->messageIn_VM->setFocus();
+    }
 }
 
 void SignVerifyMessageDialog::on_addressBookButton_SM_clicked()
