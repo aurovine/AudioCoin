@@ -73,7 +73,6 @@ void EditAddressDialog::textChanged(const QString &address)
 
     bool valid = CBitcoinAddress(address.toStdString()).IsValid();
 
-    printf("asdasd");
     if (address.isEmpty() || valid) {
         ui->addressEdit->setStyleSheet(INPUT_STYLE);
     }
