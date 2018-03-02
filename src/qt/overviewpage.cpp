@@ -119,7 +119,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
     ui->listTransactions->setMaximumHeight(NUM_ITEMS * DECORATION_SIZE);
     ui->listTransactions->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
 
-#ifdef Q_MAC_OS
+#ifdef Q_OS_MAC
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
 #endif
 

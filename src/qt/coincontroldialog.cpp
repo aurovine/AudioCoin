@@ -33,6 +33,10 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+#ifdef Q_OS_MAC
+    ui->treeWidget->setAttribute(Qt::WA_MacShowFocusRect, false);
+#endif
+
     // context menu actions
     QAction *copyAddressAction = new QAction(tr("Copy address"), this);
     QAction *copyLabelAction = new QAction(tr("Copy label"), this);
