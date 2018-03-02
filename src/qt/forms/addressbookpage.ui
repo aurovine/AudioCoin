@@ -78,9 +78,6 @@ QHeaderView::up_arrow {
       </property>
       <item>
        <widget class="QWidget" name="headerWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="leftMargin">
           <number>20</number>
@@ -137,9 +134,6 @@ QHeaderView::up_arrow {
       </item>
       <item>
        <widget class="QWidget" name="listWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
         <layout class="QHBoxLayout" name="listWidgetLayout">
          <property name="leftMargin">
           <number>0</number>

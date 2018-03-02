@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>About Audiocoin</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0">
    <property name="spacing">
     <number>0</number>

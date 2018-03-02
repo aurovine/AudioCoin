@@ -130,9 +130,6 @@ QDateEdit::drop-down {
    </property>
    <item>
     <widget class="QWidget" name="titleWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
      <layout class="QHBoxLayout" name="titleWidgetLayout">
       <property name="leftMargin">
        <number>20</number>

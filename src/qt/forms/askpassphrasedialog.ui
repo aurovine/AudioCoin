@@ -154,9 +154,6 @@
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
            <property name="textFormat">
             <enum>Qt::RichText</enum>
            </property>

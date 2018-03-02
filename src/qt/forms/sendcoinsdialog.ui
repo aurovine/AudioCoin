@@ -109,9 +109,6 @@
               <height>16777215</height>
              </size>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
             </property>
@@ -323,9 +320,6 @@
                        <family>Open Sans</family>
                        <pointsize>13</pointsize>
                       </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true"/>
                      </property>
                     </widget>
                    </item>
@@ -1277,9 +1271,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         <property name="toolTip">
          <string>Remove all transaction fields</string>
         </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
         <property name="text">
          <string>&amp;Clear All</string>
         </property>
@@ -1304,9 +1295,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           <family>Montserrat</family>
           <pointsize>-1</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
         </property>
         <property name="text">
          <string>Change &amp;Inputs</string>

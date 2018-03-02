@@ -123,9 +123,6 @@ QToolButton { border: none; }</string>
      </property>
      <item>
       <widget class="QWidget" name="recipientWidget" native="true">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,3">
         <property name="spacing">
          <number>1</number>
@@ -515,9 +512,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
              </property>
              <property name="toolTip">
               <string>Remove this recipient</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
              </property>
              <property name="text">
               <string/>

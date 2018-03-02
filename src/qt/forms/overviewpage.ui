@@ -407,9 +407,6 @@ QComboBox::down-arrow:on {
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
              <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,1">
               <property name="leftMargin">
                <number>20</number>
@@ -866,9 +863,6 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
                 </property>
@@ -898,9 +892,6 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
                  </property>
                  <layout class="QVBoxLayout" name="scrollAreaContentsLayout" stretch="1,0">
                   <property name="spacing">

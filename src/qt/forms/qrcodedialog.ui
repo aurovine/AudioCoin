@@ -337,9 +337,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
    </item>
    <item>
     <widget class="QWidget" name="buttonWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
      <layout class="QHBoxLayout" name="buttonWidgetLayout">
       <property name="spacing">
        <number>15</number>
