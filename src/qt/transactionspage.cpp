@@ -68,6 +68,12 @@ TransactionsPage::TransactionsPage(QWidget *parent) :
     // transactionProxyModel(0)
 {
     ui->setupUi(this);
+
+#ifdef Q_OS_MAC
+    ui->addressWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->amountWidget->setAttribute(Qt::WA_MacShowFocusRect, 0);
+#endif
+
     ui->transactionView->setItemDelegate(transactionsdelegate);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
