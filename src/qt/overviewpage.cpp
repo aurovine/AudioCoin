@@ -118,7 +118,10 @@ OverviewPage::OverviewPage(QWidget *parent) :
     // ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
     ui->listTransactions->setMaximumHeight(NUM_ITEMS * DECORATION_SIZE);
     ui->listTransactions->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
+
+#ifdef Q_MAC_OS
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
+#endif
 
     int countSelectIndex = ui->transactionCountSelect->findText(QString::number(NUM_ITEMS));
     if (countSelectIndex != -1)
