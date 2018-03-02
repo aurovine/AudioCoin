@@ -896,7 +896,7 @@ QHeaderView::up_arrow {
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid white; }
+         <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
 #confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; }</string>
         </property>
         <property name="text">
