@@ -76,6 +76,10 @@ QTableView::item {
 	padding: 5px 15px;
 }
 
+QTableView::item:selected {
+	background-color: #3cb0e5;
+}
+
 QHeaderView::section {
 	font-family: 'Montserrat';
 	font-size: 10px;

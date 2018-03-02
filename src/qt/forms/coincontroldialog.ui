@@ -23,9 +23,37 @@ QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 1
 QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
 QPushButton:disabled { background-color: white; color: gray; }
 
-QTreeWidget::item, QTableView::item {
+QTreeWidget::item {
 	border: 0;
 	padding: 2px 5px;
+}
+
+QTreeWidget::branch:selected, QTreeWidget::item:selected {
+	background-color: #3cb0e5;
+}
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+        border-image: none;
+        image: url(:/icons/md/arrow_right);
+}
+
+QTreeView::branch:selected:has-children:!has-siblings:closed,
+QTreeView::branch:selected:closed:has-children:has-siblings {
+        border-image: none;
+        image: url(:/icons/black/md/arrow_right);
+}
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings  {
+        border-image: none;
+        image: url(:/icons/md/arrow_down);
+}
+
+QTreeView::branch:selected:open:has-children:!has-siblings,
+QTreeView::branch:selected:open:has-children:has-siblings  {
+        border-image: none;
+        image: url(:/icons/black/md/arrow_down);
 }
 
 QHeaderView::section {

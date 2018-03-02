@@ -1338,10 +1338,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         <property name="text">
          <string>Send</string>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>:/icons/black/arrow_right</normaloff>:/icons/black/arrow_right</iconset>
-        </property>
         <property name="default">
          <bool>true</bool>
         </property>

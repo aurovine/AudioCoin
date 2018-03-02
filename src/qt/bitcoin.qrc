@@ -75,6 +75,7 @@
         <file alias="question_mark_blue">res/icons/md/question_mark_blue.svg</file>
     </qresource>
     <qresource prefix="/icons/black/md">
+        <file alias="arrow_down">res/icons/black/md/arrow_down.svg</file>
         <file alias="arrow_right">res/icons/black/md/arrow_right.svg</file>
         <file alias="connect_0">res/icons/black/connect0_16.png</file>
         <file alias="connect_1">res/icons/black/connect1_16.png</file>
