@@ -60,6 +60,7 @@
 #include <QMimeData>
 #include <QStyle>
 #include <QDesktopWidget>
+#include <QFontDatabase>
 
 #include <iostream>
 
@@ -83,6 +84,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     prevBlocks(0),
     nWeight(0)
 {
+    QFontDatabase::addApplicationFont(":/fonts/opensans-regular");
+    QFontDatabase::addApplicationFont(":/fonts/opensans-bold");
+    QFontDatabase::addApplicationFont(":/fonts/montserrat-regular");
+    QFontDatabase::addApplicationFont(":/fonts/montserrat-bold");
+
     QRect screenGeometry = QApplication::desktop()->availableGeometry();
     resize(screenGeometry.width() * 0.75, screenGeometry.height() * 0.75);
 
