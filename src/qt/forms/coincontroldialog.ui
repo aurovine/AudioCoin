@@ -25,16 +25,15 @@ QPushButton:disabled { background-color: white; color: gray; }
 
 QTreeWidget::item, QTableView::item {
 	border: 0;
-	padding: 0px 15px;
-	font-family: 'Open Sans';
+	padding: 2px 5px;
 }
 
 QHeaderView::section {
 	font-family: 'Montserrat';
 	font-size: 10px;
-	padding: 5px 20px;
-	border: none;
 	text-transform: uppercase;
+	padding: 5px 10px;
+	border: none;
 }
 
 QHeaderView::down_arrow {
@@ -760,7 +759,7 @@ QHeaderView::up_arrow {
         <property name="font">
          <font>
           <family>Open Sans</family>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
           <weight>50</weight>
           <bold>false</bold>
          </font>

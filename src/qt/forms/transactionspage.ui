@@ -79,6 +79,7 @@ QTableView::item {
 QHeaderView::section {
 	font-family: 'Montserrat';
 	font-size: 10px;
+	text-transform: uppercase;
 	padding: 5px 20px;
 	border: none;
 }
