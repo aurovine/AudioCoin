@@ -577,6 +577,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
           </item>
           <item>
            <layout class="QVBoxLayout" name="rightPane" stretch="2,3">
+            <property name="spacing">
+             <number>10</number>
+            </property>
             <property name="bottomMargin">
              <number>0</number>
             </property>
