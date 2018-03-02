@@ -106,6 +106,9 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
     // ok button
     connect(ui->confirmButton, SIGNAL(clicked()), this, SLOT(accept()));
 
+    // cancel button
+    connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+
     // (un)select all
     connect(ui->pushButtonSelectAll, SIGNAL(clicked()), this, SLOT(buttonSelectAllClicked()));
 

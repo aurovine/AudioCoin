@@ -17,11 +17,11 @@ void CoinControlTreeWidget::keyPressEvent(QKeyEvent *event)
         if (this->currentItem())
             this->currentItem()->setCheckState(columnIndex, ((this->currentItem()->checkState(columnIndex) == Qt::Checked) ? Qt::Unchecked : Qt::Checked));
     }
-    else if (event->key() == Qt::Key_Escape) // press esc -> close dialog
+    else if (event->key() == Qt::Key_Enter) // press esc -> close dialog
     {
         event->ignore();
         CoinControlDialog *coinControlDialog = (CoinControlDialog *)parent;
-        coinControlDialog->reject();
+        coinControlDialog->accept();
     }
     else
     {
