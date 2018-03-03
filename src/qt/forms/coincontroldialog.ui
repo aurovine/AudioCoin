@@ -805,7 +805,7 @@ QHeaderView::up_arrow {
          <bool>false</bool>
         </property>
         <property name="columnCount">
-         <number>7</number>
+         <number>12</number>
         </property>
         <attribute name="headerDefaultSectionSize">
          <number>110</number>
@@ -855,6 +855,31 @@ QHeaderView::up_arrow {
         <column>
          <property name="text">
           <string notr="true">Priority</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>TxHash</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>VOutIndex</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>AmountInt64</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>PriorityInt64</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ConfirmationsInt64</string>
          </property>
         </column>
        </widget>

@@ -61,7 +61,8 @@ private:
         COLUMN_TXHASH,
         COLUMN_VOUT_INDEX,
         COLUMN_AMOUNT_INT64,
-        COLUMN_PRIORITY_INT64
+        COLUMN_PRIORITY_INT64,
+        COLUMN_CONFIRMATIONS_INT64
     };
 
 private slots:
