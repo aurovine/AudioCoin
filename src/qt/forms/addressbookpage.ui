@@ -240,7 +240,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
          <string>Create a new address</string>
         </property>
         <property name="text">
-         <string>&amp;New Address</string>
+         <string>&amp;New</string>
         </property>
        </widget>
       </item>
@@ -256,7 +256,23 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
          <string>Copy the currently selected address to the system clipboard</string>
         </property>
         <property name="text">
-         <string>&amp;Copy Address</string>
+         <string>&amp;Copy</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteButton">
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>Delete the currently selected address from the list</string>
+        </property>
+        <property name="text">
+         <string>&amp;Delete</string>
         </property>
        </widget>
       </item>
@@ -315,22 +331,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         </property>
         <property name="text">
          <string>&amp;Verify Message</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="deleteButton">
-        <property name="font">
-         <font>
-          <family>Montserrat</family>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string>Delete the currently selected address from the list</string>
-        </property>
-        <property name="text">
-         <string>&amp;Delete</string>
         </property>
        </widget>
       </item>

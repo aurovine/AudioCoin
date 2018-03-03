@@ -38,34 +38,35 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     ui->showQRCode->setVisible(false);
 #endif
 
+    switch(tab)
+    {
+    case SendingTab:
+        ui->title->setText(tr("ADDRESS BOOK"));
+        ui->deleteButton->show();
+        ui->verifyMessage->show();
+        ui->signMessage->hide();
+        break;
+    case ReceivingTab:
+        ui->title->setText(tr("YOUR ADDRESSES"));
+        ui->helpLabel->setToolTip(tr("These are your Audiocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you."));
+        ui->signMessage->show();
+        ui->verifyMessage->hide();
+        ui->deleteButton->hide();
+        break;
+    }
+
     switch(mode)
     {
     case ForSending:
         connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(accept()));
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->tableView->setFocus();
+        ui->copyToClipboard->hide();
+        ui->verifyMessage->hide();
+        ui->deleteButton->hide();
         break;
     case ForEditing:
         ui->okButton->hide();
-        break;
-    }
-
-    switch(tab)
-    {
-    case SendingTab:
-        ui->deleteButton->setVisible(true);
-        ui->signMessage->setVisible(false);
-        ui->title->setText(tr("ADDRESS BOOK"));
-        ui->verifyMessage->show();
-        ui->signMessage->hide();
-        break;
-    case ReceivingTab:
-        ui->signMessage->show();
-        ui->verifyMessage->hide();
-        ui->helpLabel->setToolTip(tr("These are your Audiocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you."));
-        ui->deleteButton->setVisible(false);
-        ui->signMessage->setVisible(true);
-        ui->title->setText(tr("YOUR ADDRESSES"));
         break;
     }
 
