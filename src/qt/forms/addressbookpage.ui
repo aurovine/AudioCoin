@@ -78,6 +78,12 @@ QHeaderView::up_arrow {
       </property>
       <item>
        <widget class="QWidget" name="headerWidget" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>60</height>
+         </size>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="leftMargin">
           <number>20</number>

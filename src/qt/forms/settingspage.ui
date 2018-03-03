@@ -164,8 +164,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>796</width>
-        <height>554</height>
+        <width>811</width>
+        <height>564</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -246,6 +246,12 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                </property>
                <item>
                 <widget class="QWidget" name="mainSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
                  <layout class="QHBoxLayout" name="mainSettingsTitleWidgetLayout">
                   <property name="leftMargin">
                    <number>20</number>
@@ -469,6 +475,12 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                </property>
                <item>
                 <widget class="QWidget" name="windowSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
                  <layout class="QHBoxLayout" name="windowSettingsTitleWidgetLayout">
                   <property name="leftMargin">
                    <number>20</number>
@@ -606,6 +618,12 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                </property>
                <item>
                 <widget class="QWidget" name="networkSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
                  <layout class="QHBoxLayout" name="networkSettingsTitleWidgetLayout">
                   <property name="leftMargin">
                    <number>20</number>
@@ -838,6 +856,12 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                </property>
                <item>
                 <widget class="QWidget" name="displaySettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
                  <layout class="QHBoxLayout" name="displaySettingsTitleWidgetLayout">
                   <property name="leftMargin">
                    <number>20</number>

@@ -194,8 +194,8 @@ void TransactionsPage::setModel(WalletModel *model)
         ui->transactionView->verticalHeader()->hide();
 
         ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Status, 54);
-        ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Date, 150);
-        ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Type, 150);
+        ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Date, 155);
+        ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Type, 155);
         ui->transactionView->horizontalHeader()->setResizeMode(TransactionTableModel::ToAddress, QHeaderView::Stretch);
         ui->transactionView->horizontalHeader()->resizeSection(TransactionTableModel::Amount, 220);
     }

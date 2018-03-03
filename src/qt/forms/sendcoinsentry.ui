@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>727</width>
-    <height>131</height>
+    <height>136</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -349,55 +349,55 @@ QToolButton { border: none; }</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QDoubleSpinBox {
-    border: none;
-	height: 24px;
-    border-bottom: 2px solid #3cb0e5;
-    padding: 3px 5px;
-    background: white;
-    outline: none;
-    padding-right: 20px;
+  border: none;
+  height: 24px;
+  border-bottom: 2px solid #3cb0e5;
+  padding: 3px 5px;
+  background: white;
+  outline: none;
+  padding-right: 20px;
 }
 
 QDoubleSpinBox::up-button {
-	subcontrol-origin: margin;
-	subcontrol-position: right top;
-	width: 15px;
-	height: 15px;
-	border: none;
-    padding-top: 2px;
+  subcontrol-origin: margin;
+  subcontrol-position: right top;
+  width: 15px;
+  height: 15px;
+  border: none;
+  padding-top: 2px;
 }
 
 QDoubleSpinBox::down-button {
-	subcontrol-origin: margin;
-	subcontrol-position: right bottom;
-	width: 15px;
-	height: 15px;
-	border: none;
-    padding-bottom: 2px;
+  subcontrol-origin: margin;
+  subcontrol-position: right bottom;
+  width: 15px;
+  height: 15px;
+  border: none;
+  padding-bottom: 2px;
 }
 
 QDoubleSpinBox::up-arrow {
-    image: url(:/icons/md/arrow_up);
-	width: 20px;
-	height: 20px;
+  image: url(:/icons/md/arrow_up);
+  width: 20px;
+  height: 20px;
 }
 
 QDoubleSpinBox::down-arrow {
-    image: url(:/icons/md/arrow_down);
-    width: 20px;
-    height: 20px;
+  image: url(:/icons/md/arrow_down);
+  width: 20px;
+  height: 20px;
 }
 
 QValueComboBox {
-    border: none;
-    border-bottom: 2px solid #3cb0e5;
-    padding: 3px 5px;
-    height: 24px;
-    background: white;
-    outline: none;
-    padding-right: 5px;
-    text-align: right;
-    combobox-popup: 0;
+  border: none;
+  border-bottom: 2px solid #3cb0e5;
+  padding: 3px 5px;
+  height: 24px;
+  background: white;
+  outline: none;
+  padding-right: 5px;
+  text-align: right;
+  combobox-popup: 0;
 }
 
 QValueComboBox:editable {
@@ -405,29 +405,29 @@ QValueComboBox:editable {
 }
 
 QValueComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 15px;
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 15px;
 }
 
 QValueComboBox::drop-down {
-    subcontrol-origin: margin;
-    subcontrol-position: right center;
-    width: 15px;
-    height: 15px;
-    border: none;
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  width: 15px;
+  height: 15px;
+  border: none;
 }
 
 QValueComboBox::down-arrow {
-    image: url(:/icons/md/arrow_down);
-	width: 20px;
-	height: 20px;
+  image: url(:/icons/md/arrow_down);
+  width: 20px;
+  height: 20px;
 }
 
 QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    image: url(:/icons/md/arrow_up);
-	width: 20px;
-	height: 20px;
+  image: url(:/icons/md/arrow_up);
+  width: 20px;
+  height: 20px;
 }</string>
           </property>
          </widget>
