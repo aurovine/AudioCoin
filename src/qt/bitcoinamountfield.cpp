@@ -41,8 +41,8 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent):
 #endif
 
     // If one if the widgets changes, the combined content changes as well
-    connect(amount, SIGNAL(valueChanged(QString)), this, SIGNAL(textChanged()));
-    connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
+    connect(amount, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, &BitcoinAmountField::textChanged);
+    connect(unit, static_cast<void (QValueComboBox::*)(int)>(&QValueComboBox::currentIndexChanged), this, &BitcoinAmountField::unitChanged);
 
     // Set default based on configuration
     unitChanged(unit->currentIndex());
@@ -77,10 +77,10 @@ bool BitcoinAmountField::validate()
 
 void BitcoinAmountField::setValid(bool valid)
 {
-    // if (valid)
-    //     amount->setStyleSheet(INPUT_STYLE);
-    // else
-    //     amount->setStyleSheet(INPUT_STYLE_INVALID);
+    if (valid)
+        amount->setStyleSheet(INPUT_STYLE);
+    else
+        amount->setStyleSheet(INPUT_STYLE_INVALID);
 }
 
 QString BitcoinAmountField::text() const
@@ -100,6 +100,9 @@ bool BitcoinAmountField::eventFilter(QObject *object, QEvent *event)
     }
     else if (event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
     {
+        if (event->type() == QEvent::KeyRelease)
+            emit textChanged();
+
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         if (keyEvent->key() == Qt::Key_Comma)
         {
