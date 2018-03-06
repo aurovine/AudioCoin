@@ -128,6 +128,9 @@ QHeaderView::up_arrow {
          </item>
          <item>
           <widget class="QLabel" name="helpLabel">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string/>
            </property>
