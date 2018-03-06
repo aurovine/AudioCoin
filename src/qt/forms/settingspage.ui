@@ -1127,8 +1127,8 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; }</string>
+         <string notr="true">#saveButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#saveButton:hover, #saveButton:pressed { background-color: #1c99d2; }</string>
         </property>
         <property name="text">
          <string>Save</string>
