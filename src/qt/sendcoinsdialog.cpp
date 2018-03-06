@@ -504,10 +504,10 @@ void SendCoinsDialog::coinControlChangeEdited(const QString & text)
         }
         else
         {
+            ui->lineEditCoinControlChange->setStyleSheet(INPUT_STYLE);
             QString associatedLabel = model->getAddressTableModel()->labelForAddress(text);
             if (!associatedLabel.isEmpty())
             {
-                ui->lineEditCoinControlChange->setStyleSheet(INPUT_STYLE);
                 ui->labelCoinControlChangeLabel->setText(QString("change address: ") + associatedLabel);
             }
             else

@@ -228,11 +228,11 @@
                   <property name="font">
                    <font>
                     <family>Montserrat</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#labelCoinControlChangeLabel { color: red; }</string>
+                   <string notr="true">#labelCoinControlChangeLabel { color: red; text-transform: uppercase; }</string>
                   </property>
                   <property name="text">
                    <string/>
