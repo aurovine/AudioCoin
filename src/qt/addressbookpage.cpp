@@ -57,7 +57,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
 
     switch(mode)
     {
-    case ForSending:
+    case DialogMode:
         connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(accept()));
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->tableView->setFocus();
@@ -65,7 +65,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         ui->verifyMessage->hide();
         ui->deleteButton->hide();
         break;
-    case ForEditing:
+    case TabMode:
         connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(onEditAction()));
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->okButton->hide();
@@ -262,24 +262,29 @@ void AddressBookPage::selectionChanged()
         switch(tab)
         {
         case SendingTab:
+            if (mode != DialogMode) {
+                ui->verifyMessage->setEnabled(true);
+                ui->verifyMessage->show();
+
+            }
             // In sending tab, allow deletion of selection
             ui->deleteButton->setEnabled(true);
-            ui->deleteButton->setVisible(true);
+            ui->deleteButton->show();
             deleteAction->setEnabled(true);
             ui->signMessage->setEnabled(false);
-            ui->signMessage->setVisible(false);
-            ui->verifyMessage->setEnabled(true);
-            ui->verifyMessage->setVisible(true);
+            ui->signMessage->hide();
             break;
         case ReceivingTab:
+            if (mode != DialogMode) {
+                ui->signMessage->setEnabled(true);
+                ui->signMessage->show();
+            }
             // Deleting receiving addresses, however, is not allowed
             ui->deleteButton->setEnabled(false);
-            ui->deleteButton->setVisible(false);
+            ui->deleteButton->hide();
             deleteAction->setEnabled(false);
-            ui->signMessage->setEnabled(true);
-            ui->signMessage->setVisible(true);
             ui->verifyMessage->setEnabled(false);
-            ui->verifyMessage->setVisible(false);
+            ui->verifyMessage->hide();
             break;
         }
         ui->copyToClipboard->setEnabled(true);
@@ -301,7 +306,7 @@ void AddressBookPage::done(int retval)
     if(!table->selectionModel() || !table->model())
         return;
     // When this is a tab/widget and not a model dialog, ignore "done"
-    if(mode == ForEditing)
+    if(mode == TabMode)
         return;
 
     // Figure out which address was selected, and return it

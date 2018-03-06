@@ -30,8 +30,8 @@ public:
     };
 
     enum Mode {
-        ForSending, /**< Open address book to pick address for sending */
-        ForEditing  /**< Open address book for editing */
+        DialogMode, /**< Open address book to pick address for sending */
+        TabMode  /**< Open address book for editing */
     };
 
     explicit AddressBookPage(Mode mode, Tabs tab, QWidget *parent = 0);

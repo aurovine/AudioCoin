@@ -118,10 +118,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     // Create tabs
     overviewPage = new OverviewPage();
-    receiveCoinsPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
+    receiveCoinsPage = new AddressBookPage(AddressBookPage::TabMode, AddressBookPage::ReceivingTab);
     sendCoinsPage = new SendCoinsDialog(this);
     transactionsPage = new TransactionsPage();
-    addressBookPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab);
+    addressBookPage = new AddressBookPage(AddressBookPage::TabMode, AddressBookPage::SendingTab);
     settingsPage = new SettingsPage();
 
     // QVBoxLayout *vbox = new QVBoxLayout();
