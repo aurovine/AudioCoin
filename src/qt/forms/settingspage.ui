@@ -271,6 +271,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      <font>
                       <family>Montserrat</family>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="text">
@@ -500,6 +502,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      <font>
                       <family>Montserrat</family>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="text">
@@ -643,6 +647,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      <font>
                       <family>Montserrat</family>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="text">
@@ -881,6 +887,8 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                      <font>
                       <family>Montserrat</family>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="text">
