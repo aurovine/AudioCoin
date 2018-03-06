@@ -66,6 +66,8 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         ui->deleteButton->hide();
         break;
     case ForEditing:
+        connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(onEditAction()));
+        ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->okButton->hide();
         break;
     }
