@@ -171,6 +171,11 @@ QHeaderView::up_arrow {
             <string notr="true">#tableView::item {
 	font-family: 'Open Sans';
 	font-size: 12px;
+}
+
+#tableView::item:selected {
+	background-color: #3cb0e5;
+	color: white;
 }</string>
            </property>
            <property name="frameShape">
