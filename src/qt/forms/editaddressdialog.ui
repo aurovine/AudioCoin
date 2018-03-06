@@ -320,6 +320,12 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>labelEdit</tabstop>
+  <tabstop>addressEdit</tabstop>
+  <tabstop>cancelButton</tabstop>
+  <tabstop>confirmButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
