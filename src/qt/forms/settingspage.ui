@@ -1091,13 +1091,11 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         <property name="font">
          <font>
           <family>Montserrat</family>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <pointsize>-1</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLabel { color: red; }</string>
+         <string notr="true">#statusLabel { font-family: 'Montserrat'; font-size: 10px; color: red; text-transform: uppercase; }</string>
         </property>
         <property name="text">
          <string/>
@@ -1136,7 +1134,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         </property>
         <property name="styleSheet">
          <string notr="true">#saveButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#saveButton:hover, #saveButton:pressed { background-color: #1c99d2; }</string>
+#saveButton:hover, #saveButton:pressed { background-color: #1c99d2; } #saveButton:disabled { background-color: white; color: gray; }</string>
         </property>
         <property name="text">
          <string>Save</string>

@@ -31,6 +31,7 @@ private slots:
     /* disable save button */
     void disableSaveButton();
     void on_saveButton_clicked();
+    void on_proxyIp_textChanged(const QString &text);
 
     void showRestartWarning_Proxy();
     void showRestartWarning_Lang();

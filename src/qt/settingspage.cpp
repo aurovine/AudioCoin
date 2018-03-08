@@ -207,21 +207,40 @@ void SettingsPage::handleProxyIpValid(QValidatedLineEdit *object, bool fState)
     {
         disableSaveButton();
         object->setValid(fProxyIpValid);
-        ui->statusLabel->setStyleSheet(INPUT_STYLE_INVALID);
         ui->statusLabel->setText(tr("The supplied proxy address is invalid."));
+    }
+}
+
+void SettingsPage::on_proxyIp_textChanged(const QString &text)
+{
+    CService addr;
+
+    fProxyIpValid = LookupNumeric(text.toStdString().c_str(), addr);
+    if(fProxyIpValid)
+    {
+        ui->proxyIp->setStyleSheet(INPUT_STYLE);
+        enableSaveButton();
+    }
+    else
+    {
+        ui->proxyIp->setStyleSheet(INPUT_STYLE_INVALID);
+        disableSaveButton();
     }
 }
 
 bool SettingsPage::eventFilter(QObject *object, QEvent *event)
 {
-    if(event->type() == QEvent::FocusOut)
+    if(event->type() == QEvent::FocusIn && object == ui->proxyIp)
     {
-        if(object == ui->proxyIp)
-        {
-            CService addr;
-            /* Check proxyIp for a valid IPv4/IPv6 address and emit the proxyIpValid signal */
-            emit proxyIpValid(ui->proxyIp, LookupNumeric(ui->proxyIp->text().toStdString().c_str(), addr));
-        }
+        ui->statusLabel->clear();
     }
+
+    if(event->type() == QEvent::FocusOut && object == ui->proxyIp)
+    {
+        CService addr;
+        /* Check proxyIp for a valid IPv4/IPv6 address and emit the proxyIpValid signal */
+        emit proxyIpValid(ui->proxyIp, LookupNumeric(ui->proxyIp->text().toStdString().c_str(), addr));
+    }
+
     return QDialog::eventFilter(object, event);
 }
