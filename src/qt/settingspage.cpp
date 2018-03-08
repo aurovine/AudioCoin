@@ -19,7 +19,8 @@ SettingsPage::SettingsPage(QWidget *parent) :
     mapper(0),
     fRestartWarningDisplayed_Proxy(false),
     fRestartWarningDisplayed_Lang(false),
-    fProxyIpValid(true)
+    fProxyIpValid(true),
+    fProxyPortValid(true)
 {
     ui->setupUi(this);
 
@@ -89,7 +90,7 @@ SettingsPage::SettingsPage(QWidget *parent) :
     /* disable save button when new data loaded */
     connect(mapper, SIGNAL(currentIndexChanged(int)), this, SLOT(disableSaveButton()));
     /* setup/change UI elements when proxy IP is invalid/valid */
-    connect(this, SIGNAL(proxyIpValid(QValidatedLineEdit *, bool)), this, SLOT(handleProxyIpValid(QValidatedLineEdit *, bool)));
+    // connect(this, SIGNAL(proxyIpValid(QValidatedLineEdit *, bool)), this, SLOT(handleProxyIpValid(QValidatedLineEdit *, bool)));
 }
 
 SettingsPage::~SettingsPage()
@@ -193,24 +194,6 @@ void SettingsPage::updateDisplayUnit()
     }
 }
 
-void SettingsPage::handleProxyIpValid(QValidatedLineEdit *object, bool fState)
-{
-    // this is used in a check before re-enabling the save buttons
-    fProxyIpValid = fState;
-
-    if(fProxyIpValid)
-    {
-        enableSaveButton();
-        ui->statusLabel->clear();
-    }
-    else
-    {
-        disableSaveButton();
-        object->setValid(fProxyIpValid);
-        ui->statusLabel->setText(tr("The supplied proxy address is invalid."));
-    }
-}
-
 void SettingsPage::on_proxyIp_textChanged(const QString &text)
 {
     CService addr;
@@ -218,29 +201,50 @@ void SettingsPage::on_proxyIp_textChanged(const QString &text)
     fProxyIpValid = LookupNumeric(text.toStdString().c_str(), addr);
     if(fProxyIpValid)
     {
-        ui->proxyIp->setStyleSheet(INPUT_STYLE);
         enableSaveButton();
     }
     else
     {
-        ui->proxyIp->setStyleSheet(INPUT_STYLE_INVALID);
         disableSaveButton();
     }
+
+    ui->proxyIp->setValid(fProxyIpValid);
+    updateStatusLabel();
 }
 
-bool SettingsPage::eventFilter(QObject *object, QEvent *event)
+void SettingsPage::on_proxyPort_textChanged(const QString &text)
 {
-    if(event->type() == QEvent::FocusIn && object == ui->proxyIp)
+    fProxyPortValid = !text.isEmpty();
+
+    if(fProxyPortValid)
+    {
+        enableSaveButton();
+    }
+    else
+    {
+        disableSaveButton();
+    }
+
+    ui->proxyPort->setValid(fProxyPortValid);
+    updateStatusLabel();
+}
+
+void SettingsPage::updateStatusLabel()
+{
+    if(!fProxyIpValid && !fProxyPortValid)
+    {
+        ui->statusLabel->setText(tr("The supplied proxy address and port are invalid"));
+    }
+    else if(!fProxyIpValid)
+    {
+        ui->statusLabel->setText(tr("The supplied proxy address is invalid"));
+    }
+    else if(!fProxyPortValid)
+    {
+        ui->statusLabel->setText(tr("The supplied proxy port is invalid"));
+    }
+    else
     {
         ui->statusLabel->clear();
     }
-
-    if(event->type() == QEvent::FocusOut && object == ui->proxyIp)
-    {
-        CService addr;
-        /* Check proxyIp for a valid IPv4/IPv6 address and emit the proxyIpValid signal */
-        emit proxyIpValid(ui->proxyIp, LookupNumeric(ui->proxyIp->text().toStdString().c_str(), addr));
-    }
-
-    return QDialog::eventFilter(object, event);
 }
