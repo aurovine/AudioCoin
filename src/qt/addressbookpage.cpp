@@ -62,6 +62,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         ui->tableView->setFocus();
         ui->copyToClipboard->hide();
+        ui->signMessage->hide();
         ui->verifyMessage->hide();
         ui->deleteButton->hide();
         break;

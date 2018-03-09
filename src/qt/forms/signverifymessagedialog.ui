@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>1073</height>
+    <height>1105</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -79,7 +79,7 @@ QToolButton { border: none; }</string>
        <height>16777215</height>
       </size>
      </property>
-     <layout class="QVBoxLayout" name="signMessageWidgetLayout" stretch="0,0,0">
+     <layout class="QVBoxLayout" name="signMessageWidgetLayout" stretch="0,1,0">
       <property name="spacing">
        <number>1</number>
       </property>
@@ -100,7 +100,10 @@ QToolButton { border: none; }</string>
         <property name="styleSheet">
          <string notr="true">#signTitleWidget { background-color: white; }</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>5</number>
+         </property>
          <property name="leftMargin">
           <number>20</number>
          </property>
@@ -128,6 +131,37 @@ QToolButton { border: none; }</string>
            </property>
           </widget>
          </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="statusLabel_SM">
+           <property name="font">
+            <font>
+             <family>Montserrat</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
@@ -144,7 +178,7 @@ QToolButton { border: none; }</string>
         </property>
         <layout class="QVBoxLayout" name="signBodyWidgetLayout">
          <property name="spacing">
-          <number>10</number>
+          <number>15</number>
          </property>
          <property name="leftMargin">
           <number>20</number>
@@ -298,37 +332,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           <number>20</number>
          </property>
          <item>
-          <widget class="QLabel" name="statusLabel_SM">
-           <property name="font">
-            <font>
-             <family>Montserrat</family>
-             <pointsize>12</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_1_SM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QPushButton" name="signCancelButton">
            <property name="text">
             <string>Cancel</string>
@@ -349,13 +352,27 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           </widget>
          </item>
          <item>
+          <spacer name="horizontalSpacer_1_SM">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QPushButton" name="signMessageButton_SM">
            <property name="toolTip">
             <string>Sign the message to prove you own this Audiocoin address</string>
            </property>
            <property name="styleSheet">
             <string notr="true">#signMessageButton_SM { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#signMessageButton_SM:hover, #signMessageButton_SM:pressed { background-color: #1c99d2; }</string>
+#signMessageButton_SM:hover, #signMessageButton_SM:pressed { background-color: #1c99d2; }
+#signMessageButton_SM:disabled { background-color: white; color: gray; }</string>
            </property>
            <property name="text">
             <string>&amp;Sign Message</string>
@@ -393,7 +410,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
      </property>
      <layout class="QVBoxLayout" name="verifyMessageWidgetLayout" stretch="0,1,0">
       <property name="spacing">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -412,9 +429,9 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         <property name="styleSheet">
          <string notr="true">#verifyTitleWidget { background-color: white; }</string>
         </property>
-        <layout class="QVBoxLayout" name="verifyTitleWidgetLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="leftMargin">
           <number>20</number>
@@ -443,6 +460,37 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
            </property>
           </widget>
          </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="statusLabel_VM">
+           <property name="font">
+            <font>
+             <family>Montserrat</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
@@ -459,7 +507,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
         </property>
         <layout class="QVBoxLayout" name="verifyBodyWidgetLayout">
          <property name="spacing">
-          <number>10</number>
+          <number>15</number>
          </property>
          <property name="leftMargin">
           <number>20</number>
@@ -565,35 +613,6 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           <number>20</number>
          </property>
          <item>
-          <widget class="QLabel" name="statusLabel_VM">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2_VM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QPushButton" name="verifyCancelButton">
            <property name="text">
             <string>Cancel</string>
@@ -614,13 +633,27 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           </widget>
          </item>
          <item>
+          <spacer name="horizontalSpacer_2_VM">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QPushButton" name="verifyMessageButton_VM">
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified Audiocoin address</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">#verifyMessageButton_SM { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#verifyMessageButton_SM:hover, #verifyMessageButton_SM:pressed { background-color: #1c99d2; }</string>
+            <string notr="true">#verifyMessageButton_VM { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#verifyMessageButton_VM:hover, #verifyMessageButton_VM:pressed { background-color: #1c99d2; }
+#verifyMessageButton_VM:disabled { background-color: white; color: gray; }</string>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>

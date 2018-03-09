@@ -5,6 +5,7 @@
 QValidatedLineEdit::QValidatedLineEdit(QWidget *parent) :
     QLineEdit(parent), valid(true)
 {
+    setStyleSheet(INPUT_STYLE);
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(markValid()));
 }
 
@@ -23,6 +24,7 @@ void QValidatedLineEdit::setValid(bool valid)
     {
         setStyleSheet(INPUT_STYLE_INVALID);
     }
+
     this->valid = valid;
 }
 
