@@ -19,6 +19,8 @@ static const int STATUSBAR_ICONSIZE = 18;
 
 #define SPINBOX_STYLE "border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 0; background: white; outline: none; padding-right: 10px;"
 
+#define TOOLTIP_STYLE "QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }"
+
 #define COLOR_POSITIVE QColor(139, 195, 74)
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)

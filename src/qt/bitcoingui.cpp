@@ -100,7 +100,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     //setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
-    qApp->setStyleSheet("QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }");
+    qApp->setStyleSheet(TOOLTIP_STYLE);
     // Accept D&D of URIs
     setAcceptDrops(true);
 
