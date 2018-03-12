@@ -2,9 +2,8 @@
     <qresource prefix="/fonts">
         <file alias="opensans-regular">res/fonts/OpenSans-Regular.ttf</file>
         <file alias="opensans-bold">res/fonts/OpenSans-Bold.ttf</file>
-        <file alias="montserrar-bold">res/fonts/OpenSans-Bold.ttf</file>
-        <file alias="montserrat-regular">res/fonts/Montserrat-Regular.otf</file>
-        <file alias="montserrat-bold">res/fonts/Montserrat-Bold.otf</file>
+        <file alias="montserrat-regular">res/fonts/Montserrat-Regular.ttf</file>
+        <file alias="montserrat-bold">res/fonts/Montserrat-Bold.ttf</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/audiocoin-80.png</file>
