@@ -3,7 +3,7 @@
  <class>EditAddressDialog</class>
  <widget class="QDialog" name="EditAddressDialog">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="enabled">
    <bool>true</bool>
@@ -203,7 +203,7 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="addressEdit">
+            <widget class="QValidatedLineEdit" name="addressEdit">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -305,7 +305,7 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
            </property>
            <property name="styleSheet">
             <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; }</string>
+#confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; } #confirmButton:disabled { background-color: white; color: gray; }</string>
            </property>
            <property name="text">
             <string>OK</string>
@@ -323,6 +323,13 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QValidatedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qvalidatedlineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>labelEdit</tabstop>
   <tabstop>addressEdit</tabstop>

@@ -41,6 +41,7 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     case NewSendingAddress:
         ui->titleLabel->setText(tr("New sending address"));
         setWindowTitle(tr("New sending address"));
+        ui->confirmButton->setEnabled(false);
         break;
     case EditReceivingAddress:
         ui->titleLabel->setText(tr("Edit receiving address"));
@@ -52,6 +53,7 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
         setWindowTitle(tr("Edit sending address"));
         break;
     }
+
 
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
@@ -72,14 +74,8 @@ void EditAddressDialog::textChanged(const QString &address)
         return;
 
     bool valid = CBitcoinAddress(address.toStdString()).IsValid();
-
-    if (address.isEmpty() || valid) {
-        ui->addressEdit->setStyleSheet(INPUT_STYLE);
-    }
-    else if (!valid)
-    {
-        ui->addressEdit->setStyleSheet(INPUT_STYLE_INVALID);
-    }
+    ui->addressEdit->setValid(address.isEmpty() ? true : valid);
+    ui->confirmButton->setEnabled(valid);
 }
 
 void EditAddressDialog::setModel(AddressTableModel *model)
