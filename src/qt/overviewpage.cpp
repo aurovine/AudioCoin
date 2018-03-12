@@ -49,8 +49,8 @@ public:
         painter->setFont(font);
 
         QRect txTypeRect(contentRect.left(), contentRect.top(), 24, contentRect.height());
-        QRect dateRect(txTypeRect.right() + pad, contentRect.top(), 100, contentRect.height());
-        QRect addressRect(dateRect.right() + pad, contentRect.top(), contentRect.width() - 384, contentRect.height());
+        QRect dateRect(txTypeRect.right() + pad, contentRect.top(), 130, contentRect.height());
+        QRect addressRect(dateRect.right() + pad, contentRect.top(), contentRect.width() - 414, contentRect.height());
         QRect amountRect(addressRect.right() + pad, contentRect.top(), 200, contentRect.height());
 
         qint64 amount = index.data(TransactionTableModel::AmountRole).toLongLong();
