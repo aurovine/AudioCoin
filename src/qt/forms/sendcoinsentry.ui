@@ -461,6 +461,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
              <property name="toolTip">
               <string>Paste address from clipboard</string>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -487,6 +490,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
              <property name="toolTip">
               <string>Choose address from address book</string>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -512,6 +518,9 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
              </property>
              <property name="toolTip">
               <string>Remove this recipient</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
              </property>
              <property name="text">
               <string/>
