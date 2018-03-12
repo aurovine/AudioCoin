@@ -203,7 +203,7 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="addressEdit">
+            <widget class="QValidatedLineEdit" name="addressEdit">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
