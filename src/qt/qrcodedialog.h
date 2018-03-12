@@ -20,10 +20,10 @@ public:
     void setModel(OptionsModel *model);
 
 private slots:
-    void on_lnReqAmount_textChanged();
-    void on_lnLabel_textChanged();
-    void on_lnMessage_textChanged();
-    void on_btnSaveAs_clicked();
+    void on_amount_textChanged();
+    void on_label_textChanged();
+    void on_message_textChanged();
+    void on_saveButton_clicked();
     void on_chkReqPayment_toggled(bool fChecked);
 
     void updateDisplayUnit();

@@ -2,160 +2,339 @@
 <ui version="4.0">
  <class>SignVerifyMessageDialog</class>
  <widget class="QDialog" name="SignVerifyMessageDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>380</height>
+    <width>500</width>
+    <height>1105</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
+QLineEdit:disabled { border-color: #899399; }
+
+QToolButton { border: none; }</string>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="SignVerifyMessageDialogLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>1</number>
+    <widget class="QWidget" name="signMessageWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <widget class="QWidget" name="tabSignMessage">
-      <attribute name="title">
-       <string>&amp;Sign Message</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_SM">
-       <item>
-        <widget class="QLabel" name="infoLabel_SM">
-         <property name="text">
-          <string>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_1_SM">
+     <property name="minimumSize">
+      <size>
+       <width>500</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>500</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="signMessageWidgetLayout" stretch="0,1,0">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="signTitleWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">#signTitleWidget { background-color: white; }</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>0</number>
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
          </property>
          <item>
-          <widget class="QValidatedLineEdit" name="addressIn_SM">
-           <property name="toolTip">
-            <string>The address to sign the message with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</string>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <family>Montserrat</family>
+             <pointsize>14</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
            </property>
-           <property name="maxLength">
-            <number>34</number>
+           <property name="text">
+            <string>SIGN MESSAGE</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_SM">
-           <property name="toolTip">
-            <string>Choose an address from the address book</string>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-           <property name="text">
-            <string/>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
            </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
-           </property>
-           <property name="shortcut">
-            <string>Alt+A</string>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
-           </property>
-          </widget>
+          </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pasteButton_SM">
-           <property name="toolTip">
-            <string>Paste address from clipboard</string>
+          <widget class="QLabel" name="statusLabel_SM">
+           <property name="font">
+            <font>
+             <family>Montserrat</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="text">
             <string/>
            </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
-           </property>
-           <property name="shortcut">
-            <string>Alt+P</string>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QPlainTextEdit" name="messageIn_SM">
-         <property name="toolTip">
-          <string>Enter the message you want to sign here</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2_SM">
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="signBodyWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#signBodyWidget { background-color: white; }</string>
+        </property>
+        <layout class="QVBoxLayout" name="signBodyWidgetLayout">
          <property name="spacing">
-          <number>0</number>
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="signatureOut_SM">
+          <widget class="QLabel" name="infoLabel_SM">
            <property name="font">
             <font>
-             <italic>true</italic>
+             <family>Open Sans</family>
+             <pointsize>12</pointsize>
             </font>
            </property>
-           <property name="readOnly">
+           <property name="text">
+            <string>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="wordWrap">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="copySignatureButton_SM">
+          <layout class="QHBoxLayout" name="horizontalLayout_1_SM">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="QValidatedLineEdit" name="addressIn_SM">
+             <property name="toolTip">
+              <string>The address to sign the message with (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)</string>
+             </property>
+             <property name="maxLength">
+              <number>34</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="addressBookButton_SM">
+             <property name="toolTip">
+              <string>Choose an address from the address book</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/people</normaloff>:/icons/md/people</iconset>
+             </property>
+             <property name="shortcut">
+              <string>Alt+A</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="pasteButton_SM">
+             <property name="toolTip">
+              <string>Paste address from clipboard</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/paste</normaloff>:/icons/md/paste</iconset>
+             </property>
+             <property name="shortcut">
+              <string>Alt+P</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="messageIn_SM">
            <property name="toolTip">
-            <string>Copy the current signature to the system clipboard</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
+            <string>Enter the message you want to sign here</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3_SM">
          <item>
-          <widget class="QPushButton" name="signMessageButton_SM">
-           <property name="toolTip">
-            <string>Sign the message to prove you own this Audiocoin address</string>
+          <layout class="QHBoxLayout" name="horizontalLayout_2_SM">
+           <property name="spacing">
+            <number>10</number>
            </property>
+           <item>
+            <widget class="QLineEdit" name="signatureOut_SM">
+             <property name="font">
+              <font>
+               <italic>true</italic>
+              </font>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="copySignatureButton_SM">
+             <property name="toolTip">
+              <string>Copy the current signature to the system clipboard</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/copy</normaloff>:/icons/md/copy</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="signButtonWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">#signButtonWidget { background-color: #f3f4f7; }
+
+QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
+
+QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
+QPushButton:disabled { background-color: white; color: gray; }</string>
+        </property>
+        <layout class="QHBoxLayout" name="signButtonWidgetLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="signCancelButton">
            <property name="text">
-            <string>&amp;Sign Message</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
+            <string>Cancel</string>
            </property>
           </widget>
          </item>
@@ -166,10 +345,6 @@
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -184,17 +359,128 @@
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
-             <height>48</height>
+             <height>0</height>
             </size>
            </property>
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="statusLabel_SM">
+          <widget class="QPushButton" name="signMessageButton_SM">
+           <property name="toolTip">
+            <string>Sign the message to prove you own this Audiocoin address</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#signMessageButton_SM { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#signMessageButton_SM:hover, #signMessageButton_SM:pressed { background-color: #1c99d2; }
+#signMessageButton_SM:disabled { background-color: white; color: gray; }</string>
+           </property>
+           <property name="text">
+            <string>&amp;Sign Message</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="verifyMessageWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>500</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>500</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verifyMessageWidgetLayout" stretch="0,1,0">
+      <property name="spacing">
+       <number>1</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="verifyTitleWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">#verifyTitleWidget { background-color: white; }</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>5</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
            <property name="font">
             <font>
+             <family>Montserrat</family>
+             <pointsize>14</pointsize>
              <weight>75</weight>
              <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>VERIFY MESSAGE</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="statusLabel_VM">
+           <property name="font">
+            <font>
+             <family>Montserrat</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -205,103 +491,131 @@
            </property>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_2_SM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>48</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tabVerifyMessage">
-      <attribute name="title">
-       <string>&amp;Verify Message</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_VM">
-       <item>
-        <widget class="QLabel" name="infoLabel_VM">
-         <property name="text">
-          <string>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_1_VM">
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="verifyBodyWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#verifyBodyWidget { background-color: white; }</string>
+        </property>
+        <layout class="QVBoxLayout" name="verifyBodyWidgetLayout">
          <property name="spacing">
-          <number>0</number>
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
          </property>
          <item>
-          <widget class="QValidatedLineEdit" name="addressIn_VM">
-           <property name="toolTip">
-            <string>The address the message was signed with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</string>
+          <widget class="QLabel" name="infoLabel_VM">
+           <property name="font">
+            <font>
+             <family>Open Sans</family>
+             <pointsize>12</pointsize>
+            </font>
            </property>
-           <property name="maxLength">
-            <number>34</number>
+           <property name="text">
+            <string>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="addressBookButton_VM">
-           <property name="toolTip">
-            <string>Choose an address from the address book</string>
+          <layout class="QHBoxLayout" name="horizontalLayout_1_VM">
+           <property name="spacing">
+            <number>10</number>
            </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
-           </property>
-           <property name="shortcut">
-            <string>Alt+A</string>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
-           </property>
-          </widget>
+           <item>
+            <widget class="QValidatedLineEdit" name="addressIn_VM">
+             <property name="toolTip">
+              <string>The address the message was signed with (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)</string>
+             </property>
+             <property name="maxLength">
+              <number>34</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="addressBookButton_VM">
+             <property name="toolTip">
+              <string>Choose an address from the address book</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/people</normaloff>:/icons/md/people</iconset>
+             </property>
+             <property name="shortcut">
+              <string>Alt+A</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="messageIn_VM"/>
+         </item>
+         <item>
+          <widget class="QValidatedLineEdit" name="signatureIn_VM"/>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QPlainTextEdit" name="messageIn_VM"/>
-       </item>
-       <item>
-        <widget class="QValidatedLineEdit" name="signatureIn_VM"/>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="verifyButtonWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">#verifyButtonWidget { background-color: #f3f4f7; }
+
+QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
+
+QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
+QPushButton:disabled { background-color: white; color: gray; }</string>
+        </property>
+        <layout class="QHBoxLayout" name="verifyButtonWidgetLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="leftMargin">
+          <number>20</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
-          <widget class="QPushButton" name="verifyMessageButton_VM">
-           <property name="toolTip">
-            <string>Verify the message to ensure it was signed with the specified Audiocoin address</string>
-           </property>
+          <widget class="QPushButton" name="verifyCancelButton">
            <property name="text">
-            <string>&amp;Verify Message</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
-           </property>
-           <property name="autoDefault">
-            <bool>false</bool>
+            <string>Cancel</string>
            </property>
           </widget>
          </item>
@@ -313,41 +627,8 @@
            <property name="text">
             <string>Clear &amp;All</string>
            </property>
-           <property name="icon">
-            <iconset resource="../bitcoin.qrc">
-             <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
-           </property>
            <property name="autoDefault">
             <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_1_VM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>48</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="statusLabel_VM">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -359,15 +640,37 @@
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
-             <height>48</height>
+             <height>0</height>
             </size>
            </property>
           </spacer>
          </item>
+         <item>
+          <widget class="QPushButton" name="verifyMessageButton_VM">
+           <property name="toolTip">
+            <string>Verify the message to ensure it was signed with the specified Audiocoin address</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#verifyMessageButton_VM { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#verifyMessageButton_VM:hover, #verifyMessageButton_VM:pressed { background-color: #1c99d2; }
+#verifyMessageButton_VM:disabled { background-color: white; color: gray; }</string>
+           </property>
+           <property name="text">
+            <string>&amp;Verify Message</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

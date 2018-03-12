@@ -28,36 +28,48 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
-    ui->newAddressButton->setIcon(QIcon());
-    ui->copyToClipboard->setIcon(QIcon());
-    ui->deleteButton->setIcon(QIcon());
+    // ui->newAddressButton->setIcon(QIcon());
+    // ui->copyToClipboard->setIcon(QIcon());
+    // ui->deleteButton->setIcon(QIcon());
+    ui->tableView->setAttribute(Qt::WA_MacShowFocusRect, 0);
 #endif
 
 #ifndef USE_QRCODE
     ui->showQRCode->setVisible(false);
 #endif
 
-    switch(mode)
-    {
-    case ForSending:
-        connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(accept()));
-        ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        ui->tableView->setFocus();
-        break;
-    case ForEditing:
-        ui->buttonBox->setVisible(false);
-        break;
-    }
     switch(tab)
     {
     case SendingTab:
-        ui->labelExplanation->setVisible(false);
-        ui->deleteButton->setVisible(true);
-        ui->signMessage->setVisible(false);
+        ui->title->setText(tr("ADDRESS BOOK"));
+        ui->deleteButton->show();
+        ui->verifyMessage->show();
+        ui->signMessage->hide();
         break;
     case ReceivingTab:
-        ui->deleteButton->setVisible(false);
-        ui->signMessage->setVisible(true);
+        ui->title->setText(tr("YOUR ADDRESSES"));
+        ui->helpLabel->setToolTip(tr("These are your Audiocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you."));
+        ui->signMessage->show();
+        ui->verifyMessage->hide();
+        ui->deleteButton->hide();
+        break;
+    }
+
+    switch(mode)
+    {
+    case DialogMode:
+        connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(accept()));
+        ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        ui->tableView->setFocus();
+        ui->copyToClipboard->hide();
+        ui->signMessage->hide();
+        ui->verifyMessage->hide();
+        ui->deleteButton->hide();
+        break;
+    case TabMode:
+        connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(onEditAction()));
+        ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        ui->okButton->hide();
         break;
     }
 
@@ -96,9 +108,6 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(on_verifyMessage_clicked()));
 
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextualMenu(QPoint)));
-
-    // Pass through accept action from button box
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
 }
 
 AddressBookPage::~AddressBookPage()
@@ -134,10 +143,12 @@ void AddressBookPage::setModel(AddressTableModel *model)
     ui->tableView->sortByColumn(0, Qt::AscendingOrder);
 
     // Set column widths
-    ui->tableView->horizontalHeader()->resizeSection(
-            AddressTableModel::Address, 320);
     ui->tableView->horizontalHeader()->setResizeMode(
             AddressTableModel::Label, QHeaderView::Stretch);
+    ui->tableView->horizontalHeader()->setResizeMode(
+            AddressTableModel::Address, QHeaderView::Stretch);
+
+    ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(selectionChanged()));
@@ -152,6 +163,11 @@ void AddressBookPage::setModel(AddressTableModel *model)
 void AddressBookPage::setOptionsModel(OptionsModel *optionsModel)
 {
     this->optionsModel = optionsModel;
+}
+
+void AddressBookPage::on_okButton_clicked()
+{
+    accept();
 }
 
 void AddressBookPage::on_copyToClipboard_clicked()
@@ -247,24 +263,29 @@ void AddressBookPage::selectionChanged()
         switch(tab)
         {
         case SendingTab:
+            if (mode != DialogMode) {
+                ui->verifyMessage->setEnabled(true);
+                ui->verifyMessage->show();
+
+            }
             // In sending tab, allow deletion of selection
             ui->deleteButton->setEnabled(true);
-            ui->deleteButton->setVisible(true);
+            ui->deleteButton->show();
             deleteAction->setEnabled(true);
             ui->signMessage->setEnabled(false);
-            ui->signMessage->setVisible(false);
-            ui->verifyMessage->setEnabled(true);
-            ui->verifyMessage->setVisible(true);
+            ui->signMessage->hide();
             break;
         case ReceivingTab:
+            if (mode != DialogMode) {
+                ui->signMessage->setEnabled(true);
+                ui->signMessage->show();
+            }
             // Deleting receiving addresses, however, is not allowed
             ui->deleteButton->setEnabled(false);
-            ui->deleteButton->setVisible(false);
+            ui->deleteButton->hide();
             deleteAction->setEnabled(false);
-            ui->signMessage->setEnabled(true);
-            ui->signMessage->setVisible(true);
             ui->verifyMessage->setEnabled(false);
-            ui->verifyMessage->setVisible(false);
+            ui->verifyMessage->hide();
             break;
         }
         ui->copyToClipboard->setEnabled(true);
@@ -286,7 +307,7 @@ void AddressBookPage::done(int retval)
     if(!table->selectionModel() || !table->model())
         return;
     // When this is a tab/widget and not a model dialog, ignore "done"
-    if(mode == ForEditing)
+    if(mode == TabMode)
         return;
 
     // Figure out which address was selected, and return it

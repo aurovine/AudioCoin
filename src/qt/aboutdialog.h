@@ -2,6 +2,7 @@
 #define ABOUTDIALOG_H
 
 #include <QDialog>
+#include "faderdialog.h"
 
 namespace Ui {
     class AboutDialog;
@@ -9,7 +10,7 @@ namespace Ui {
 class ClientModel;
 
 /** "About" dialog box */
-class AboutDialog : public QDialog
+class AboutDialog : public FaderDialog
 {
     Q_OBJECT
 

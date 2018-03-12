@@ -47,8 +47,11 @@ private:
     bool fNewRecipientAllowed;
 
 private slots:
+    void on_addButton_clicked();
+    void on_clearButton_clicked();
     void on_sendButton_clicked();
     void removeEntry(SendCoinsEntry* entry);
+    void updateCountLabels();
     void updateDisplayUnit();
     void coinControlFeatureChanged(bool);
     void coinControlButtonClicked();
@@ -63,6 +66,7 @@ private slots:
     void coinControlClipboardPriority();
     void coinControlClipboardLowOutput();
     void coinControlClipboardChange();
+    void moveScrollBarToBottom(int min, int max);
 };
 
 #endif // SENDCOINSDIALOG_H

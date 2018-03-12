@@ -13,8 +13,8 @@
 #include <QAbstractItemDelegate>
 #include <QPainter>
 
-#define DECORATION_SIZE 64
-#define NUM_ITEMS 6
+#define DECORATION_SIZE 44
+#define NUM_ITEMS 10
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -30,52 +30,61 @@ public:
     {
         painter->save();
 
-        QIcon icon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
+        painter->setRenderHint(QPainter::Antialiasing, true);
+        
+        int pad = 20;
+
         QRect mainRect = option.rect;
-        QRect decorationRect(mainRect.topLeft(), QSize(DECORATION_SIZE, DECORATION_SIZE));
-        int xspace = DECORATION_SIZE + 8;
-        int ypad = 6;
-        int halfheight = (mainRect.height() - 2*ypad)/2;
-        QRect amountRect(mainRect.left() + xspace, mainRect.top()+ypad, mainRect.width() - xspace, halfheight);
-        QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
-        icon.paint(painter, decorationRect);
+        QRect contentRect(mainRect.left() + pad, mainRect.top() + pad / 2, mainRect.width() - 2 * pad, mainRect.height() - pad);
 
-        QDateTime date = index.data(TransactionTableModel::DateRole).toDateTime();
-        QString address = index.data(Qt::DisplayRole).toString();
+        int halfheight = (contentRect.height() - pad) / 2;
+
+        QColor color = option.palette.color(QPalette::Text);
+
+        QFont font;
+        font.setFamily(QStringLiteral("Open Sans"));
+        font.setPointSize(12);
+        font.setBold(false);
+        // font.setCapitalization(QFont::AllUppercase);
+        painter->setFont(font);
+
+        QRect txTypeRect(contentRect.left(), contentRect.top(), 24, contentRect.height());
+        QRect dateRect(txTypeRect.right() + pad, contentRect.top(), 100, contentRect.height());
+        QRect addressRect(dateRect.right() + pad, contentRect.top(), contentRect.width() - 384, contentRect.height());
+        QRect amountRect(addressRect.right() + pad, contentRect.top(), 200, contentRect.height());
+
         qint64 amount = index.data(TransactionTableModel::AmountRole).toLongLong();
+
         bool confirmed = index.data(TransactionTableModel::ConfirmedRole).toBool();
-        QVariant value = index.data(Qt::ForegroundRole);
-        QColor foreground = option.palette.color(QPalette::Text);
-        if(qVariantCanConvert<QColor>(value))
-        {
-            foreground = qvariant_cast<QColor>(value);
-        }
 
-        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : foreground);
-        painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address);
+        QIcon icon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
+        icon.paint(painter, txTypeRect);
 
-        if(amount < 0)
-        {
-            foreground = COLOR_NEGATIVE;
-        }
-        else if(!confirmed)
-        {
-            foreground = COLOR_UNCONFIRMED;
-        }
-        else
-        {
-            foreground = option.palette.color(QPalette::Text);
-        }
-        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : foreground);
-        QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true);
-        if(!confirmed)
-        {
-            amountText = QString("[") + amountText + QString("]");
-        }
-        painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, amountText);
+        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : QColor(75, 75, 75));
+        // painter->drawText(txTypeRect, Qt::AlignHCenter|Qt::AlignVCenter, qvariant_cast<QString>(index.data(TransactionTableModel::TransactionType)));
 
-        painter->setPen(fUseBlackTheme ? QColor(96, 101, 110) : option.palette.color(QPalette::Text));
-        painter->drawText(amountRect, Qt::AlignLeft|Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
+        QString dateStr = GUIUtil::dateTimeStr(index.data(TransactionTableModel::DateRole).toDateTime());
+        QString addressStr = index.data(Qt::DisplayRole).toString();
+        QString amountStr = BitcoinUnits::formatWithUnit(unit, amount, true);
+
+        painter->drawText(dateRect, Qt::AlignHCenter|Qt::AlignVCenter, dateStr);
+        painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, addressStr);
+
+        if (fUseBlackTheme)
+        {
+            painter->setPen(Qt::white);
+        }
+        else if (!confirmed)
+        {
+            painter->setPen(COLOR_UNCONFIRMED);
+            amountStr = QString("[") + amountStr + QString("]");
+        }
+        else if (amount < 0)
+        {
+            painter->setPen(COLOR_NEGATIVE);
+        }
+        
+        painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, amountStr);
 
         painter->restore();
     }
@@ -106,15 +115,25 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
-    ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
-    ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
+    // ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
+    ui->listTransactions->setMaximumHeight(NUM_ITEMS * DECORATION_SIZE);
+    ui->listTransactions->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
+
+#ifdef Q_OS_MAC
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
+#endif
+
+    int countSelectIndex = ui->transactionCountSelect->findText(QString::number(NUM_ITEMS));
+    if (countSelectIndex != -1)
+        ui->transactionCountSelect->setCurrentIndex(countSelectIndex);
 
     connect(ui->listTransactions, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
+    // connect(ui->transactionCountSelect, SIGNAL(currentTextChanged(QString)), this, SLOT(updateListFilter(QString)));
 
     // init "out of sync" warning labels
-    ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
-    ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
+    ui->totalBalanceSyncStatus->setText("(" + tr("OUT OF SYNC") + ")");
+    ui->balanceSyncStatus->setText("(" + tr("OUT OF SYNC") + ")");
+    ui->transactionsSyncStatus->setText("(" + tr("OUT OF SYNC") + ")");
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
@@ -122,12 +141,28 @@ OverviewPage::OverviewPage(QWidget *parent) :
     if (fUseBlackTheme)
     {
         const char* whiteLabelQSS = "QLabel { color: rgb(255,255,255); }";
-        ui->labelBalance->setStyleSheet(whiteLabelQSS);
-        ui->labelStake->setStyleSheet(whiteLabelQSS);
-        ui->labelUnconfirmed->setStyleSheet(whiteLabelQSS);
-        ui->labelImmature->setStyleSheet(whiteLabelQSS);
+        ui->labelSpendableAmount->setStyleSheet(whiteLabelQSS);
+        ui->labelStakeAmount->setStyleSheet(whiteLabelQSS);
+        ui->labelUnconfirmedAmount->setStyleSheet(whiteLabelQSS);
+        // ui->labelImmature->setStyleSheet(whiteLabelQSS);
         ui->labelTotal->setStyleSheet(whiteLabelQSS);
     }
+}
+
+void OverviewPage::on_transactionCountSelect_currentTextChanged(const QString &text)
+{
+    int count = text.toInt();
+
+    filter = new TransactionFilterProxy();
+    filter->setSourceModel(this->walletModel->getTransactionTableModel());
+    filter->setLimit(count);
+    filter->setDynamicSortFilter(true);
+    filter->setSortRole(Qt::EditRole);
+    filter->setShowInactive(false);
+    filter->sort(TransactionTableModel::Status, Qt::DescendingOrder);
+    ui->listTransactions->setModel(filter);
+
+    ui->listTransactions->setMaximumHeight(count * DECORATION_SIZE);
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -148,17 +183,17 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     currentStake = stake;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
-    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
-    ui->labelStake->setText(BitcoinUnits::formatWithUnit(unit, stake));
-    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
-    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
+    ui->labelSpendableAmount->setText(BitcoinUnits::formatWithUnit(unit, balance));
+    ui->labelStakeAmount->setText(BitcoinUnits::formatWithUnit(unit, stake));
+    ui->labelUnconfirmedAmount->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
+    // ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
     ui->labelTotal->setText(BitcoinUnits::formatWithUnit(unit, balance + stake + unconfirmedBalance + immatureBalance));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
-    bool showImmature = immatureBalance != 0;
-    ui->labelImmature->setVisible(showImmature);
-    ui->labelImmatureText->setVisible(showImmature);
+    // bool showImmature = immatureBalance != 0;
+    // ui->labelImmature->setVisible(showImmature);
+    // ui->labelImmatureText->setVisible(showImmature);
 }
 
 void OverviewPage::setClientModel(ClientModel *model)
@@ -222,6 +257,7 @@ void OverviewPage::updateAlerts(const QString &warnings)
 
 void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
-    ui->labelWalletStatus->setVisible(fShow);
-    ui->labelTransactionsStatus->setVisible(fShow);
+    ui->totalBalanceSyncStatus->setVisible(fShow);
+    ui->balanceSyncStatus->setVisible(fShow);
+    ui->transactionsSyncStatus->setVisible(fShow);
 }

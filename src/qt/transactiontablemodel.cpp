@@ -355,7 +355,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
     case TransactionRecord::SendToSelf:
         return tr("Payment to yourself");
     case TransactionRecord::Generated:
-        return tr("Mined");
+        return tr("Staked");
     default:
         return QString();
     }
@@ -366,15 +366,15 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord *wtx
     switch(wtx->type)
     {
     case TransactionRecord::Generated:
-        return QIcon(fUseBlackTheme ? ":/icons/black/tx_mined" : ":/icons/tx_mined");
+        return QIcon(fUseBlackTheme ? ":/icons/black/md/tx/tx_mined" : ":/icons/md/tx/tx_staked");
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::RecvFromOther:
-        return QIcon(fUseBlackTheme ? ":/icons/black/tx_input" : ":/icons/tx_input");
+        return QIcon(fUseBlackTheme ? ":/icons/black/md/tx/tx_in" : ":/icons/md/tx/tx_in");
     case TransactionRecord::SendToAddress:
     case TransactionRecord::SendToOther:
-        return QIcon(fUseBlackTheme ? ":/icons/black/tx_output" : ":/icons/tx_output");
+        return QIcon(fUseBlackTheme ? ":/icons/black/md/tx/tx_out" : ":/icons/md/tx/tx_out");
     default:
-        return QIcon(fUseBlackTheme ? ":/icons/black/tx_inout" : ":/icons/tx_inout");
+        return QIcon(fUseBlackTheme ? ":/icons/black/md/tx/tx_inout" : ":/icons/md/tx/tx_inout");
     }
     return QVariant();
 }
@@ -441,28 +441,28 @@ QVariant TransactionTableModel::txStatusDecoration(const TransactionRecord *wtx)
     case TransactionStatus::Offline:
         return QColor(192,192,192);
     case TransactionStatus::Unconfirmed:
-        return QIcon(":/icons/transaction_0");
+        return QIcon(":/icons/md/transaction_0");
     case TransactionStatus::Confirming:
         switch(wtx->status.depth)
         {
-        case 1: return QIcon(":/icons/transaction_1");
-        case 2: return QIcon(":/icons/transaction_2");
-        case 3: return QIcon(":/icons/transaction_3");
-        case 4: return QIcon(":/icons/transaction_4");
-        default: return QIcon(":/icons/transaction_5");
+        case 1: return QIcon(":/icons/md/transaction_1");
+        case 2: return QIcon(":/icons/md/transaction_2");
+        case 3: return QIcon(":/icons/md/transaction_3");
+        case 4: return QIcon(":/icons/md/transaction_4");
+        default: return QIcon(":/icons/md/transaction_5");
         };
     case TransactionStatus::Confirmed:
-        return QIcon(":/icons/transaction_confirmed");
+        return QIcon(":/icons/md/transaction_confirmed");
     case TransactionStatus::Conflicted:
-        return QIcon(":/icons/transaction_conflicted");
+        return QIcon(":/icons/md/transaction_conflicted");
     case TransactionStatus::Immature: {
         int total = wtx->status.depth + wtx->status.matures_in;
         int part = (wtx->status.depth * 4 / total) + 1;
-        return QIcon(QString(":/icons/transaction_%1").arg(part));
+        return QIcon(QString(":/icons/md/transaction_%1").arg(part));
         }
     case TransactionStatus::MaturesWarning:
     case TransactionStatus::NotAccepted:
-        return QIcon(":/icons/transaction_0");
+        return QIcon(":/icons/md/transaction_0");
     }
     return QColor(0,0,0);
 }

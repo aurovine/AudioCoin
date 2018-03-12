@@ -2,6 +2,7 @@
 #define ASKPASSPHRASEDIALOG_H
 
 #include <QDialog>
+#include "faderdialog.h"
 
 namespace Ui {
     class AskPassphraseDialog;
@@ -10,7 +11,7 @@ class WalletModel;
 
 /** Multifunctional dialog to ask for passphrases. Used for encryption, unlocking, and changing the passphrase.
  */
-class AskPassphraseDialog : public QDialog
+class AskPassphraseDialog : public FaderDialog
 {
     Q_OBJECT
 

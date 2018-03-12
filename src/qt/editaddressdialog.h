@@ -2,6 +2,7 @@
 #define EDITADDRESSDIALOG_H
 
 #include <QDialog>
+#include "faderdialog.h"
 
 namespace Ui {
     class EditAddressDialog;
@@ -14,7 +15,7 @@ QT_END_NAMESPACE
 
 /** Dialog for editing an address and associated information.
  */
-class EditAddressDialog : public QDialog
+class EditAddressDialog : public FaderDialog
 {
     Q_OBJECT
 
@@ -47,6 +48,9 @@ private:
     AddressTableModel *model;
 
     QString address;
+
+private slots:
+    void textChanged(const QString &address);
 };
 
 #endif // EDITADDRESSDIALOG_H

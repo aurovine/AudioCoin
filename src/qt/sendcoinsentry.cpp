@@ -1,5 +1,6 @@
 #include "sendcoinsentry.h"
 #include "ui_sendcoinsentry.h"
+
 #include "guiutil.h"
 #include "bitcoinunits.h"
 #include "addressbookpage.h"
@@ -7,11 +8,13 @@
 #include "optionsmodel.h"
 #include "addresstablemodel.h"
 
+#include "guiconstants.h"
+#include "base58.h"
 
 #include <QApplication>
 #include <QClipboard>
 
-SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
+SendCoinsEntry::SendCoinsEntry(QWidget *parent, int index) :
     QFrame(parent),
     ui(new Ui::SendCoinsEntry),
     model(0)
@@ -19,15 +22,21 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef Q_OS_MAC
-    ui->payToLayout->setSpacing(4);
+    ui->countWidgetLayout->setSpacing(4);
+    ui->payTo->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->addAsLabel->setAttribute(Qt::WA_MacShowFocusRect, 0);
 #endif
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
-    ui->payTo->setPlaceholderText(tr("Enter a audiocoin address (e.g. SXywGBZBowrppUwwNUo1GCRDTibzJi7g2M)"));
+    ui->addAsLabel->setPlaceholderText(tr("new label"));
+    ui->addAsLabel->setToolTip(tr("Enter a label for this address to add it to your address book"));
+    ui->payTo->setPlaceholderText(tr("Audiocoin address (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)"));
 #endif
+    ui->countLabel->setText(QString::number(index));
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(ui->payTo);
+
+    // setButtonVisibility(false);
 
     GUIUtil::setupAddressWidget(ui->payTo, this);
 }
@@ -47,7 +56,7 @@ void SendCoinsEntry::on_addressBookButton_clicked()
 {
     if(!model)
         return;
-    AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTab, this);
+    AddressBookPage dlg(AddressBookPage::DialogMode, AddressBookPage::SendingTab, this);
     dlg.setModel(model->getAddressTableModel());
     if(dlg.exec())
     {
@@ -60,6 +69,17 @@ void SendCoinsEntry::on_payTo_textChanged(const QString &address)
 {
     if(!model)
         return;
+
+    bool valid = CBitcoinAddress(address.toStdString()).IsValid();
+
+    if (address.isEmpty() || valid) {
+        ui->payTo->setStyleSheet(INPUT_STYLE);
+    }
+    else if (!valid)
+    {
+        ui->payTo->setStyleSheet(INPUT_STYLE_INVALID);
+    }
+
     // Fill in label from address book, if address has an associated label
     QString associatedLabel = model->getAddressTableModel()->labelForAddress(address);
     if(!associatedLabel.isEmpty())
@@ -73,14 +93,29 @@ void SendCoinsEntry::setModel(WalletModel *model)
     if(model && model->getOptionsModel())
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
-    connect(ui->payAmount, SIGNAL(textChanged()), this, SIGNAL(payAmountChanged()));
-
     clear();
+}
+
+void SendCoinsEntry::on_payAmount_textChanged()
+{
+    emit payAmountChanged();
+}
+
+void SendCoinsEntry::setButtonVisibility(bool visible)
+{
+    ui->deleteButton->setVisible(visible);
+    ui->addressBookButton->setVisible(visible);
+    ui->pasteButton->setVisible(visible);
 }
 
 void SendCoinsEntry::setRemoveEnabled(bool enabled)
 {
     ui->deleteButton->setEnabled(enabled);
+}
+
+void SendCoinsEntry::setCountLabelText(QString text)
+{
+    ui->countLabel->setText(text);
 }
 
 void SendCoinsEntry::clear()
@@ -120,8 +155,13 @@ bool SendCoinsEntry::validate()
     if(!ui->payTo->hasAcceptableInput() ||
        (model && !model->validateAddress(ui->payTo->text())))
     {
+        ui->payTo->setStyleSheet(INPUT_STYLE_INVALID);
         ui->payTo->setValid(false);
         retval = false;
+    }
+    else
+    {
+        ui->payTo->setStyleSheet(INPUT_STYLE);
     }
 
     return retval;

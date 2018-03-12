@@ -61,7 +61,8 @@ private:
         COLUMN_TXHASH,
         COLUMN_VOUT_INDEX,
         COLUMN_AMOUNT_INT64,
-        COLUMN_PRIORITY_INT64
+        COLUMN_PRIORITY_INT64,
+        COLUMN_CONFIRMATIONS_INT64
     };
 
 private slots:
@@ -84,7 +85,6 @@ private slots:
     void radioListMode(bool);
     void viewItemChanged(QTreeWidgetItem*, int);
     void headerSectionClicked(int);
-    void buttonBoxClicked(QAbstractButton*);
     void buttonSelectAllClicked();
     //void updateLabelLocked();
 };

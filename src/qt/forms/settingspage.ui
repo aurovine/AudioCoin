@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsPage</class>
+ <widget class="QDialog" name="SettingsPage">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>811</width>
+    <height>518</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Options</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
+QLineEdit:disabled { border-color: #899399; }
+
+QDoubleSpinBox {
+    border: none;
+	height: 24px;
+    border-bottom: 2px solid #3cb0e5;
+    padding: 3px 5px;
+    background: white;
+    outline: none;
+    padding-right: 20px;
+}
+
+QDoubleSpinBox::up-button {
+	subcontrol-origin: margin;
+	subcontrol-position: right top;
+	width: 15px;
+	height: 15px;
+	border: none;
+    padding-top: 2px;
+}
+
+QDoubleSpinBox::down-button {
+	subcontrol-origin: margin;
+	subcontrol-position: right bottom;
+	width: 15px;
+	height: 15px;
+	border: none;
+    padding-bottom: 2px;
+}
+
+QDoubleSpinBox::up-arrow {
+    image: url(:/icons/md/arrow_up);
+	width: 20px;
+	height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {
+    image: url(:/icons/md/arrow_down);
+    width: 20px;
+    height: 20px;
+}
+
+QValueComboBox {
+    border: none;
+    border-bottom: 2px solid #3cb0e5;
+    padding: 3px 5px;
+    height: 24px;
+    background: white;
+    outline: none;
+    padding-right: 5px;
+    text-align: right;
+    combobox-popup: 0;
+}
+
+QValueComboBox:editable {
+    background: white;
+}
+
+QValueComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+    padding-right: 15px;
+}
+
+QValueComboBox::drop-down {
+    subcontrol-origin: margin;
+    subcontrol-position: right center;
+    width: 15px;
+    height: 15px;
+    border: none;
+}
+
+QValueComboBox::down-arrow {
+    image: url(:/icons/md/arrow_down);
+	width: 20px;
+	height: 20px;
+}
+
+QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    image: url(:/icons/md/arrow_up);
+	width: 20px;
+	height: 20px;
+}</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <layout class="QVBoxLayout" name="settingsPageLayout" stretch="1,0">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>811</width>
+        <height>564</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="horizontalWidget" native="true">
+         <property name="styleSheet">
+          <string notr="true">#horizontalWidget { background-color: #f3f4f7; }</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="leftPane" stretch="3,2">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="mainSettingsWidget" native="true">
+              <property name="styleSheet">
+               <string notr="true">#mainSettingsBodyWidget, #mainSettingsTitleWidget { background-color: white; }
+</string>
+              </property>
+              <layout class="QVBoxLayout" name="mainSettingsWidgetLayout" stretch="0,1">
+               <property name="spacing">
+                <number>1</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="mainSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <layout class="QHBoxLayout" name="mainSettingsTitleWidgetLayout">
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>MAIN</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="mainSettingsBodyWidget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QVBoxLayout" name="mainSettingsBodyWidgetLayout" stretch="0,0,0,0,0,1">
+                  <property name="spacing">
+                   <number>15</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="transactionFeeInfoLabel">
+                    <property name="font">
+                     <font>
+                      <family>Open Sans</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</string>
+                    </property>
+                    <property name="textFormat">
+                     <enum>Qt::PlainText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="transactionFeeLabel">
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>PAY TRANSACTION FEE</string>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::PlainText</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="BitcoinAmountField" name="transactionFee">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="reserveBalanceInfoLabel">
+                    <property name="font">
+                     <font>
+                      <family>Open Sans</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Reserved amount does not participate in staking and is therefore spendable at any time.</string>
+                    </property>
+                    <property name="textFormat">
+                     <enum>Qt::PlainText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_3">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="reserveBalanceLabel">
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>RESERVE</string>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::PlainText</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="BitcoinAmountField" name="reserveBalance">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="bitcoinAtStartup">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Automatically start Audiocoin after logging in to the system.</string>
+                    </property>
+                    <property name="text">
+                     <string>&amp;START AUDIOCOIN ON SYSTEM LOGIN</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="windowSettingsWidget" native="true">
+              <property name="styleSheet">
+               <string notr="true">#windowSettingsBodyWidget, #windowSettingsTitleWidget { background-color: white; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="windowSettingsWidgetLayout" stretch="0,1">
+               <property name="spacing">
+                <number>1</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="windowSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <layout class="QHBoxLayout" name="windowSettingsTitleWidgetLayout">
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_3">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>WINDOW</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="windowSettingsBodyWidget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QVBoxLayout" name="windowSettingsBodyWidgetLayout" stretch="1,1,0">
+                  <property name="spacing">
+                   <number>15</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QCheckBox" name="minimizeToTray">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Show only a tray icon after minimizing the window.</string>
+                    </property>
+                    <property name="text">
+                     <string>&amp;MINIMIZE TO THE TRAY INSTEAD OF THE TASKBAR</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="minimizeOnClose">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
+                    </property>
+                    <property name="text">
+                     <string>M&amp;INIMIZE ON CLOSE</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="rightPane" stretch="2,3">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="networkSettingsWidget" native="true">
+              <property name="styleSheet">
+               <string notr="true">#networkSettingsBodyWidget, #networkSettingsTitleWidget { background-color: white; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="networkSettingsWidgetLayout" stretch="0,1">
+               <property name="spacing">
+                <number>1</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="networkSettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <layout class="QHBoxLayout" name="networkSettingsTitleWidgetLayout">
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_2">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>NETWORK</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="networkSettingsBodyWidget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QVBoxLayout" name="networkSettingsBodyWidgetLayout" stretch="0,0,0,0">
+                  <property name="spacing">
+                   <number>15</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QCheckBox" name="mapPortUpnp">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Automatically open the Audiocoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+                    </property>
+                    <property name="text">
+                     <string>MAP PORT USING &amp;UPnP</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="connectSocks">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Connect to the Audiocoin network through a SOCKS5 proxy (e.g. when connecting through Tor).</string>
+                    </property>
+                    <property name="text">
+                     <string>&amp;CONNECT THROUGH SOCKS5 PROXY</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_Network" stretch="1,1">
+                    <property name="spacing">
+                     <number>10</number>
+                    </property>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_4">
+                      <property name="spacing">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QLabel" name="proxyIpLabel">
+                        <property name="font">
+                         <font>
+                          <family>Montserrat</family>
+                          <pointsize>10</pointsize>
+                          <weight>75</weight>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>PROXY IP</string>
+                        </property>
+                        <property name="textFormat">
+                         <enum>Qt::PlainText</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QValidatedLineEdit" name="proxyIp">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Open Sans</family>
+                         </font>
+                        </property>
+                        <property name="toolTip">
+                         <string>IP address of the proxy (e.g. 127.0.0.1)</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_5">
+                      <property name="spacing">
+                       <number>5</number>
+                      </property>
+                      <item>
+                       <widget class="QLabel" name="proxyPortLabel">
+                        <property name="font">
+                         <font>
+                          <family>Montserrat</family>
+                          <pointsize>10</pointsize>
+                          <weight>75</weight>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>PORT</string>
+                        </property>
+                        <property name="textFormat">
+                         <enum>Qt::PlainText</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QValidatedLineEdit" name="proxyPort">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Open Sans</family>
+                         </font>
+                        </property>
+                        <property name="toolTip">
+                         <string>Port of the proxy (e.g. 9050)</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="displaySettingsWidget" native="true">
+              <property name="styleSheet">
+               <string notr="true">#displaySettingsBodyWidget, #displaySettingsTitleWidget { background-color: white; }</string>
+              </property>
+              <layout class="QVBoxLayout" name="displaySettingsWidget_2" stretch="0,1">
+               <property name="spacing">
+                <number>1</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="displaySettingsTitleWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <layout class="QHBoxLayout" name="displaySettingsTitleWidgetLayout">
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>DISPLAY</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="displaySettingsBodyWidget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QVBoxLayout" name="displaySettingsBodyWidgetLayout">
+                  <property name="spacing">
+                   <number>15</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="unitLabel">
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>UNIT TO SHOW AMOUNTS IN</string>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::PlainText</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QValueComboBox" name="unit">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                      <property name="toolTip">
+                       <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="langLabel">
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>USER INTERFACE LANGUAGE</string>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::PlainText</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QValueComboBox" name="lang">
+                      <property name="font">
+                       <font>
+                        <family>Open Sans</family>
+                       </font>
+                      </property>
+                      <property name="toolTip">
+                       <string>The user interface language can be set here. This setting will take effect after restarting Audiocoin.</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="useBlackTheme">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>USE BLACK VISUAL THEME (REQUIRES RESTART)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="coinControlFeatures">
+                    <property name="font">
+                     <font>
+                      <family>Montserrat</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Whether to show coin control features or not.</string>
+                    </property>
+                    <property name="text">
+                     <string>DISPLAY COIN &amp;CONTROL FEATURES (EXPERTS ONLY!)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonWidget" native="true">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#buttonWidget { background-color: #f3f4f7; }
+
+QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
+
+QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
+QPushButton:disabled { background-color: white; color: gray; }</string>
+     </property>
+     <layout class="QHBoxLayout" name="buttonWidgetLayout">
+      <property name="spacing">
+       <number>-1</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="statusLabel">
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#statusLabel { font-family: 'Montserrat'; font-size: 10px; color: red; text-transform: uppercase; }</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::PlainText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#saveButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#saveButton:hover, #saveButton:pressed { background-color: #1c99d2; } #saveButton:disabled { background-color: white; color: gray; }</string>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BitcoinAmountField</class>
+   <extends>QSpinBox</extends>
+   <header>bitcoinamountfield.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QValidatedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qvaluecombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -6,69 +6,112 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
-    <height>250</height>
+    <width>570</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Transaction details</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
-    <widget class="QTextEdit" name="detailText">
-     <property name="toolTip">
-      <string>This pane shows a detailed description of the transaction</string>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
+    <widget class="QWidget" name="verticalWidget" native="true">
+     <layout class="QVBoxLayout" name="txDescWidgetLayout">
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QTextEdit" name="detailText">
+        <property name="toolTip">
+         <string>This pane shows a detailed description of the transaction</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+    <widget class="QWidget" name="buttonWidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">#buttonWidget { background-color: #f3f4f7; }
+
+QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
+
+QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
+QPushButton:disabled { background-color: white; color: gray; }</string>
      </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
-     </property>
+     <layout class="QHBoxLayout" name="buttonWidgetLayout">
+      <property name="spacing">
+       <number>-1</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="closeButton">
+        <property name="styleSheet">
+         <string notr="true">#closeButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#closeButton:hover, #closeButton:pressed { background-color: #1c99d2; }</string>
+        </property>
+        <property name="text">
+         <string>Close</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>TransactionDescDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>TransactionDescDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

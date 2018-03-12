@@ -6,150 +6,549 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>729</width>
+    <width>727</width>
     <height>136</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
+QToolButton { border: none; }</string>
+  </property>
   <property name="frameShape">
-   <enum>QFrame::StyledPanel</enum>
+   <enum>QFrame::NoFrame</enum>
   </property>
   <property name="frameShadow">
-   <enum>QFrame::Sunken</enum>
+   <enum>QFrame::Plain</enum>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <property name="lineWidth">
+   <number>0</number>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
    <property name="spacing">
-    <number>12</number>
+    <number>0</number>
    </property>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>A&amp;mount:</string>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetMinimumSize</enum>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="countWidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">#countWidget { background-color: white; }
+</string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-     <property name="buddy">
-      <cstring>payAmount</cstring>
-     </property>
+     <layout class="QVBoxLayout" name="countWidgetLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="countLabel">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignHCenter|Qt::AlignTop</set>
+        </property>
+        <property name="margin">
+         <number>5</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Pay &amp;To:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-     <property name="buddy">
-      <cstring>payTo</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="BitcoinAmountField" name="payAmount"/>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>&amp;Label:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-     <property name="buddy">
-      <cstring>addAsLabel</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <layout class="QHBoxLayout" name="payToLayout">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
      <property name="spacing">
-      <number>0</number>
+      <number>1</number>
      </property>
      <item>
-      <widget class="QValidatedLineEdit" name="payTo">
-       <property name="toolTip">
-        <string>The address to send the payment to (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</string>
-       </property>
-       <property name="maxLength">
-        <number>34</number>
-       </property>
+      <widget class="QWidget" name="recipientWidget" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,3">
+        <property name="spacing">
+         <number>1</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="payeeWidget" native="true">
+          <property name="styleSheet">
+           <string notr="true">#payeeWidget { background-color: white; }</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>20</number>
+           </property>
+           <property name="topMargin">
+            <number>20</number>
+           </property>
+           <property name="rightMargin">
+            <number>20</number>
+           </property>
+           <property name="bottomMargin">
+            <number>20</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="payToLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Montserrat</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>PAY TO</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QValidatedLineEdit" name="payTo">
+             <property name="baseSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>The address to send the payment to (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)</string>
+             </property>
+             <property name="maxLength">
+              <number>34</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="labelWidget" native="true">
+          <property name="styleSheet">
+           <string notr="true">#labelWidget { background-color: white; }</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="leftMargin">
+            <number>20</number>
+           </property>
+           <property name="topMargin">
+            <number>20</number>
+           </property>
+           <property name="rightMargin">
+            <number>20</number>
+           </property>
+           <property name="bottomMargin">
+            <number>20</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <family>Montserrat</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>LABEL</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QValidatedLineEdit" name="addAsLabel">
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Enter a label for this address to add it to your address book</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="addressBookButton">
-       <property name="toolTip">
-        <string>Choose address from address book</string>
+      <widget class="QWidget" name="amountWidget" native="true">
+       <property name="styleSheet">
+        <string notr="true">#amountWidget { background-color: white; }
+</string>
        </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="../bitcoin.qrc">
-         <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
-       </property>
-       <property name="shortcut">
-        <string>Alt+A</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="pasteButton">
-       <property name="toolTip">
-        <string>Paste address from clipboard</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="../bitcoin.qrc">
-         <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
-       </property>
-       <property name="shortcut">
-        <string>Alt+P</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="deleteButton">
-       <property name="toolTip">
-        <string>Remove this recipient</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="../bitcoin.qrc">
-         <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
-       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1,0">
+        <property name="spacing">
+         <number>15</number>
+        </property>
+        <property name="leftMargin">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>20</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="amountLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Montserrat</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>AMOUNT</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>payAmount</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="BitcoinAmountField" name="payAmount">
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QDoubleSpinBox {
+  border: none;
+  height: 24px;
+  border-bottom: 2px solid #3cb0e5;
+  padding: 3px 5px;
+  background: white;
+  outline: none;
+  padding-right: 20px;
+}
+
+QDoubleSpinBox::up-button {
+  subcontrol-origin: margin;
+  subcontrol-position: right top;
+  width: 15px;
+  height: 15px;
+  border: none;
+  padding-top: 2px;
+}
+
+QDoubleSpinBox::down-button {
+  subcontrol-origin: margin;
+  subcontrol-position: right bottom;
+  width: 15px;
+  height: 15px;
+  border: none;
+  padding-bottom: 2px;
+}
+
+QDoubleSpinBox::up-arrow {
+  image: url(:/icons/md/arrow_up);
+  width: 20px;
+  height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {
+  image: url(:/icons/md/arrow_down);
+  width: 20px;
+  height: 20px;
+}
+
+QValueComboBox {
+  border: none;
+  border-bottom: 2px solid #3cb0e5;
+  padding: 3px 5px;
+  height: 24px;
+  background: white;
+  outline: none;
+  padding-right: 5px;
+  text-align: right;
+  combobox-popup: 0;
+}
+
+QValueComboBox:editable {
+    background: white;
+}
+
+QValueComboBox:on { /* shift the text when the popup opens */
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 15px;
+}
+
+QValueComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: right center;
+  width: 15px;
+  height: 15px;
+  border: none;
+}
+
+QValueComboBox::down-arrow {
+  image: url(:/icons/md/arrow_down);
+  width: 20px;
+  height: 20px;
+}
+
+QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
+  image: url(:/icons/md/arrow_up);
+  width: 20px;
+  height: 20px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="horizontalWidget" native="true">
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QToolButton" name="pasteButton">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>Paste address from clipboard</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/paste</normaloff>:/icons/md/paste</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>18</width>
+               <height>18</height>
+              </size>
+             </property>
+             <property name="shortcut">
+              <string>Alt+P</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="addressBookButton">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>Choose address from address book</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/people</normaloff>:/icons/md/people</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>18</width>
+               <height>18</height>
+              </size>
+             </property>
+             <property name="shortcut">
+              <string>Alt+A</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="deleteButton">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>Remove this recipient</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../bitcoin.qrc">
+               <normaloff>:/icons/md/close</normaloff>:/icons/md/close</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>18</width>
+               <height>18</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>
-   </item>
-   <item row="4" column="1">
-    <widget class="QValidatedLineEdit" name="addAsLabel">
-     <property name="toolTip">
-      <string>Enter a label for this address to add it to your address book</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>BitcoinAmountField</class>
+   <extends>QSpinBox</extends>
+   <header>bitcoinamountfield.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>BitcoinAmountField</class>
-   <extends>QLineEdit</extends>
-   <header>bitcoinamountfield.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

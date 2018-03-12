@@ -7,13 +7,122 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>530</height>
+    <height>643</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QR Code Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#inputWidget { background-color: white; }
+QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
+QLineEdit:disabled { border-color: #899399; }
+
+#buttonWidget { background-color: #f3f4f7; }
+
+QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
+
+QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
+QPushButton:disabled { background-color: white; color: gray; }
+
+QDoubleSpinBox {
+    border: none;
+	height: 24px;
+    border-bottom: 2px solid #3cb0e5;
+    padding: 3px 5px;
+    background: white;
+    outline: none;
+    padding-right: 20px;
+}
+
+QDoubleSpinBox::up-button {
+	subcontrol-origin: margin;
+	subcontrol-position: right top;
+	width: 15px;
+	height: 15px;
+	border: none;
+    padding-top: 2px;
+}
+
+QDoubleSpinBox::down-button {
+	subcontrol-origin: margin;
+	subcontrol-position: right bottom;
+	width: 15px;
+	height: 15px;
+	border: none;
+    padding-bottom: 2px;
+}
+
+QDoubleSpinBox::up-arrow {
+    image: url(:/icons/md/arrow_up);
+	width: 20px;
+	height: 20px;
+}
+
+QDoubleSpinBox::down-arrow {
+    image: url(:/icons/md/arrow_down);
+    width: 20px;
+    height: 20px;
+}
+
+QValueComboBox {
+    border: none;
+    border-bottom: 2px solid #3cb0e5;
+    padding: 3px 5px;
+    height: 24px;
+    background: white;
+    outline: none;
+    padding-right: 5px;
+    text-align: right;
+    combobox-popup: 0;
+}
+
+QValueComboBox:editable {
+    background: white;
+}
+
+QValueComboBox:on { /* shift the text when the popup opens */
+    padding-top: 3px;
+    padding-left: 4px;
+    padding-right: 15px;
+}
+
+QValueComboBox::drop-down {
+    subcontrol-origin: margin;
+    subcontrol-position: right center;
+    width: 15px;
+    height: 15px;
+    border: none;
+}
+
+QValueComboBox::down-arrow {
+    image: url(:/icons/md/arrow_down);
+	width: 20px;
+	height: 20px;
+}
+
+QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
+    image: url(:/icons/md/arrow_up);
+	width: 20px;
+	height: 20px;
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QLabel" name="lblQRCode">
      <property name="sizePolicy">
@@ -62,85 +171,75 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="inputWidget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
       <item>
        <widget class="QCheckBox" name="chkReqPayment">
         <property name="enabled">
          <bool>true</bool>
         </property>
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
-         <string>Request Payment</string>
+         <string>REQUEST PAYMENT</string>
         </property>
        </widget>
       </item>
       <item>
-       <layout class="QFormLayout" name="formLayout">
-        <property name="fieldGrowthPolicy">
-         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-        </property>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lblLabel">
-          <property name="text">
-           <string>Label:</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::PlainText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>lnLabel</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="lnLabel"/>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="lblMessage">
-          <property name="text">
-           <string>Message:</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::PlainText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>lnMessage</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lnMessage"/>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="lblAmount">
+       <layout class="QVBoxLayout" name="amountLayout">
+        <item>
+         <widget class="QLabel" name="amountLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <family>Montserrat</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="text">
-           <string>Amount:</string>
+           <string>AMOUNT</string>
           </property>
           <property name="textFormat">
            <enum>Qt::PlainText</enum>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
           </property>
           <property name="buddy">
-           <cstring>lnReqAmount</cstring>
+           <cstring>amount</cstring>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="BitcoinAmountField" name="lnReqAmount">
+        <item>
+         <widget class="BitcoinAmountField" name="amount">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -150,33 +249,139 @@
             <height>0</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
+          </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QVBoxLayout" name="labelLayout">
         <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+         <widget class="QLabel" name="labelLabel">
+          <property name="font">
+           <font>
+            <family>Montserrat</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
+          <property name="text">
+           <string>LABEL</string>
           </property>
-         </spacer>
+          <property name="textFormat">
+           <enum>Qt::PlainText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>label</cstring>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnSaveAs">
-          <property name="text">
-           <string>&amp;Save As...</string>
+         <widget class="QLineEdit" name="label">
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
           </property>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="messageLayout">
+        <item>
+         <widget class="QLabel" name="messageLabel">
+          <property name="font">
+           <font>
+            <family>Montserrat</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>MESSAGE</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::PlainText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="buddy">
+           <cstring>message</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="message">
+          <property name="font">
+           <font>
+            <family>Open Sans</family>
+           </font>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonWidget" native="true">
+     <layout class="QHBoxLayout" name="buttonWidgetLayout">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#saveButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
+#saveButton:hover, #saveButton:pressed { background-color: #1c99d2; }</string>
+        </property>
+        <property name="text">
+         <string>&amp;Save As...</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -188,6 +393,7 @@
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -195,7 +401,7 @@
   <connection>
    <sender>chkReqPayment</sender>
    <signal>clicked(bool)</signal>
-   <receiver>lnReqAmount</receiver>
+   <receiver>amount</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">

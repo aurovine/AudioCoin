@@ -30,8 +30,8 @@ public:
     };
 
     enum Mode {
-        ForSending, /**< Open address book to pick address for sending */
-        ForEditing  /**< Open address book for editing */
+        DialogMode, /**< Open address book to pick address for sending */
+        TabMode  /**< Open address book for editing */
     };
 
     explicit AddressBookPage(Mode mode, Tabs tab, QWidget *parent = 0);
@@ -58,6 +58,7 @@ private:
     QString newAddressToSelect;
 
 private slots:
+    void on_okButton_clicked();
     /** Delete currently selected address entry */
     void on_deleteButton_clicked();
     /** Create a new address for receiving coins and / or add a new address book entry */
