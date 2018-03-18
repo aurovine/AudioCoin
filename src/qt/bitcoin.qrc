@@ -1,105 +1,110 @@
 <!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/icons/material/white">
+        <file alias="arrow_down">res/icons/material/white/arrow_down.svg</file>
+        <file alias="arrow_up">res/icons/material/white/arrow_up.svg</file>
+        <file alias="arrow_right">res/icons/material/white/arrow_right.svg</file>
+        <file alias="check">res/icons/material/white/check.svg</file>
+        <file alias="close">res/icons/material/white/close.svg</file>
+        <file alias="edit">res/icons/material/white/edit.svg</file>
+        <file alias="info">res/icons/material/white/info.svg</file>
+        <file alias="plus">res/icons/material/white/plus.svg</file>
+        <file alias="lock_open">res/icons/material/white/lock_open.svg</file>
+        <file alias="lock_decrypt">res/icons/material/white/lock_decrypt.svg</file>
+        <file alias="lock_encrypt">res/icons/material/white/lock_encrypt.svg</file>
+        <file alias="key">res/icons/material/white/key.svg</file>
+        <file alias="save">res/icons/material/white/save.svg</file>
+        <file alias="send">res/icons/material/white/send.svg</file>
+        <file alias="qrcode">res/icons/material/white/qrcode.svg</file>
+    </qresource>
+
+    <qresource prefix="/icons/material/black">
+        <file alias="big_dashboard">res/icons/material/black/big_dashboard.svg</file>
+        <file alias="big_send">res/icons/material/black/big_send.svg</file>
+        <file alias="big_receive">res/icons/material/black/big_receive.svg</file>
+        <file alias="big_history">res/icons/material/black/big_history.svg</file>
+        <file alias="big_label">res/icons/material/black/big_label.svg</file>
+        <file alias="big_settings">res/icons/material/black/big_settings.svg</file>
+
+        <file alias="connect_0">res/icons/material/black/connect_0.svg</file>
+        <file alias="connect_1">res/icons/material/black/connect_1.svg</file>
+        <file alias="connect_2">res/icons/material/black/connect_2.svg</file>
+        <file alias="connect_3">res/icons/material/black/connect_3.svg</file>
+        <file alias="connect_4">res/icons/material/black/connect_4.svg</file>
+
+        <file alias="staking_on">res/icons/material/black/staking_on.svg</file>
+        <file alias="staking_off">res/icons/material/black/staking_off.svg</file>
+        <file alias="staking_immature">res/icons/material/black/staking_immature.svg</file>
+        <file alias="sync_disabled">res/icons/material/black/sync_disabled.svg</file>
+        <file alias="synced">res/icons/material/black/synced.svg</file>
+        <file alias="syncing">res/icons/material/black/syncing.svg</file>
+        <file alias="transaction_0">res/icons/material/black/transaction_0.svg</file>
+        <file alias="transaction_1">res/icons/material/black/transaction_1.svg</file>
+        <file alias="transaction_2">res/icons/material/black/transaction_2.svg</file>
+        <file alias="transaction_3">res/icons/material/black/transaction_3.svg</file>
+        <file alias="transaction_4">res/icons/material/black/transaction_4.svg</file>
+        <file alias="transaction_5">res/icons/material/black/transaction_5.svg</file>
+        <file alias="transaction_confirmed">res/icons/material/black/transaction_confirmed.svg</file>
+        <file alias="transaction_conflicted">res/icons/material/black/transaction_conflicted.svg</file>
+
+        <file alias="check">res/icons/material/black/check.svg</file>
+        <file alias="close">res/icons/material/black/close.svg</file>
+        <file alias="copy">res/icons/material/black/copy.svg</file>
+        <file alias="paste">res/icons/material/black/paste.svg</file>
+        <file alias="people">res/icons/material/black/people.svg</file>
+        <file alias="arrow_down">res/icons/material/black/arrow_down.svg</file>
+        <file alias="arrow_up">res/icons/material/black/arrow_up.svg</file>
+        <file alias="arrow_right">res/icons/material/black/arrow_right.svg</file>
+
+        <file alias="lock_open">res/icons/material/black/lock_open.svg</file>
+        <file alias="lock_closed">res/icons/material/black/lock_closed.svg</file>
+
+        <file alias="tx_in">res/icons/material/black/tx_in.svg</file>
+        <file alias="tx_out">res/icons/material/black/tx_out.svg</file>
+        <file alias="tx_inout">res/icons/material/black/tx_inout.svg</file>
+        <file alias="tx_staked">res/icons/material/black/tx_staked.svg</file>
+    </qresource>
+
+    <qresource prefix="/icons/material/blue">
+        <file alias="question_mark">res/icons/material/blue/question_mark.svg</file>
+        <file alias="close">res/icons/material/blue/close.svg</file>
+        <file alias="copy">res/icons/material/blue/copy.svg</file>
+        <file alias="people">res/icons/material/blue/people.svg</file>
+        <file alias="paste">res/icons/material/blue/paste.svg</file>
+    </qresource>
+
     <qresource prefix="/fonts">
         <file alias="opensans-regular">res/fonts/OpenSans-Regular.ttf</file>
         <file alias="opensans-bold">res/fonts/OpenSans-Bold.ttf</file>
         <file alias="montserrat-regular">res/fonts/Montserrat-Regular.ttf</file>
         <file alias="montserrat-bold">res/fonts/Montserrat-Bold.ttf</file>
     </qresource>
+
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/audiocoin-80.png</file>
-        <file alias="quit">res/icons/quit.png</file>
         <file alias="toolbar">res/icons/audiocoin-16.png</file>
-        <file alias="options">res/icons/configure.png</file>
-        <file alias="editpaste">res/icons/editpaste.png</file>
-        <file alias="editcopy">res/icons/editcopy.png</file>
-        <file alias="add">res/icons/add.png</file>
         <file alias="bitcoin_testnet">res/icons/audiocoin-80.png</file>
         <file alias="toolbar_testnet">res/icons/audiocoin-16.png</file>
-        <file alias="edit">res/icons/edit.png</file>
+
         <file alias="export">res/icons/export.png</file>
         <file alias="remove">res/icons/remove.png</file>
         <file alias="tx_mined">res/icons/tx_mined.png</file>
         <file alias="tx_input">res/icons/tx_input.png</file>
         <file alias="tx_output">res/icons/tx_output.png</file>
         <file alias="tx_inout">res/icons/tx_inout.png</file>
-        <file alias="key">res/icons/key.png</file>
-        <file alias="filesave">res/icons/filesave.png</file>
-        <file alias="qrcode">res/icons/qrcode.png</file>
-        <file alias="debugwindow">res/icons/debugwindow.png</file>
     </qresource>
-    <qresource prefix="/icons/md/tx">
-        <file alias="tx_in">res/icons/md/tx/tx_in.svg</file>
-        <file alias="tx_out">res/icons/md/tx/tx_out.svg</file>
-        <file alias="tx_inout">res/icons/md/tx/tx_inout.svg</file>
-        <file alias="tx_staked">res/icons/md/tx/tx_staked.svg</file>
-    </qresource>
-    <qresource prefix="/icons/md">
-        <file alias="big_dashboard">res/icons/md/big_dashboard.svg</file>
-        <file alias="big_send">res/icons/md/big_send.svg</file>
-        <file alias="big_receive">res/icons/md/big_receive.svg</file>
-        <file alias="big_history">res/icons/md/big_history.svg</file>
-        <file alias="big_label">res/icons/md/big_label.svg</file>
-        <file alias="big_settings">res/icons/md/big_settings.svg</file>
 
-        <file alias="arrow_down">res/icons/md/arrow_down.svg</file>
-        <file alias="arrow_up">res/icons/md/arrow_up.svg</file>
-        <file alias="arrow_right">res/icons/md/arrow_right.svg</file>
-        <file alias="close">res/icons/md/close.svg</file>
-        <file alias="copy">res/icons/md/copy.svg</file>
-        <file alias="connect_0">res/icons/md/connect_0.svg</file>
-        <file alias="connect_1">res/icons/md/connect_1.svg</file>
-        <file alias="connect_2">res/icons/md/connect_2.svg</file>
-        <file alias="connect_3">res/icons/md/connect_3.svg</file>
-        <file alias="connect_4">res/icons/md/connect_4.svg</file>
-        <file alias="inputs">res/icons/md/inputs.svg</file>
-        <file alias="lock_open">res/icons/md/lock_open.svg</file>
-        <file alias="lock_closed">res/icons/md/lock_closed.svg</file>
-        <file alias="dashboard">res/icons/md/dashboard.svg</file>
-        <file alias="paste">res/icons/md/paste.svg</file>
-        <file alias="people">res/icons/md/people.svg</file>
-        <file alias="plus">res/icons/md/plus.svg</file>
-        <file alias="staking_on">res/icons/md/staking_on.svg</file>
-        <file alias="staking_off">res/icons/md/staking_off.svg</file>
-        <file alias="sync_disabled">res/icons/md/sync_disabled.svg</file>
-        <file alias="synced">res/icons/md/synced.svg</file>
-        <file alias="syncing">res/icons/md/syncing.svg</file>
-        <file alias="transaction_0">res/icons/md/transaction_0.svg</file>
-        <file alias="transaction_1">res/icons/md/transaction_1.svg</file>
-        <file alias="transaction_2">res/icons/md/transaction_2.svg</file>
-        <file alias="transaction_3">res/icons/md/transaction_3.svg</file>
-        <file alias="transaction_4">res/icons/md/transaction_4.svg</file>
-        <file alias="transaction_5">res/icons/md/transaction_5.svg</file>
-        <file alias="transaction_confirmed">res/icons/md/transaction_confirmed.svg</file>
-        <file alias="transaction_conflicted">res/icons/md/transaction_conflicted.svg</file>
-        <file alias="question_mark_blue">res/icons/md/question_mark_blue.svg</file>
-    </qresource>
-    <qresource prefix="/icons/black/md">
-        <file alias="arrow_down">res/icons/black/md/arrow_down.svg</file>
-        <file alias="arrow_right">res/icons/black/md/arrow_right.svg</file>
-        <file alias="connect_0">res/icons/black/connect0_16.png</file>
-        <file alias="connect_1">res/icons/black/connect1_16.png</file>
-        <file alias="connect_2">res/icons/black/connect2_16.png</file>
-        <file alias="connect_3">res/icons/black/connect3_16.png</file>
-        <file alias="connect_4">res/icons/black/connect4_16.png</file>
-        <file alias="synced">res/icons/black/synced.png</file>
-        <file alias="tx_mined">res/icons/black/tx_mined.png</file>
-        <file alias="tx_input">res/icons/black/tx_input.png</file>
-        <file alias="tx_output">res/icons/black/tx_output.png</file>
-        <file alias="tx_inout">res/icons/black/tx_inout.png</file>
-        <file alias="lock_closed">res/icons/black/lock_closed.png</file>
-        <file alias="lock_open">res/icons/black/lock_open.png</file>
-        <file alias="staking_off">res/icons/black/staking_off.png</file>
-        <file alias="staking_on">res/icons/black/staking_on.png</file>
-    </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash3.png</file>
         <file alias="header">res/images/header.png</file>
+        <file alias="logo-text">res/images/audiocoin_text.svg</file>
     </qresource>
+
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
         <file alias="update_spinner_black">res/movies/update_spinner_black.mng</file>
     </qresource>
+
     <qresource prefix="/translations">
         <file alias="ar">locale/bitcoin_ar.qm</file>
         <file alias="ca_ES">locale/bitcoin_ca_ES.qm</file>

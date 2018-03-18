@@ -86,9 +86,9 @@ SettingsPage::SettingsPage(QWidget *parent) :
     mapper->setOrientation(Qt::Vertical);
 
     /* enable save button when data modified */
-    connect(mapper, SIGNAL(viewModified()), this, SLOT(enableSaveButton()));
+    connect(mapper, SIGNAL(viewModified()), this, SLOT(enableConfirmButton()));
     /* disable save button when new data loaded */
-    connect(mapper, SIGNAL(currentIndexChanged(int)), this, SLOT(disableSaveButton()));
+    connect(mapper, SIGNAL(currentIndexChanged(int)), this, SLOT(disableConfirmButton()));
     /* setup/change UI elements when proxy IP is invalid/valid */
     // connect(this, SIGNAL(proxyIpValid(QValidatedLineEdit *, bool)), this, SLOT(handleProxyIpValid(QValidatedLineEdit *, bool)));
 }
@@ -118,7 +118,7 @@ void SettingsPage::setModel(OptionsModel *model)
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning_Lang()));
 
     /* disable save button after settings are loaded as there is nothing to save */
-    disableSaveButton();
+    disableConfirmButton();
 }
 
 void SettingsPage::setMapper()
@@ -148,22 +148,22 @@ void SettingsPage::setMapper()
     mapper->addMapping(ui->useBlackTheme, OptionsModel::UseBlackTheme);
 }
 
-void SettingsPage::enableSaveButton()
+void SettingsPage::enableConfirmButton()
 {
     /* prevent enabling of the save buttons when data modified, if there is an invalid proxy address present */
     if (fProxyIpValid)
-        ui->saveButton->setEnabled(true);
+        ui->confirmButton->setEnabled(true);
 }
 
-void SettingsPage::disableSaveButton()
+void SettingsPage::disableConfirmButton()
 {
-    ui->saveButton->setEnabled(false);
+    ui->confirmButton->setEnabled(false);
 }
 
-void SettingsPage::on_saveButton_clicked()
+void SettingsPage::on_confirmButton_clicked()
 {
     mapper->submit();
-    disableSaveButton();
+    disableConfirmButton();
     // accept();
 }
 
@@ -201,11 +201,11 @@ void SettingsPage::on_proxyIp_textChanged(const QString &text)
     fProxyIpValid = LookupNumeric(text.toStdString().c_str(), addr);
     if(fProxyIpValid)
     {
-        enableSaveButton();
+        enableConfirmButton();
     }
     else
     {
-        disableSaveButton();
+        disableConfirmButton();
     }
 
     ui->proxyIp->setValid(fProxyIpValid);
@@ -218,11 +218,11 @@ void SettingsPage::on_proxyPort_textChanged(const QString &text)
 
     if(fProxyPortValid)
     {
-        enableSaveButton();
+        enableConfirmButton();
     }
     else
     {
-        disableSaveButton();
+        disableConfirmButton();
     }
 
     ui->proxyPort->setValid(fProxyPortValid);

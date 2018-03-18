@@ -243,37 +243,37 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(QIcon(":/icons/md/big_dashboard"), tr("&DASHBOARD"), this);
+    overviewAction = new QAction(QIcon(":/icons/material/black/big_dashboard"), tr("&DASHBOARD"), this);
     overviewAction->setToolTip(tr("Show dashboard of wallet"));
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    receiveCoinsAction = new QAction(QIcon(":/icons/md/big_receive"), tr("&RECEIVE"), this);
+    receiveCoinsAction = new QAction(QIcon(":/icons/material/black/big_receive"), tr("&RECEIVE"), this);
     receiveCoinsAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(receiveCoinsAction);
 
-    sendCoinsAction = new QAction(QIcon(":/icons/md/big_send"), tr("&SEND"), this);
+    sendCoinsAction = new QAction(QIcon(":/icons/material/black/big_send"), tr("&SEND"), this);
     sendCoinsAction->setToolTip(tr("Send coins to a Audiocoin address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(sendCoinsAction);
 
-    historyAction = new QAction(QIcon(":/icons/md/big_history"), tr("&TRANSACTIONS"), this);
+    historyAction = new QAction(QIcon(":/icons/material/black/big_history"), tr("&TRANSACTIONS"), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    addressBookAction = new QAction(QIcon(":/icons/md/big_label"), tr("&ADDRESS BOOK"), this);
+    addressBookAction = new QAction(QIcon(":/icons/material/black/big_label"), tr("&ADDRESS BOOK"), this);
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    settingsPageAction = new QAction(QIcon(":/icons/md/big_settings"), tr("&SETTINGS"), this);
+    settingsPageAction = new QAction(QIcon(":/icons/material/black/big_settings"), tr("&SETTINGS"), this);
     settingsPageAction->setToolTip(tr("Edit settings"));
     settingsPageAction->setCheckable(true);
     settingsPageAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
@@ -597,11 +597,11 @@ void BitcoinGUI::setNumConnections(int count)
     QString icon;
     switch(count)
     {
-    case 0: icon = fUseBlackTheme ? ":/icons/black/md/connect_0" : ":/icons/md/connect_0"; break;
-    case 1: case 2: case 3: icon = fUseBlackTheme ? ":/icons/black/md/connect_1" : ":/icons/md/connect_1"; break;
-    case 4: case 5: case 6: icon = fUseBlackTheme ? ":/icons/black/md/connect_2" : ":/icons/md/connect_2"; break;
-    case 7: case 8: case 9: icon = fUseBlackTheme ? ":/icons/black/md/connect_3" : ":/icons/md/connect_3"; break;
-    default: icon = fUseBlackTheme ? ":/icons/black/md/connect_4" : ":/icons/md/connect_4"; break;
+    case 0: icon = fUseBlackTheme ? ":/icons/material/white/connect_0" : ":/icons/material/black/connect_0"; break;
+    case 1: case 2: case 3: icon = fUseBlackTheme ? ":/icons/material/white/connect_1" : ":/icons/material/black/connect_1"; break;
+    case 4: case 5: case 6: icon = fUseBlackTheme ? ":/icons/material/white/connect_2" : ":/icons/material/black/connect_2"; break;
+    case 7: case 8: case 9: icon = fUseBlackTheme ? ":/icons/material/white/connect_3" : ":/icons/material/black/connect_3"; break;
+    default: icon = fUseBlackTheme ? ":/icons/material/white/connect_4" : ":/icons/material/black/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Audiocoin network", "", count));
@@ -616,7 +616,7 @@ void BitcoinGUI::setNumBlocks(int count)
         statusBar()->setVisible(false);
 
         labelBlocksIcon->setToolTip(tr("Currently not syncing."));
-        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/sync_disabled" : ":/icons/md/sync_disabled").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/sync_disabled" : ":/icons/material/black/sync_disabled").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         return;
     }
@@ -635,7 +635,7 @@ void BitcoinGUI::setNumBlocks(int count)
     if(secs < 90*60)
     {
         tooltip = tr("Up to date") + QString(".<br>") + tooltip;
-        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/synced" : ":/icons/md/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/synced" : ":/icons/material/black/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         overviewPage->showOutOfSyncWarning(false);
 
@@ -669,7 +669,7 @@ void BitcoinGUI::setNumBlocks(int count)
             timeBehindText = tr("%1 and %2").arg(tr("%n year(s)", "", years)).arg(tr("%n week(s)","", remainder/WEEK_IN_SECONDS));
         }
 
-        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/syncing" : ":/icons/md/syncing").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelBlocksIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/syncing" : ":/icons/material/black/syncing").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
         progressBarLabel->setText(tr(clientModel->isImporting() ? "Importing blocks..." : "Synchronizing with network..."));
         progressBarLabel->setVisible(true);
@@ -955,7 +955,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
     switch(status)
     {
     case WalletModel::Unencrypted:
-        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/lock_open" : ":/icons/md/lock_open").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/lock_open" : ":/icons/material/black/lock_open").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelEncryptionIcon->setToolTip(tr("Wallet is <b>not encrypted</b>"));
         changePassphraseAction->setEnabled(false);
         unlockWalletAction->setVisible(false);
@@ -963,7 +963,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setEnabled(true);
         break;
     case WalletModel::Unlocked:
-        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/lock_open" : ":/icons/md/lock_open").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/lock_open" : ":/icons/material/black/lock_open").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelEncryptionIcon->setToolTip(tr("Wallet is <b>encrypted</b> and currently <b>unlocked</b>"));
         changePassphraseAction->setEnabled(true);
         unlockWalletAction->setVisible(false);
@@ -971,7 +971,7 @@ void BitcoinGUI::setEncryptionStatus(int status)
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
         break;
     case WalletModel::Locked:
-        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/lock_closed" : ":/icons/md/lock_closed").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelEncryptionIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/lock_closed" : ":/icons/material/black/lock_closed").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelEncryptionIcon->setToolTip(tr("Wallet is <b>encrypted</b> and currently <b>locked</b>"));
         changePassphraseAction->setEnabled(true);
         unlockWalletAction->setVisible(true);
@@ -1105,20 +1105,22 @@ void BitcoinGUI::updateStakingIcon()
             text = tr("%n day(s)", "", nEstimateTime/(60*60*24));
         }
 
-        labelStakingIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/staking_on" : ":/icons/md/staking_on").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelStakingIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/staking_on" : ":/icons/material/black/staking_on").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
         labelStakingIcon->setToolTip(tr("Staking.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
     }
     else
     {
-        labelStakingIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/black/md/staking_off" : ":/icons/md/staking_off").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        labelStakingIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/staking_off" : ":/icons/material/black/staking_off").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
         if (pwalletMain && pwalletMain->IsLocked())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is locked"));
         else if (vNodes.empty())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is offline"));
         else if (IsInitialBlockDownload())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is syncing"));
-        else if (!nWeight)
+        else if (!nWeight) {
             labelStakingIcon->setToolTip(tr("Not staking because you don't have mature coins"));
+            labelStakingIcon->setPixmap(QIcon(fUseBlackTheme ? ":/icons/material/white/staking_immature" : ":/icons/material/black/staking_immature").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        }
         else
             labelStakingIcon->setToolTip(tr("Not staking"));
     }

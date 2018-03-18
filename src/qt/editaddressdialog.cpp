@@ -26,7 +26,6 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     ui->addressEdit->setPlaceholderText(tr("Address"));
 #endif
 
-    ui->editAddressDialogLayout->setSizeConstraint(QLayout::SetFixedSize);
     GUIUtil::setupAddressWidget(ui->addressEdit, this);
 
     switch(mode)
@@ -34,26 +33,28 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     case NewReceivingAddress:
         ui->titleLabel->setText(tr("New receiving address"));
         setWindowTitle(tr("New receiving address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/plus"));
         ui->addressEdit->hide();
         ui->addressLabel->hide();
-        // this->adjustSize();
         break;
     case NewSendingAddress:
         ui->titleLabel->setText(tr("New sending address"));
         setWindowTitle(tr("New sending address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/plus"));
         ui->confirmButton->setEnabled(false);
         break;
     case EditReceivingAddress:
         ui->titleLabel->setText(tr("Edit receiving address"));
         setWindowTitle(tr("Edit receiving address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/edit"));
         ui->addressEdit->setEnabled(false);
         break;
     case EditSendingAddress:
         ui->titleLabel->setText(tr("Edit sending address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/edit"));
         setWindowTitle(tr("Edit sending address"));
         break;
     }
-
 
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);

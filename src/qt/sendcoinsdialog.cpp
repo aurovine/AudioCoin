@@ -32,7 +32,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
     // ui->addButton->setIcon(QIcon());
     // ui->clearButton->setIcon(QIcon());
-    // ui->sendButton->setIcon(QIcon());
+    // ui->confirmButton->setIcon(QIcon());
     ui->lineEditCoinControlChange->setAttribute(Qt::WA_MacShowFocusRect, 0);
 #endif
 
@@ -128,7 +128,7 @@ void SendCoinsDialog::on_addButton_clicked()
     addEntry();
 }
 
-void SendCoinsDialog::on_sendButton_clicked()
+void SendCoinsDialog::on_confirmButton_clicked()
 {
     if(!model || !model->getOptionsModel())
         return;
@@ -252,7 +252,7 @@ void SendCoinsDialog::clear()
 
     updateRemoveEnabled();
 
-    ui->sendButton->setDefault(true);
+    ui->confirmButton->setDefault(true);
 }
 
 void SendCoinsDialog::reject()
@@ -343,8 +343,8 @@ QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
         }
     }
     QWidget::setTabOrder(prev, ui->addButton);
-    QWidget::setTabOrder(ui->addButton, ui->sendButton);
-    return ui->sendButton;
+    QWidget::setTabOrder(ui->addButton, ui->confirmButton);
+    return ui->confirmButton;
 }
 
 void SendCoinsDialog::pasteEntry(const SendCoinsRecipient &rv)

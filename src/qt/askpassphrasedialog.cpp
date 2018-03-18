@@ -50,6 +50,8 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->confirmButton->setText(tr("Encrypt"));
             setWindowTitle(tr("Encrypt wallet"));
             ui->titleLabel->setText(tr("Encrypt wallet"));
+            ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/lock_encrypt"));
+            ui->confirmButton->setIcon(QIcon(":/icons/material/white/lock_encrypt"));
             break;
         case UnlockStaking:
             ui->stakingCheckBox->setChecked(true);
@@ -65,6 +67,8 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->confirmButton->setText(tr("Unlock"));
             setWindowTitle(tr("Unlock wallet"));
             ui->titleLabel->setText(tr("Unlock wallet"));
+            ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/lock_open"));
+            ui->confirmButton->setIcon(QIcon(":/icons/material/white/lock_open"));
             break;
         case Decrypt:   // Ask passphrase
             ui->warningLabel->setText(tr("This operation needs your wallet passphrase to decrypt the wallet."));
@@ -75,6 +79,8 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->confirmButton->setText(tr("Decrypt"));
             setWindowTitle(tr("Decrypt wallet"));
             ui->titleLabel->setText(tr("Decrypt wallet"));
+            ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/lock_decrypt"));
+            ui->confirmButton->setIcon(QIcon(":/icons/material/white/lock_decrypt"));
             break;
         case ChangePass: // Ask old passphrase + new passphrase x2
             ui->warningLabel->setText(tr("Enter the old and new passphrase to the wallet."));
@@ -82,10 +88,15 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->confirmButton->setText(tr("Save"));
             setWindowTitle(tr("Change passphrase"));
             ui->titleLabel->setText(tr("Change passphrase"));
+            ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/key"));
+            ui->confirmButton->setIcon(QIcon(":/icons/material/white/key"));
             break;
     }
 
     textChanged();
+
+    ui->capsLabel->hide();
+    ui->capsLabel->setText(tr("Warning: The Caps Lock key is on!"));
 
     resize(width(), sizeHint().height());
     move(parent->frameGeometry().center() - QPoint(width() / 2, height() / 2));
@@ -252,9 +263,9 @@ bool AskPassphraseDialog::event(QEvent *event)
             fCapsLock = !fCapsLock;
         }
         if (fCapsLock) {
-            ui->capsLabel->setText(tr("Warning: The Caps Lock key is on!"));
+            ui->capsLabel->show();
         } else {
-            ui->capsLabel->clear();
+            ui->capsLabel->hide();
         }
     }
     return QWidget::event(event);
@@ -276,10 +287,10 @@ bool AskPassphraseDialog::eventFilter(QObject *object, QEvent *event)
             bool fShift = (ke->modifiers() & Qt::ShiftModifier) != 0;
             if ((fShift && psz->isLower()) || (!fShift && psz->isUpper())) {
                 fCapsLock = true;
-                ui->capsLabel->setText(tr("Warning: The Caps Lock key is on!"));
+                ui->capsLabel->show();
             } else if (psz->isLetter()) {
                 fCapsLock = false;
-                ui->capsLabel->clear();
+                ui->capsLabel->hide();
             }
         }
     }

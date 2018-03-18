@@ -40,7 +40,7 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(Mode mode, QString addr, QWidge
     ui->signatureIn_VM->setPlaceholderText(tr("Audiocoin signature"));
 #endif
 
-    setContentsMargins(0, 0, 0, 0);
+    // setContentsMargins(0, 0, 0, 0);
 
     // ui->SignVerifyMessageDialogLayout->setSizeConstraint(QLayout::SetFixedSize);
 
@@ -76,8 +76,8 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(Mode mode, QString addr, QWidge
     resize(width(), sizeHint().height());
     move(parent->frameGeometry().center() - QPoint(width() / 2, height() / 2));
 
-    ui->signMessageButton_SM->setEnabled(false);
-    ui->verifyMessageButton_VM->setEnabled(false);
+    ui->signConfirmButton->setEnabled(false);
+    ui->verifyConfirmButton->setEnabled(false);
 
     connect(ui->signCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
     connect(ui->verifyCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
@@ -129,7 +129,7 @@ void SignVerifyMessageDialog::on_pasteButton_SM_clicked()
     setAddress_SM(QApplication::clipboard()->text());
 }
 
-void SignVerifyMessageDialog::on_signMessageButton_SM_clicked()
+void SignVerifyMessageDialog::on_signConfirmButton_clicked()
 {
     if (!model)
         return;
@@ -212,7 +212,7 @@ void SignVerifyMessageDialog::on_addressBookButton_VM_clicked()
     }
 }
 
-void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
+void SignVerifyMessageDialog::on_verifyConfirmButton_clicked()
 {
     CBitcoinAddress addr(ui->addressIn_VM->text().toStdString());
 
@@ -277,7 +277,7 @@ void SignVerifyMessageDialog::on_addressIn_SM_textChanged(const QString &address
 
     bool valid = CBitcoinAddress(address.toStdString()).IsValid();
     ui->addressIn_SM->setValid(address.isEmpty() ? true : valid);
-    ui->signMessageButton_SM->setEnabled(valid);
+    ui->signConfirmButton->setEnabled(valid);
 }
 
 void SignVerifyMessageDialog::on_addressIn_VM_textChanged(const QString &address)
@@ -287,7 +287,7 @@ void SignVerifyMessageDialog::on_addressIn_VM_textChanged(const QString &address
 
     bool valid = CBitcoinAddress(address.toStdString()).IsValid();
     ui->addressIn_VM->setValid(address.isEmpty() ? true : valid);
-    ui->verifyMessageButton_VM->setEnabled(valid);
+    ui->verifyConfirmButton->setEnabled(valid);
 }
 
 bool SignVerifyMessageDialog::eventFilter(QObject *object, QEvent *event)

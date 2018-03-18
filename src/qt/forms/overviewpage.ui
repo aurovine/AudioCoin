@@ -48,11 +48,11 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-	image: url(:/icons/md/arrow_down);
+	image: url(:/icons/material/black/arrow_down);
 }
 
 QComboBox::down-arrow:on {
-	image: url(:/icons/md/arrow_up);
+	image: url(:/icons/material/black/arrow_up);
 }</string>
   </property>
   <layout class="QVBoxLayout" name="topLayout" stretch="1,0">
@@ -155,7 +155,13 @@ QComboBox::down-arrow:on {
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>60</height>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>80</height>
               </size>
              </property>
              <layout class="QHBoxLayout" name="totalBalanceTitleLayout" stretch="0,0,0,0">
@@ -166,13 +172,13 @@ QComboBox::down-arrow:on {
                <number>20</number>
               </property>
               <property name="topMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <property name="rightMargin">
                <number>20</number>
               </property>
               <property name="bottomMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <item>
                <widget class="QLabel" name="labelTotalText">
@@ -236,7 +242,7 @@ QComboBox::down-arrow:on {
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="../bitcoin.qrc">:/icons/md/question_mark_blue</pixmap>
+                 <pixmap resource="../bitcoin.qrc">:/icons/material/blue/question_mark</pixmap>
                 </property>
                </widget>
               </item>
@@ -332,7 +338,13 @@ QComboBox::down-arrow:on {
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>60</height>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>80</height>
               </size>
              </property>
              <layout class="QHBoxLayout" name="balanceTitleLayout">
@@ -343,13 +355,13 @@ QComboBox::down-arrow:on {
                <number>20</number>
               </property>
               <property name="topMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <property name="rightMargin">
                <number>20</number>
               </property>
               <property name="bottomMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <item>
                <widget class="QLabel" name="labelBalance">
@@ -404,7 +416,7 @@ QComboBox::down-arrow:on {
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="../bitcoin.qrc">:/icons/md/question_mark_blue</pixmap>
+                 <pixmap resource="../bitcoin.qrc">:/icons/material/blue/question_mark</pixmap>
                 </property>
                </widget>
               </item>
@@ -684,7 +696,13 @@ QComboBox::down-arrow:on {
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>60</height>
+               <height>80</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>80</height>
               </size>
              </property>
              <layout class="QHBoxLayout" name="recentTransactionsTitleLayout" stretch="0,0,1,0">
@@ -695,13 +713,13 @@ QComboBox::down-arrow:on {
                <number>20</number>
               </property>
               <property name="topMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <property name="rightMargin">
                <number>20</number>
               </property>
               <property name="bottomMargin">
-               <number>20</number>
+               <number>30</number>
               </property>
               <item>
                <widget class="QLabel" name="recentTransactionsLabel">
@@ -803,11 +821,11 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-    image: url(:/icons/md/arrow_down);
+    image: url(:/icons/material/black/arrow_down);
 }
 
 QComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    image: url(:/icons/md/arrow_up);
+    image: url(:/icons/material/black/arrow_up);
 }</string>
                 </property>
                 <property name="editable">
@@ -902,7 +920,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                    <x>0</x>
                    <y>0</y>
                    <width>500</width>
-                   <height>399</height>
+                   <height>379</height>
                   </rect>
                  </property>
                  <property name="sizePolicy">
