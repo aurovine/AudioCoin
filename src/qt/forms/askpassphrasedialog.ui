@@ -9,25 +9,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>394</height>
+    <width>600</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+   <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>500</width>
+    <width>600</width>
     <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>500</width>
+    <width>600</width>
     <height>16777215</height>
    </size>
   </property>
@@ -35,14 +35,16 @@
    <string>Passphrase Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#titleWidget { background-color: white; } QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; } QLineEdit:disabled { border-color: #899399; }</string>
+   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
+
+QLineEdit:disabled { border-color: #899399; }</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="askPassPhraseDialogLayout" stretch="0,1">
    <property name="spacing">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="leftMargin">
     <number>0</number>
@@ -58,7 +60,28 @@
    </property>
    <item>
     <widget class="QWidget" name="titleWidget" native="true">
-     <layout class="QHBoxLayout" name="titleWidgetLayout">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#titleWidget { background-color: #3cb0e5; } QLabel { color: white; }</string>
+     </property>
+     <layout class="QHBoxLayout" name="titleWidgetLayout" stretch="1,0">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -66,13 +89,13 @@
        <number>20</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>50</number>
       </property>
       <property name="rightMargin">
        <number>20</number>
       </property>
       <property name="bottomMargin">
-       <number>20</number>
+       <number>30</number>
       </property>
       <item>
        <widget class="QLabel" name="titleLabel">
@@ -89,6 +112,31 @@
         </property>
         <property name="text">
          <string>TITLE</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="titleIcon">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>icon</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
         </property>
        </widget>
       </item>
@@ -120,7 +168,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="warningWidget" native="true">
+       <widget class="QWidget" name="inputWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -128,9 +176,9 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">#warningWidget { background-color: white; }</string>
+         <string notr="true">#inputWidget { background-color: white; }</string>
         </property>
-        <layout class="QHBoxLayout" name="warningWidgetLayout">
+        <layout class="QVBoxLayout" name="inputWidgetLayout">
          <property name="spacing">
           <number>20</number>
          </property>
@@ -138,13 +186,13 @@
           <number>20</number>
          </property>
          <property name="topMargin">
-          <number>20</number>
+          <number>40</number>
          </property>
          <property name="rightMargin">
           <number>20</number>
          </property>
          <property name="bottomMargin">
-          <number>10</number>
+          <number>40</number>
          </property>
          <item>
           <widget class="QLabel" name="warningLabel">
@@ -162,36 +210,6 @@
            </property>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="inputWidget" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#inputWidget { background-color: white; }</string>
-        </property>
-        <layout class="QVBoxLayout" name="inputWidgetLayout">
-         <property name="spacing">
-          <number>10</number>
-         </property>
-         <property name="leftMargin">
-          <number>20</number>
-         </property>
-         <property name="topMargin">
-          <number>10</number>
-         </property>
-         <property name="rightMargin">
-          <number>20</number>
-         </property>
-         <property name="bottomMargin">
-          <number>20</number>
-         </property>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <property name="spacing">
@@ -316,7 +334,7 @@
              <weight>75</weight>
              <bold>true</bold>
             </font>
-           </property>>
+           </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
            </property>
@@ -328,34 +346,29 @@
       <item>
        <widget class="QWidget" name="buttonWidget" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>500</width>
-          <height>0</height>
+          <width>600</width>
+          <height>75</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>500</width>
-          <height>16777215</height>
+          <width>16777215</width>
+          <height>75</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">#buttonWidget { background-color: #f3f4f7; }
-
-QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
-
-QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
-QPushButton:disabled { background-color: white; color: gray; }</string>
+         <string notr="true">#buttonWidget { background-color: #092f41; }</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
-          <number>15</number>
+          <number>2</number>
          </property>
          <property name="leftMargin">
           <number>20</number>
@@ -386,6 +399,9 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
            <property name="toolTip">
             <string>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: white;</string>
+           </property>
            <property name="text">
             <string>UNLOCK FOR STAKING ONLY</string>
            </property>
@@ -405,15 +421,18 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="cancelButton">
+          <widget class="QCustomButton" name="cancelButton">
            <property name="font">
             <font>
              <family>Montserrat</family>
-             <pointsize>-1</pointsize>
             </font>
            </property>
            <property name="text">
             <string>Cancel</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../bitcoin.qrc">
+             <normaloff>:/icons/material/black/close</normaloff>:/icons/material/black/close</iconset>
            </property>
            <property name="autoDefault">
             <bool>true</bool>
@@ -421,19 +440,18 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="confirmButton">
+          <widget class="QCustomButton" name="confirmButton">
            <property name="font">
             <font>
              <family>Montserrat</family>
-             <pointsize>-1</pointsize>
             </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; }</string>
            </property>
            <property name="text">
             <string>Save</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../bitcoin.qrc">
+             <normaloff>:/icons/material/white/check</normaloff>:/icons/material/white/check</iconset>
            </property>
            <property name="default">
             <bool>true</bool>
@@ -448,6 +466,15 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomButton</class>
+   <extends>QPushButton</extends>
+   <header>qcustombutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../bitcoin.qrc"/>
+ </resources>
  <connections/>
 </ui>

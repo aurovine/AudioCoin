@@ -37,7 +37,7 @@ private slots:
     /* sign message */
     void on_addressBookButton_SM_clicked();
     void on_pasteButton_SM_clicked();
-    void on_signMessageButton_SM_clicked();
+    void on_signConfirmButton_clicked();
     void on_copySignatureButton_SM_clicked();
     void on_clearButton_SM_clicked();
     void on_addressIn_SM_textChanged(const QString &address);
@@ -45,7 +45,7 @@ private slots:
 
     /* verify message */
     void on_addressBookButton_VM_clicked();
-    void on_verifyMessageButton_VM_clicked();
+    void on_verifyConfirmButton_clicked();
     void on_clearButton_VM_clicked();
 };
 

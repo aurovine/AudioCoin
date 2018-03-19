@@ -21,6 +21,8 @@ static const int STATUSBAR_ICONSIZE = 18;
 
 #define TOOLTIP_STYLE "QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }"
 
+#define BUTTON_STYLE "QCustomButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; height: 25px; color: black; border: none; outline: none; margin: 0; padding: 5px 15px; background-color: white; } QCustomButton:hover { background-color: #3cb0e5; color: white; fill: white; } QCustomButton:disabled { color: gray; } QCustomButton:pressed { padding: 6px 15px 4px 15px; } #confirmButton, #signConfirmButton, #verifyConfirmButton, #saveButton { background-color: #8BC34A; color: white; } #confirmButton:hover, #signConfirmButton:hover, #verifyConfirmButton:hover, #saveButton:hover { background-color: #3cb0e5; }"
+
 #define COLOR_POSITIVE QColor(139, 195, 74)
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(128, 128, 128)

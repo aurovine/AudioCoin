@@ -24,12 +24,12 @@ public:
 
 private slots:
     /* enable save button */
-    void enableSaveButton();
+    void enableConfirmButton();
     /* disable save button */
-    void disableSaveButton();
+    void disableConfirmButton();
 
     void updateStatusLabel();
-    void on_saveButton_clicked();
+    void on_confirmButton_clicked();
     void on_proxyIp_textChanged(const QString &text);
     void on_proxyPort_textChanged(const QString &text);
 

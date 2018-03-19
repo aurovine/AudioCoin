@@ -22,7 +22,6 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent, int index) :
     ui->setupUi(this);
 
 #ifdef Q_OS_MAC
-    ui->countWidgetLayout->setSpacing(4);
     ui->payTo->setAttribute(Qt::WA_MacShowFocusRect, 0);
     ui->addAsLabel->setAttribute(Qt::WA_MacShowFocusRect, 0);
 #endif

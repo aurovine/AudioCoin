@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>EditAddressDialog</class>
- <widget class="QDialog" name="EditAddressDialog">
+ <widget class="FaderDialog" name="EditAddressDialog">
+  <property name="modal" stdset="0">
+   <bool>false</bool>
+  </property>
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -13,7 +16,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>280</height>
+    <height>365</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,30 +27,25 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
+    <width>500</width>
     <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>16777215</width>
+    <width>500</width>
     <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Edit Address</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#titleWidget, #bodyWidget { background-color: white; }
-
-QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; } QLineEdit:disabled { border-color: #899399; }</string>
-  </property>
-  <property name="modal">
-   <bool>true</bool>
-  </property>
-  <layout class="QVBoxLayout" name="editAddressDialogLayout" stretch="0,0">
+  <layout class="QVBoxLayout" name="editAddressDialogLayout" stretch="0,0,0">
    <property name="spacing">
-    <number>1</number>
+    <number>0</number>
+   </property>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
    </property>
    <property name="leftMargin">
     <number>0</number>
@@ -63,7 +61,22 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
    </property>
    <item>
     <widget class="QWidget" name="titleWidget" native="true">
-     <layout class="QVBoxLayout" name="titleWidgetLayout">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#titleWidget { background-color: #3cb0e5; } QLabel { color: white; }</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -71,16 +84,22 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
        <number>20</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>50</number>
       </property>
       <property name="rightMargin">
        <number>20</number>
       </property>
       <property name="bottomMargin">
-       <number>20</number>
+       <number>30</number>
       </property>
       <item>
        <widget class="QLabel" name="titleLabel">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Montserrat</family>
@@ -95,6 +114,31 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
         <property name="text">
          <string>TITLE</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="titleIcon">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>icon</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
       </item>
      </layout>
@@ -102,6 +146,9 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
    </item>
    <item>
     <widget class="QWidget" name="bodyWidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">#bodyWidget { background-color: white; }</string>
+     </property>
      <layout class="QVBoxLayout" name="bodyWidgetLayout">
       <property name="spacing">
        <number>0</number>
@@ -121,26 +168,38 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
       <item>
        <widget class="QWidget" name="inputWidget" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <layout class="QVBoxLayout" name="inputWidgetLayout" stretch="1,0">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="inputWidgetLayout">
          <property name="spacing">
-          <number>10</number>
+          <number>20</number>
          </property>
          <property name="leftMargin">
           <number>20</number>
          </property>
          <property name="topMargin">
-          <number>20</number>
+          <number>40</number>
          </property>
          <property name="rightMargin">
           <number>20</number>
          </property>
          <property name="bottomMargin">
-          <number>20</number>
+          <number>40</number>
          </property>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -163,7 +222,7 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="labelEdit">
+            <widget class="QValidatedLineEdit" name="labelEdit">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -225,97 +284,88 @@ QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; ba
         </layout>
        </widget>
       </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonWidget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>75</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>75</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#buttonWidget { background-color: #092f41; }</string>
+     </property>
+     <layout class="QHBoxLayout" name="buttonWidgetLayout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
       <item>
-       <widget class="QWidget" name="buttonWidget" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="minimumSize">
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>500</width>
+          <width>40</width>
           <height>0</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>500</width>
-          <height>16777215</height>
-         </size>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCustomButton" name="cancelButton">
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+         </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">#buttonWidget { background-color: #f3f4f7; }
-
-QPushButton { font-family: 'Montserrat'; text-transform: uppercase; font-size: 10px; border: 1px solid gray; padding: 0px 15px; border-radius: 13px; min-height: 26px; max-height: 26px; background-color: white; }
-
-QPushButton:hover, QPushButton:pressed { background-color: #1c99d2; color: white; }
-QPushButton:disabled { background-color: white; color: gray; }</string>
+        <property name="text">
+         <string>Cancel</string>
         </property>
-        <layout class="QHBoxLayout" name="buttonWidgetLayout">
-         <property name="spacing">
-          <number>15</number>
-         </property>
-         <property name="leftMargin">
-          <number>20</number>
-         </property>
-         <property name="topMargin">
-          <number>20</number>
-         </property>
-         <property name="rightMargin">
-          <number>20</number>
-         </property>
-         <property name="bottomMargin">
-          <number>20</number>
-         </property>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>0</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="cancelButton">
-           <property name="font">
-            <font>
-             <family>Montserrat</family>
-             <pointsize>-1</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Cancel</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="confirmButton">
-           <property name="font">
-            <font>
-             <family>Montserrat</family>
-             <pointsize>-1</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#confirmButton { background-color: #3cb0e5; color: white; border: 1px solid gray; }
-#confirmButton:hover, #confirmButton:pressed { background-color: #1c99d2; } #confirmButton:disabled { background-color: white; color: gray; }</string>
-           </property>
-           <property name="text">
-            <string>OK</string>
-           </property>
-           <property name="default">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="icon">
+         <iconset resource="../bitcoin.qrc">
+          <normaloff>:/icons/material/black/close</normaloff>:/icons/material/black/close</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCustomButton" name="confirmButton">
+        <property name="font">
+         <font>
+          <family>Montserrat</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>Ok</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../bitcoin.qrc">
+          <normaloff>:/icons/material/white/check</normaloff>:/icons/material/white/check</iconset>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
      </layout>
@@ -325,17 +375,28 @@ QPushButton:disabled { background-color: white; color: gray; }</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>QCustomButton</class>
+   <extends>QPushButton</extends>
+   <header>qcustombutton.h</header>
+  </customwidget>
+  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FaderDialog</class>
+   <extends>QWidget</extends>
+   <header>faderdialog.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>labelEdit</tabstop>
   <tabstop>addressEdit</tabstop>
-  <tabstop>cancelButton</tabstop>
-  <tabstop>confirmButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../bitcoin.qrc"/>
+ </resources>
  <connections/>
 </ui>

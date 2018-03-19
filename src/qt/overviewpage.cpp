@@ -37,8 +37,6 @@ public:
         QRect mainRect = option.rect;
         QRect contentRect(mainRect.left() + pad, mainRect.top() + pad / 2, mainRect.width() - 2 * pad, mainRect.height() - pad);
 
-        int halfheight = (contentRect.height() - pad) / 2;
-
         QColor color = option.palette.color(QPalette::Text);
 
         QFont font;
@@ -67,7 +65,7 @@ public:
         QString addressStr = index.data(Qt::DisplayRole).toString();
         QString amountStr = BitcoinUnits::formatWithUnit(unit, amount, true);
 
-        painter->drawText(dateRect, Qt::AlignHCenter|Qt::AlignVCenter, dateStr);
+        painter->drawText(dateRect, Qt::AlignLeft|Qt::AlignVCenter, dateStr);
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, addressStr);
 
         if (fUseBlackTheme)

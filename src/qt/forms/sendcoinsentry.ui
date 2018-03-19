@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>727</width>
-    <height>136</height>
+    <width>756</width>
+    <height>108</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,8 +20,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
-QToolButton { border: none; }</string>
+   <string notr="true">#SendCoinsEntry { background-color: white; }
+QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }</string>
   </property>
   <property name="frameShape">
    <enum>QFrame::NoFrame</enum>
@@ -32,323 +32,305 @@ QToolButton { border: none; }</string>
   <property name="lineWidth">
    <number>0</number>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
-   <property name="spacing">
-    <number>0</number>
-   </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,3,0,1,1">
    <property name="sizeConstraint">
     <enum>QLayout::SetMinimumSize</enum>
    </property>
    <property name="leftMargin">
-    <number>0</number>
+    <number>20</number>
    </property>
    <property name="topMargin">
-    <number>0</number>
+    <number>20</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>20</number>
    </property>
    <property name="bottomMargin">
-    <number>0</number>
+    <number>20</number>
    </property>
-   <item>
-    <widget class="QWidget" name="countWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true">#countWidget { background-color: white; }
-</string>
+   <property name="horizontalSpacing">
+    <number>20</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>15</number>
+   </property>
+   <item row="0" column="2">
+    <widget class="QValidatedLineEdit" name="payTo">
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
      </property>
-     <layout class="QVBoxLayout" name="countWidgetLayout">
+     <property name="font">
+      <font>
+       <family>Open Sans</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>The address to send the payment to (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)</string>
+     </property>
+     <property name="maxLength">
+      <number>34</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="countLabel">
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="margin">
+      <number>5</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LABEL</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="payToLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>PAY TO</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="amountLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>AMOUNT</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="buddy">
+      <cstring>payAmount</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4" colspan="2">
+    <widget class="QValidatedLineEdit" name="addAsLabel">
+     <property name="font">
+      <font>
+       <family>Open Sans</family>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Enter a label for this address to add it to your address book</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QWidget" name="horizontalWidget" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QToolButton { width: 14px; height: 14px; border-width: 2px; }
+
+QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
       <property name="spacing">
        <number>10</number>
       </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>20</number>
+       <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="countLabel">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>28</height>
-         </size>
+       <widget class="QToolButton" name="pasteButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <property name="font">
-         <font>
-          <family>Montserrat</family>
-          <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
+        <property name="toolTip">
+         <string>Paste address from clipboard</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }
+
+#pasteButton { border-image: url(:/icons/material/black/paste) 0 stretch stretch; }
+
+#pasteButton:hover { border-image: url(:/icons/material/blue/paste) 0 stretch stretch; }</string>
         </property>
         <property name="text">
-         <string>1</string>
+         <string/>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
+        <property name="iconSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
         </property>
-        <property name="margin">
-         <number>5</number>
+        <property name="shortcut">
+         <string>Alt+P</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+       <widget class="QToolButton" name="addressBookButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
-        <property name="sizeHint" stdset="0">
+        <property name="toolTip">
+         <string>Choose address from address book</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }
+
+#addressBookButton { border-image: url(:/icons/material/black/people) 0 stretch stretch; }
+
+#addressBookButton:hover { border-image: url(:/icons/material/blue/people) 0 stretch stretch; }</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
          <size>
-          <width>20</width>
-          <height>0</height>
+          <width>18</width>
+          <height>18</height>
          </size>
         </property>
-       </spacer>
+        <property name="shortcut">
+         <string>Alt+A</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="deleteButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Remove this recipient</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }
+
+#deleteButton { border-image: url(:/icons/material/black/close) 0 stretch stretch; }
+
+#deleteButton:hover:enabled { border-image: url(:/icons/material/blue/close) 0 stretch stretch; }</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
-     <property name="spacing">
-      <number>1</number>
+   <item row="1" column="2" colspan="3">
+    <widget class="BitcoinAmountField" name="payAmount">
+     <property name="font">
+      <font>
+       <family>Open Sans</family>
+       <pointsize>12</pointsize>
+      </font>
      </property>
-     <item>
-      <widget class="QWidget" name="recipientWidget" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,3">
-        <property name="spacing">
-         <number>1</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QWidget" name="payeeWidget" native="true">
-          <property name="styleSheet">
-           <string notr="true">#payeeWidget { background-color: white; }</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
-           <property name="spacing">
-            <number>15</number>
-           </property>
-           <property name="leftMargin">
-            <number>20</number>
-           </property>
-           <property name="topMargin">
-            <number>20</number>
-           </property>
-           <property name="rightMargin">
-            <number>20</number>
-           </property>
-           <property name="bottomMargin">
-            <number>20</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="payToLabel">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Montserrat</family>
-               <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>PAY TO</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QValidatedLineEdit" name="payTo">
-             <property name="baseSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Open Sans</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="toolTip">
-              <string>The address to send the payment to (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)</string>
-             </property>
-             <property name="maxLength">
-              <number>34</number>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="labelWidget" native="true">
-          <property name="styleSheet">
-           <string notr="true">#labelWidget { background-color: white; }</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <property name="spacing">
-            <number>15</number>
-           </property>
-           <property name="leftMargin">
-            <number>20</number>
-           </property>
-           <property name="topMargin">
-            <number>20</number>
-           </property>
-           <property name="rightMargin">
-            <number>20</number>
-           </property>
-           <property name="bottomMargin">
-            <number>20</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <family>Montserrat</family>
-               <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>LABEL</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QValidatedLineEdit" name="addAsLabel">
-             <property name="font">
-              <font>
-               <family>Open Sans</family>
-              </font>
-             </property>
-             <property name="toolTip">
-              <string>Enter a label for this address to add it to your address book</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QWidget" name="amountWidget" native="true">
-       <property name="styleSheet">
-        <string notr="true">#amountWidget { background-color: white; }
-</string>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1,0">
-        <property name="spacing">
-         <number>15</number>
-        </property>
-        <property name="leftMargin">
-         <number>20</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <property name="rightMargin">
-         <number>20</number>
-        </property>
-        <property name="bottomMargin">
-         <number>20</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="amountLabel">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Montserrat</family>
-            <pointsize>10</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>AMOUNT</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>payAmount</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="BitcoinAmountField" name="payAmount">
-          <property name="font">
-           <font>
-            <family>Open Sans</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QDoubleSpinBox {
+     <property name="styleSheet">
+      <string notr="true">QDoubleSpinBox {
   border: none;
   height: 24px;
   border-bottom: 2px solid #3cb0e5;
@@ -377,13 +359,13 @@ QDoubleSpinBox::down-button {
 }
 
 QDoubleSpinBox::up-arrow {
-  image: url(:/icons/md/arrow_up);
+  image: url(:/icons/material/black/arrow_up);
   width: 20px;
   height: 20px;
 }
 
 QDoubleSpinBox::down-arrow {
-  image: url(:/icons/md/arrow_down);
+  image: url(:/icons/material/black/arrow_down);
   width: 20px;
   height: 20px;
 }
@@ -419,131 +401,18 @@ QValueComboBox::drop-down {
 }
 
 QValueComboBox::down-arrow {
-  image: url(:/icons/md/arrow_down);
+  image: url(:/icons/material/black/arrow_down);
   width: 20px;
   height: 20px;
 }
 
 QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
-  image: url(:/icons/md/arrow_up);
+  image: url(:/icons/material/black/arrow_up);
   width: 20px;
   height: 20px;
 }</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="horizontalWidget" native="true">
-          <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <property name="spacing">
-            <number>10</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QToolButton" name="pasteButton">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Paste address from clipboard</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/icons/md/paste</normaloff>:/icons/md/paste</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>18</width>
-               <height>18</height>
-              </size>
-             </property>
-             <property name="shortcut">
-              <string>Alt+P</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="addressBookButton">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Choose address from address book</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/icons/md/people</normaloff>:/icons/md/people</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>18</width>
-               <height>18</height>
-              </size>
-             </property>
-             <property name="shortcut">
-              <string>Alt+A</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="deleteButton">
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Remove this recipient</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QToolTip { border: none; padding: 5px; border-radius: 3px; background-color: #3cb0e5; color: white; }</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="../bitcoin.qrc">
-               <normaloff>:/icons/md/close</normaloff>:/icons/md/close</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>18</width>
-               <height>18</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -560,8 +429,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
    <header>qvalidatedlineedit.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../bitcoin.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

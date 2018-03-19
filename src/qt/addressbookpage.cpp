@@ -69,7 +69,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     case TabMode:
         connect(ui->tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(onEditAction()));
         ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        ui->okButton->hide();
+        ui->confirmButton->hide();
         break;
     }
 
@@ -165,7 +165,7 @@ void AddressBookPage::setOptionsModel(OptionsModel *optionsModel)
     this->optionsModel = optionsModel;
 }
 
-void AddressBookPage::on_okButton_clicked()
+void AddressBookPage::on_confirmButton_clicked()
 {
     accept();
 }

@@ -49,7 +49,7 @@ private:
 private slots:
     void on_addButton_clicked();
     void on_clearButton_clicked();
-    void on_sendButton_clicked();
+    void on_confirmButton_clicked();
     void removeEntry(SendCoinsEntry* entry);
     void updateCountLabels();
     void updateDisplayUnit();
