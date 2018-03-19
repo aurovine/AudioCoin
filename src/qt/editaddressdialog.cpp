@@ -1,45 +1,82 @@
 #include "editaddressdialog.h"
 #include "ui_editaddressdialog.h"
 
+#include "base58.h"
 #include "addresstablemodel.h"
 #include "guiutil.h"
+#include "guiconstants.h"
 
 #include <QDataWidgetMapper>
 #include <QMessageBox>
 
 EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::EditAddressDialog), mapper(0), mode(mode), model(0)
 {
     ui->setupUi(this);
+
+#ifdef Q_OS_MAC
+    ui->labelEdit->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    ui->addressEdit->setAttribute(Qt::WA_MacShowFocusRect, 0);
+#endif
+
+#if QT_VERSION >= 0x040700
+    /* Do not move this to the XML file, Qt before 4.7 will choke on it */
+    ui->labelEdit->setPlaceholderText(tr("Address label"));
+    ui->addressEdit->setPlaceholderText(tr("Address"));
+#endif
 
     GUIUtil::setupAddressWidget(ui->addressEdit, this);
 
     switch(mode)
     {
     case NewReceivingAddress:
+        ui->titleLabel->setText(tr("New receiving address"));
         setWindowTitle(tr("New receiving address"));
-        ui->addressEdit->setEnabled(false);
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/plus"));
+        ui->addressEdit->hide();
+        ui->addressLabel->hide();
         break;
     case NewSendingAddress:
+        ui->titleLabel->setText(tr("New sending address"));
         setWindowTitle(tr("New sending address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/plus"));
+        ui->confirmButton->setEnabled(false);
         break;
     case EditReceivingAddress:
+        ui->titleLabel->setText(tr("Edit receiving address"));
         setWindowTitle(tr("Edit receiving address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/edit"));
         ui->addressEdit->setEnabled(false);
         break;
     case EditSendingAddress:
+        ui->titleLabel->setText(tr("Edit sending address"));
+        ui->titleIcon->setPixmap(QPixmap(":/icons/material/white/edit"));
         setWindowTitle(tr("Edit sending address"));
         break;
     }
 
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
+
+    connect(ui->addressEdit, &QLineEdit::textChanged, this, &EditAddressDialog::textChanged);
+    connect(ui->cancelButton, &QPushButton::clicked, this, &EditAddressDialog::reject);
+    connect(ui->confirmButton, &QPushButton::clicked, this, &EditAddressDialog::accept);
 }
 
 EditAddressDialog::~EditAddressDialog()
 {
     delete ui;
+}
+
+void EditAddressDialog::textChanged(const QString &address)
+{
+    if(!model)
+        return;
+
+    bool valid = CBitcoinAddress(address.toStdString()).IsValid();
+    ui->addressEdit->setValid(address.isEmpty() ? true : valid);
+    ui->confirmButton->setEnabled(valid);
 }
 
 void EditAddressDialog::setModel(AddressTableModel *model)
@@ -122,7 +159,7 @@ void EditAddressDialog::accept()
         }
         return;
     }
-    QDialog::accept();
+    done(QDialog::Accepted);
 }
 
 QString EditAddressDialog::getAddress() const

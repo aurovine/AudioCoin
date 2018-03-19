@@ -14,9 +14,6 @@ public:
     explicit QValidatedLineEdit(QWidget *parent = 0);
     void clear();
 
-protected:
-    void focusInEvent(QFocusEvent *evt);
-
 private:
     bool valid;
 

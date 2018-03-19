@@ -5,6 +5,7 @@
 QValidatedLineEdit::QValidatedLineEdit(QWidget *parent) :
     QLineEdit(parent), valid(true)
 {
+    setStyleSheet(INPUT_STYLE);
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(markValid()));
 }
 
@@ -17,20 +18,14 @@ void QValidatedLineEdit::setValid(bool valid)
 
     if(valid)
     {
-        setStyleSheet("");
+        setStyleSheet(INPUT_STYLE);
     }
     else
     {
-        setStyleSheet(STYLE_INVALID);
+        setStyleSheet(INPUT_STYLE_INVALID);
     }
-    this->valid = valid;
-}
 
-void QValidatedLineEdit::focusInEvent(QFocusEvent *evt)
-{
-    // Clear invalid flag on focus
-    setValid(true);
-    QLineEdit::focusInEvent(evt);
+    this->valid = valid;
 }
 
 void QValidatedLineEdit::markValid()

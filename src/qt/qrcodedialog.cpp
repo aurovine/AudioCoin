@@ -22,12 +22,12 @@ QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enabl
     setWindowTitle(QString("%1").arg(address));
 
     ui->chkReqPayment->setVisible(enableReq);
-    ui->lblAmount->setVisible(enableReq);
-    ui->lnReqAmount->setVisible(enableReq);
+    ui->amountLabel->setVisible(enableReq);
+    ui->amount->setVisible(enableReq);
 
-    ui->lnLabel->setText(label);
+    ui->label->setText(label);
 
-    ui->btnSaveAs->setEnabled(false);
+    ui->saveButton->setEnabled(false);
 
     genCode();
 }
@@ -90,30 +90,30 @@ QString QRCodeDialog::getURI()
 
     if (ui->chkReqPayment->isChecked())
     {
-        if (ui->lnReqAmount->validate())
+        if (ui->amount->validate())
         {
-            // even if we allow a non BTC unit input in lnReqAmount, we generate the URI with BTC as unit (as defined in BIP21)
-            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, ui->lnReqAmount->value()));
+            // even if we allow a non BTC unit input in amount, we generate the URI with BTC as unit (as defined in BIP21)
+            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, ui->amount->value()));
             paramCount++;
         }
         else
         {
-            ui->btnSaveAs->setEnabled(false);
+            ui->saveButton->setEnabled(false);
             ui->lblQRCode->setText(tr("The entered amount is invalid, please check."));
             return QString("");
         }
     }
 
-    if (!ui->lnLabel->text().isEmpty())
+    if (!ui->label->text().isEmpty())
     {
-        QString lbl(QUrl::toPercentEncoding(ui->lnLabel->text()));
+        QString lbl(QUrl::toPercentEncoding(ui->label->text()));
         ret += QString("%1label=%2").arg(paramCount == 0 ? "?" : "&").arg(lbl);
         paramCount++;
     }
 
-    if (!ui->lnMessage->text().isEmpty())
+    if (!ui->message->text().isEmpty())
     {
-        QString msg(QUrl::toPercentEncoding(ui->lnMessage->text()));
+        QString msg(QUrl::toPercentEncoding(ui->message->text()));
         ret += QString("%1message=%2").arg(paramCount == 0 ? "?" : "&").arg(msg);
         paramCount++;
     }
@@ -121,31 +121,31 @@ QString QRCodeDialog::getURI()
     // limit URI length to prevent a DoS against the QR-Code dialog
     if (ret.length() > MAX_URI_LENGTH)
     {
-        ui->btnSaveAs->setEnabled(false);
+        ui->saveButton->setEnabled(false);
         ui->lblQRCode->setText(tr("Resulting URI too long, try to reduce the text for label / message."));
         return QString("");
     }
 
-    ui->btnSaveAs->setEnabled(true);
+    ui->saveButton->setEnabled(true);
     return ret;
 }
 
-void QRCodeDialog::on_lnReqAmount_textChanged()
+void QRCodeDialog::on_amount_textChanged()
 {
     genCode();
 }
 
-void QRCodeDialog::on_lnLabel_textChanged()
+void QRCodeDialog::on_label_textChanged()
 {
     genCode();
 }
 
-void QRCodeDialog::on_lnMessage_textChanged()
+void QRCodeDialog::on_message_textChanged()
 {
     genCode();
 }
 
-void QRCodeDialog::on_btnSaveAs_clicked()
+void QRCodeDialog::on_saveButton_clicked()
 {
     QString fn = GUIUtil::getSaveFileName(this, tr("Save QR Code"), QString(), tr("PNG Images (*.png)"));
     if (!fn.isEmpty())
@@ -155,8 +155,8 @@ void QRCodeDialog::on_btnSaveAs_clicked()
 void QRCodeDialog::on_chkReqPayment_toggled(bool fChecked)
 {
     if (!fChecked)
-        // if chkReqPayment is not active, don't display lnReqAmount as invalid
-        ui->lnReqAmount->setValid(true);
+        // if chkReqPayment is not active, don't display amount as invalid
+        ui->amount->setValid(true);
 
     genCode();
 }
@@ -165,7 +165,7 @@ void QRCodeDialog::updateDisplayUnit()
 {
     if (model)
     {
-        // Update lnReqAmount with the current unit
-        ui->lnReqAmount->setDisplayUnit(model->getDisplayUnit());
+        // Update amount with the current unit
+        ui->amount->setDisplayUnit(model->getDisplayUnit());
     }
 }

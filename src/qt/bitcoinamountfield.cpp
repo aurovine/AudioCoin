@@ -17,25 +17,32 @@ BitcoinAmountField::BitcoinAmountField(QWidget *parent):
     amount->setLocale(QLocale::c());
     amount->setDecimals(8);
     amount->installEventFilter(this);
-    amount->setMaximumWidth(170);
-    amount->setSingleStep(0.001);
+    amount->setSingleStep(1.0);
 
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->addWidget(amount);
     unit = new QValueComboBox(this);
     unit->setModel(new BitcoinUnits(this));
+
+    QHBoxLayout *layout = new QHBoxLayout(this);
+
+    layout->addWidget(amount);
     layout->addWidget(unit);
-    layout->addStretch(1);
-    layout->setContentsMargins(0,0,0,0);
+
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setStretch(0, 1);
 
     setLayout(layout);
 
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(amount);
 
+#ifdef Q_OS_MAC
+    amount->setAttribute(Qt::WA_MacShowFocusRect, 0);
+    unit->setAttribute(Qt::WA_MacShowFocusRect, 0);
+#endif
+
     // If one if the widgets changes, the combined content changes as well
-    connect(amount, SIGNAL(valueChanged(QString)), this, SIGNAL(textChanged()));
-    connect(unit, SIGNAL(currentIndexChanged(int)), this, SLOT(unitChanged(int)));
+    connect(amount, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, &BitcoinAmountField::textChanged);
+    connect(unit, static_cast<void (QValueComboBox::*)(int)>(&QValueComboBox::currentIndexChanged), this, &BitcoinAmountField::unitChanged);
 
     // Set default based on configuration
     unitChanged(unit->currentIndex());
@@ -71,9 +78,9 @@ bool BitcoinAmountField::validate()
 void BitcoinAmountField::setValid(bool valid)
 {
     if (valid)
-        amount->setStyleSheet("");
+        amount->setStyleSheet(INPUT_STYLE);
     else
-        amount->setStyleSheet(STYLE_INVALID);
+        amount->setStyleSheet(INPUT_STYLE_INVALID);
 }
 
 QString BitcoinAmountField::text() const
@@ -93,6 +100,9 @@ bool BitcoinAmountField::eventFilter(QObject *object, QEvent *event)
     }
     else if (event->type() == QEvent::KeyPress || event->type() == QEvent::KeyRelease)
     {
+        if (event->type() == QEvent::KeyRelease)
+            emit textChanged();
+
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         if (keyEvent->key() == Qt::Key_Comma)
         {
