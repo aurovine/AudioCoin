@@ -5,6 +5,7 @@
         <file alias="arrow_right">res/icons/material/white/arrow_right.svg</file>
         <file alias="check">res/icons/material/white/check.svg</file>
         <file alias="close">res/icons/material/white/close.svg</file>
+        <file alias="details">res/icons/material/white/details.svg</file>
         <file alias="edit">res/icons/material/white/edit.svg</file>
         <file alias="info">res/icons/material/white/info.svg</file>
         <file alias="plus">res/icons/material/white/plus.svg</file>

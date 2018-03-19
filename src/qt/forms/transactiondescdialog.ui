@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>412</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,6 +31,12 @@
    </property>
    <item>
     <widget class="QWidget" name="titleWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -68,14 +74,17 @@
          <string notr="true">#titleLabel { text-transform: uppercase; font-family: 'Montserrat'; font-size: 14px; font-weight: bold; }</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>TRANSACTION DETAILS</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QLabel" name="titleIcon">
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../bitcoin.qrc">:/icons/material/white/details</pixmap>
         </property>
        </widget>
       </item>
