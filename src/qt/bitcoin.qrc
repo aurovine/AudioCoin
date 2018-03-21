@@ -1,21 +1,60 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/icons/material/white">
+        <file alias="big_dashboard">res/icons/material/white/big_dashboard.svg</file>
+        <file alias="big_send">res/icons/material/white/big_send.svg</file>
+        <file alias="big_receive">res/icons/material/white/big_receive.svg</file>
+        <file alias="big_history">res/icons/material/white/big_history.svg</file>
+        <file alias="big_label">res/icons/material/white/big_label.svg</file>
+        <file alias="big_settings">res/icons/material/white/big_settings.svg</file>
+
+        <file alias="connect_0">res/icons/material/white/connect_0.svg</file>
+        <file alias="connect_1">res/icons/material/white/connect_1.svg</file>
+        <file alias="connect_2">res/icons/material/white/connect_2.svg</file>
+        <file alias="connect_3">res/icons/material/white/connect_3.svg</file>
+        <file alias="connect_4">res/icons/material/white/connect_4.svg</file>
+
+        <file alias="staking_on">res/icons/material/white/staking_on.svg</file>
+        <file alias="staking_off">res/icons/material/white/staking_off.svg</file>
+        <file alias="staking_immature">res/icons/material/white/staking_immature.svg</file>
+        <file alias="sync_disabled">res/icons/material/white/sync_disabled.svg</file>
+        <file alias="synced">res/icons/material/white/synced.svg</file>
+        <file alias="syncing">res/icons/material/white/syncing.svg</file>
+
+        <file alias="transaction_0">res/icons/material/white/transaction_0.svg</file>
+        <file alias="transaction_1">res/icons/material/white/transaction_1.svg</file>
+        <file alias="transaction_2">res/icons/material/white/transaction_2.svg</file>
+        <file alias="transaction_3">res/icons/material/white/transaction_3.svg</file>
+        <file alias="transaction_4">res/icons/material/white/transaction_4.svg</file>
+        <file alias="transaction_5">res/icons/material/white/transaction_5.svg</file>
+        <file alias="transaction_confirmed">res/icons/material/white/transaction_confirmed.svg</file>
+        <file alias="transaction_conflicted">res/icons/material/white/transaction_conflicted.svg</file>
+
         <file alias="arrow_down">res/icons/material/white/arrow_down.svg</file>
         <file alias="arrow_up">res/icons/material/white/arrow_up.svg</file>
         <file alias="arrow_right">res/icons/material/white/arrow_right.svg</file>
         <file alias="check">res/icons/material/white/check.svg</file>
         <file alias="close">res/icons/material/white/close.svg</file>
+        <file alias="paste">res/icons/material/white/paste.svg</file>
+        <file alias="people">res/icons/material/white/people.svg</file>
         <file alias="details">res/icons/material/white/details.svg</file>
         <file alias="edit">res/icons/material/white/edit.svg</file>
         <file alias="info">res/icons/material/white/info.svg</file>
         <file alias="plus">res/icons/material/white/plus.svg</file>
+
         <file alias="lock_open">res/icons/material/white/lock_open.svg</file>
+        <file alias="lock_closed">res/icons/material/white/lock_closed.svg</file>
         <file alias="lock_decrypt">res/icons/material/white/lock_decrypt.svg</file>
         <file alias="lock_encrypt">res/icons/material/white/lock_encrypt.svg</file>
+
         <file alias="key">res/icons/material/white/key.svg</file>
         <file alias="save">res/icons/material/white/save.svg</file>
         <file alias="send">res/icons/material/white/send.svg</file>
         <file alias="qrcode">res/icons/material/white/qrcode.svg</file>
+
+        <file alias="tx_in">res/icons/material/white/tx_in.svg</file>
+        <file alias="tx_out">res/icons/material/white/tx_out.svg</file>
+        <file alias="tx_inout">res/icons/material/white/tx_inout.svg</file>
+        <file alias="tx_staked">res/icons/material/white/tx_staked.svg</file>
     </qresource>
 
     <qresource prefix="/icons/material/black">
@@ -38,6 +77,7 @@
         <file alias="sync_disabled">res/icons/material/black/sync_disabled.svg</file>
         <file alias="synced">res/icons/material/black/synced.svg</file>
         <file alias="syncing">res/icons/material/black/syncing.svg</file>
+
         <file alias="transaction_0">res/icons/material/black/transaction_0.svg</file>
         <file alias="transaction_1">res/icons/material/black/transaction_1.svg</file>
         <file alias="transaction_2">res/icons/material/black/transaction_2.svg</file>
@@ -71,6 +111,11 @@
         <file alias="copy">res/icons/material/blue/copy.svg</file>
         <file alias="people">res/icons/material/blue/people.svg</file>
         <file alias="paste">res/icons/material/blue/paste.svg</file>
+    </qresource>
+
+    <qresource prefix="/qss">
+        <file alias="style_black">res/qss/style_black.qss</file>
+        <file alias="style_white">res/qss/style_white.qss</file>
     </qresource>
 
     <qresource prefix="/fonts">

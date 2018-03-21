@@ -34,11 +34,6 @@
   <property name="windowTitle">
    <string>Passphrase Dialog</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
-
-QLineEdit:disabled { border-color: #899399; }</string>
-  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -168,15 +163,12 @@ QLineEdit:disabled { border-color: #899399; }</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="inputWidget" native="true">
+       <widget class="QThemedPanel" name="inputWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#inputWidget { background-color: white; }</string>
         </property>
         <layout class="QVBoxLayout" name="inputWidgetLayout">
          <property name="spacing">
@@ -363,9 +355,6 @@ QLineEdit:disabled { border-color: #899399; }</string>
           <height>75</height>
          </size>
         </property>
-        <property name="styleSheet">
-         <string notr="true">#buttonWidget { background-color: #092f41; }</string>
-        </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
           <number>2</number>
@@ -467,6 +456,12 @@ QLineEdit:disabled { border-color: #899399; }</string>
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>QCustomButton</class>
    <extends>QPushButton</extends>

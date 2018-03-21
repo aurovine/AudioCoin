@@ -41,13 +41,13 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     switch(tab)
     {
     case SendingTab:
-        ui->title->setText(tr("ADDRESS BOOK"));
+        ui->titleLabel->setText(tr("ADDRESS BOOK"));
         ui->deleteButton->show();
         ui->verifyMessage->show();
         ui->signMessage->hide();
         break;
     case ReceivingTab:
-        ui->title->setText(tr("YOUR ADDRESSES"));
+        ui->titleLabel->setText(tr("YOUR ADDRESSES"));
         ui->helpLabel->setToolTip(tr("These are your Audiocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you."));
         ui->signMessage->show();
         ui->verifyMessage->hide();

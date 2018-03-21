@@ -28,92 +28,6 @@
   <property name="windowTitle">
    <string>Options</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
-QLineEdit:disabled { border-color: #899399; }
-
-QDoubleSpinBox {
-    border: none;
-	height: 24px;
-    border-bottom: 2px solid #3cb0e5;
-    padding: 3px 5px;
-    background: white;
-    outline: none;
-    padding-right: 20px;
-}
-
-QDoubleSpinBox::up-button {
-	subcontrol-origin: margin;
-	subcontrol-position: right top;
-	width: 15px;
-	height: 15px;
-	border: none;
-    padding-top: 2px;
-}
-
-QDoubleSpinBox::down-button {
-	subcontrol-origin: margin;
-	subcontrol-position: right bottom;
-	width: 15px;
-	height: 15px;
-	border: none;
-    padding-bottom: 2px;
-}
-
-QDoubleSpinBox::up-arrow {
-    image: url(:/icons/material/black/arrow_up);
-	width: 20px;
-	height: 20px;
-}
-
-QDoubleSpinBox::down-arrow {
-    image: url(:/icons/material/black/arrow_down);
-    width: 20px;
-    height: 20px;
-}
-
-QValueComboBox {
-    border: none;
-    border-bottom: 2px solid #3cb0e5;
-    padding: 3px 5px;
-    height: 24px;
-    background: white;
-    outline: none;
-    padding-right: 5px;
-    text-align: right;
-    combobox-popup: 0;
-}
-
-QValueComboBox:editable {
-    background: white;
-}
-
-QValueComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 15px;
-}
-
-QValueComboBox::drop-down {
-    subcontrol-origin: margin;
-    subcontrol-position: right center;
-    width: 15px;
-    height: 15px;
-    border: none;
-}
-
-QValueComboBox::down-arrow {
-    image: url(:/icons/material/black/arrow_down);
-	width: 20px;
-	height: 20px;
-}
-
-QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    image: url(:/icons/material/black/arrow_up);
-	width: 20px;
-	height: 20px;
-}</string>
-  </property>
   <property name="modal">
    <bool>false</bool>
   </property>
@@ -159,13 +73,13 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_4">
+     <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
         <width>811</width>
-        <height>719</height>
+        <height>715</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -186,9 +100,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
        </property>
        <item>
         <widget class="QWidget" name="horizontalWidget" native="true">
-         <property name="styleSheet">
-          <string notr="true">#horizontalWidget { background-color: #f3f4f7; }</string>
-         </property>
          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1">
           <property name="spacing">
            <number>10</number>
@@ -224,9 +135,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
             </property>
             <item>
              <widget class="QWidget" name="mainSettingsWidget" native="true">
-              <property name="styleSheet">
-               <string notr="true">#mainSettingsBodyWidget, #mainSettingsTitleWidget { background-color: white; }</string>
-              </property>
               <layout class="QVBoxLayout" name="mainSettingsWidgetLayout" stretch="0,1">
                <property name="spacing">
                 <number>1</number>
@@ -244,7 +152,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 <number>0</number>
                </property>
                <item>
-                <widget class="QWidget" name="mainSettingsTitleWidget" native="true">
+                <widget class="QThemedPanel" name="mainSettingsTitleWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -298,7 +206,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 </widget>
                </item>
                <item>
-                <widget class="QWidget" name="mainSettingsBodyWidget" native="true">
+                <widget class="QThemedPanel" name="mainSettingsBodyWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
                    <horstretch>0</horstretch>
@@ -470,9 +378,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
             </item>
             <item>
              <widget class="QWidget" name="windowSettingsWidget" native="true">
-              <property name="styleSheet">
-               <string notr="true">#windowSettingsBodyWidget, #windowSettingsTitleWidget { background-color: white; }</string>
-              </property>
               <layout class="QVBoxLayout" name="windowSettingsWidgetLayout" stretch="0,1">
                <property name="spacing">
                 <number>1</number>
@@ -490,7 +395,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 <number>0</number>
                </property>
                <item>
-                <widget class="QWidget" name="windowSettingsTitleWidget" native="true">
+                <widget class="QThemedPanel" name="windowSettingsTitleWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -544,7 +449,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 </widget>
                </item>
                <item>
-                <widget class="QWidget" name="windowSettingsBodyWidget" native="true">
+                <widget class="QThemedPanel" name="windowSettingsBodyWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
                    <horstretch>0</horstretch>
@@ -630,9 +535,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
             </property>
             <item>
              <widget class="QWidget" name="networkSettingsWidget" native="true">
-              <property name="styleSheet">
-               <string notr="true">#networkSettingsBodyWidget, #networkSettingsTitleWidget { background-color: white; }</string>
-              </property>
               <layout class="QVBoxLayout" name="networkSettingsWidgetLayout" stretch="0,1">
                <property name="spacing">
                 <number>1</number>
@@ -650,7 +552,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 <number>0</number>
                </property>
                <item>
-                <widget class="QWidget" name="networkSettingsTitleWidget" native="true">
+                <widget class="QThemedPanel" name="networkSettingsTitleWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -701,7 +603,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 </widget>
                </item>
                <item>
-                <widget class="QWidget" name="networkSettingsBodyWidget" native="true">
+                <widget class="QThemedPanel" name="networkSettingsBodyWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
                    <horstretch>0</horstretch>
@@ -882,9 +784,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
             </item>
             <item>
              <widget class="QWidget" name="displaySettingsWidget" native="true">
-              <property name="styleSheet">
-               <string notr="true">#displaySettingsBodyWidget, #displaySettingsTitleWidget { background-color: white; }</string>
-              </property>
               <layout class="QVBoxLayout" name="displaySettingsWidget_2" stretch="0,1">
                <property name="spacing">
                 <number>1</number>
@@ -902,7 +801,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 <number>0</number>
                </property>
                <item>
-                <widget class="QWidget" name="displaySettingsTitleWidget" native="true">
+                <widget class="QThemedPanel" name="displaySettingsTitleWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -956,7 +855,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 </widget>
                </item>
                <item>
-                <widget class="QWidget" name="displaySettingsBodyWidget" native="true">
+                <widget class="QThemedPanel" name="displaySettingsBodyWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
                    <horstretch>0</horstretch>
@@ -1056,7 +955,7 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
                   <item>
                    <widget class="QCheckBox" name="useBlackTheme">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <property name="font">
                      <font>
@@ -1136,9 +1035,6 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
      <property name="mouseTracking">
       <bool>true</bool>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#buttonWidget { background-color: #f3f4f7; }</string>
-     </property>
      <layout class="QHBoxLayout" name="buttonWidgetLayout">
       <property name="spacing">
        <number>-1</number>
@@ -1216,9 +1112,10 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QCustomButton</class>
-   <extends>QPushButton</extends>
-   <header>qcustombutton.h</header>
+   <class>BitcoinAmountField</class>
+   <extends>QSpinBox</extends>
+   <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QValidatedLineEdit</class>
@@ -1226,10 +1123,15 @@ QValueComboBox::down-arrow:on { /* shift the arrow when popup is open */
    <header>qvalidatedlineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>BitcoinAmountField</class>
-   <extends>QSpinBox</extends>
-   <header>bitcoinamountfield.h</header>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QCustomButton</class>
+   <extends>QPushButton</extends>
+   <header>qcustombutton.h</header>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>

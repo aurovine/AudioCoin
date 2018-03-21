@@ -5,6 +5,7 @@
 #include "addresstablemodel.h"
 #include "guiutil.h"
 #include "guiconstants.h"
+#include "optionsmodel.h"
 
 #include <QDataWidgetMapper>
 #include <QMessageBox>
@@ -62,6 +63,13 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     connect(ui->addressEdit, &QLineEdit::textChanged, this, &EditAddressDialog::textChanged);
     connect(ui->cancelButton, &QPushButton::clicked, this, &EditAddressDialog::reject);
     connect(ui->confirmButton, &QPushButton::clicked, this, &EditAddressDialog::accept);
+
+    if (fUseBlackTheme)
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #212121; }");
+    else
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #092f41; }");
+
+    ui->cancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
 }
 
 EditAddressDialog::~EditAddressDialog()

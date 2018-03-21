@@ -13,60 +13,6 @@
   <property name="windowTitle">
    <string>Coin Control</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#CoinControlDialog { background-color: #f3f4f7; }
-
-#buttonWidget { background-color: #f3f4f7; }
-
-QTreeWidget::item {
-	border: 0;
-	padding: 2px 5px;
-}
-
-QTreeWidget::branch:selected, QTreeWidget::item:selected {
-	background-color: #3cb0e5;
-}
-
-QTreeView::branch:has-children:!has-siblings:closed,
-QTreeView::branch:closed:has-children:has-siblings {
-        border-image: none;
-        image: url(:/icons/material/black/arrow_right);
-}
-
-QTreeView::branch:selected:has-children:!has-siblings:closed,
-QTreeView::branch:selected:closed:has-children:has-siblings {
-        border-image: none;
-        image: url(:/icons/material/black/arrow_right);
-}
-
-QTreeView::branch:open:has-children:!has-siblings,
-QTreeView::branch:open:has-children:has-siblings  {
-        border-image: none;
-        image: url(:/icons/material/black/arrow_down);
-}
-
-QTreeView::branch:selected:open:has-children:!has-siblings,
-QTreeView::branch:selected:open:has-children:has-siblings  {
-        border-image: none;
-        image: url(:/icons/material/black/arrow_down);
-}
-
-QHeaderView::section {
-	font-family: 'Montserrat';
-	font-size: 10px;
-	text-transform: uppercase;
-	padding: 5px 10px;
-	border: none;
-}
-
-QHeaderView::down_arrow {
-	image: url(:/icons/material/black/arrow_down);
-}
-
-QHeaderView::up_arrow {
-	image: url(:/icons/material/black/arrow_up);
-}</string>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
@@ -87,7 +33,7 @@ QHeaderView::up_arrow {
     <widget class="QWidget" name="verticalWidget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="spacing">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="leftMargin">
        <number>20</number>
@@ -103,9 +49,6 @@ QHeaderView::up_arrow {
       </property>
       <item>
        <widget class="QWidget" name="header" native="true">
-        <property name="styleSheet">
-         <string notr="true">#titleWidget, #detailWidget { background-color: white; }</string>
-        </property>
         <layout class="QVBoxLayout" name="headerLayout">
          <property name="spacing">
           <number>1</number>
@@ -123,7 +66,7 @@ QHeaderView::up_arrow {
           <number>0</number>
          </property>
          <item>
-          <widget class="QWidget" name="titleWidget" native="true">
+          <widget class="QThemedPanel" name="titleWidget" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -199,10 +142,7 @@ QHeaderView::up_arrow {
              <number>0</number>
             </property>
             <item>
-             <widget class="QWidget" name="coinControl_1" native="true">
-              <property name="styleSheet">
-               <string notr="true">background-color: white;</string>
-              </property>
+             <widget class="QThemedPanel" name="coinControl_1" native="true">
               <layout class="QFormLayout" name="formLayoutCoinControl1">
                <property name="labelAlignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -318,10 +258,7 @@ QHeaderView::up_arrow {
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="coinControl_2" native="true">
-              <property name="styleSheet">
-               <string notr="true">background-color: white;</string>
-              </property>
+             <widget class="QThemedPanel" name="coinControl_2" native="true">
               <layout class="QFormLayout" name="formLayoutCoinControl2">
                <property name="labelAlignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -437,10 +374,7 @@ QHeaderView::up_arrow {
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="coinControl_3" native="true">
-              <property name="styleSheet">
-               <string notr="true">background-color: white;</string>
-              </property>
+             <widget class="QThemedPanel" name="coinControl_3" native="true">
               <layout class="QFormLayout" name="formLayoutCoinControl3">
                <property name="labelAlignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -562,10 +496,7 @@ QHeaderView::up_arrow {
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="coinControl_4" native="true">
-              <property name="styleSheet">
-               <string notr="true">background-color: white;</string>
-              </property>
+             <widget class="QThemedPanel" name="coinControl_4" native="true">
               <layout class="QFormLayout" name="formLayoutCoinControl4">
                <property name="labelAlignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -699,13 +630,13 @@ QHeaderView::up_arrow {
           <number>15</number>
          </property>
          <property name="leftMargin">
-          <number>20</number>
+          <number>0</number>
          </property>
          <property name="topMargin">
           <number>20</number>
          </property>
          <property name="rightMargin">
-          <number>20</number>
+          <number>0</number>
          </property>
          <property name="bottomMargin">
           <number>20</number>
@@ -1015,6 +946,12 @@ QHeaderView::up_arrow {
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>QCustomButton</class>
    <extends>QPushButton</extends>

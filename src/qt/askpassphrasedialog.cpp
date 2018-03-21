@@ -3,6 +3,7 @@
 
 #include "guiconstants.h"
 #include "walletmodel.h"
+#include "optionsmodel.h"
 
 #include <QMessageBox>
 #include <QPushButton>
@@ -107,6 +108,13 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
     
     connect(ui->confirmButton, SIGNAL(clicked()), this, SLOT(accept()));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+
+    if (fUseBlackTheme)
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #212121; }");
+    else
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #092f41; }");
+
+    ui->cancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
 }
 
 AskPassphraseDialog::~AskPassphraseDialog()

@@ -241,7 +241,9 @@ int main(int argc, char *argv[])
 
     try
     {
-        if (fUseBlackTheme)
+        if (!fUseBlackTheme)
+            GUIUtil::SetWhiteThemeQSS(app);
+        else
             GUIUtil::SetBlackThemeQSS(app);
 
         // Regenerate startup link, to fix links to old versions

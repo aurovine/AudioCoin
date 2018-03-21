@@ -91,6 +91,11 @@ SettingsPage::SettingsPage(QWidget *parent) :
     connect(mapper, SIGNAL(currentIndexChanged(int)), this, SLOT(disableConfirmButton()));
     /* setup/change UI elements when proxy IP is invalid/valid */
     // connect(this, SIGNAL(proxyIpValid(QValidatedLineEdit *, bool)), this, SLOT(handleProxyIpValid(QValidatedLineEdit *, bool)));
+
+    if (fUseBlackTheme)
+        ui->scrollAreaWidgetContents->setStyleSheet("#scrollAreaWidgetContents { background-color: #212121; }");
+    else
+        ui->scrollAreaWidgetContents->setStyleSheet("#scrollAreaWidgetContents { background-color: #f3f4f7; }");
 }
 
 SettingsPage::~SettingsPage()

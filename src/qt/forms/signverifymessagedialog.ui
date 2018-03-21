@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>1311</height>
+    <height>1306</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -33,14 +33,6 @@
   </property>
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">QLineEdit { border: none; border-bottom: 2px solid #3cb0e5; padding: 3px 5px; background: transparent; }
-QLineEdit:disabled { border-color: #899399; }
-
-QToolButton { width: 14px; height: 14px; border-width: 2px; }
-
-QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -195,15 +187,12 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="signBodyWidget" native="true">
+       <widget class="QThemedPanel" name="signBodyWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#signBodyWidget { background-color: white; }</string>
         </property>
         <layout class="QVBoxLayout" name="signBodyWidgetLayout">
          <property name="spacing">
@@ -260,11 +249,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
              <property name="toolTip">
               <string>Choose an address from the address book</string>
              </property>
-             <property name="styleSheet">
-              <string notr="true">#addressBookButton_SM { border-image: url(:/icons/material/black/people) 0 stretch stretch; }
-
-#addressBookButton_SM:hover { border-image: url(:/icons/material/blue/people) 0 stretch stretch; }</string>
-             </property>
              <property name="text">
               <string/>
              </property>
@@ -277,11 +261,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
             <widget class="QToolButton" name="pasteButton_SM">
              <property name="toolTip">
               <string>Paste address from clipboard</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#pasteButton_SM { border-image: url(:/icons/material/black/paste) 0 stretch stretch; }
-
-#pasteButton_SM:hover { border-image: url(:/icons/material/blue/paste) 0 stretch stretch; }</string>
              </property>
              <property name="text">
               <string/>
@@ -322,11 +301,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
              <property name="toolTip">
               <string>Copy the current signature to the system clipboard</string>
              </property>
-             <property name="styleSheet">
-              <string notr="true">#copySignatureButton_SM { border-image: url(:/icons/material/black/copy) 0 stretch stretch; }
-
-#copySignatureButton_SM:hover { border-image: url(:/icons/material/blue/copy) 0 stretch stretch; }</string>
-             </property>
              <property name="text">
               <string/>
              </property>
@@ -356,9 +330,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
           <width>16777215</width>
           <height>75</height>
          </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#signButtonWidget { background-color: #092f41; }</string>
         </property>
         <layout class="QHBoxLayout" name="signButtonWidgetLayout">
          <property name="spacing">
@@ -573,15 +544,12 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="verifyBodyWidget" native="true">
+       <widget class="QThemedPanel" name="verifyBodyWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#verifyBodyWidget { background-color: white; }</string>
         </property>
         <layout class="QVBoxLayout" name="verifyBodyWidgetLayout">
          <property name="spacing">
@@ -641,11 +609,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
              <property name="toolTip">
               <string>Choose an address from the address book</string>
              </property>
-             <property name="styleSheet">
-              <string notr="true">#addressBookButton_VM { border-image: url(:/icons/material/black/people) 0 stretch stretch; }
-
-#addressBookButton_VM:hover { border-image: url(:/icons/material/blue/people) 0 stretch stretch; }</string>
-             </property>
              <property name="text">
               <string/>
              </property>
@@ -684,9 +647,6 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
           <width>16777215</width>
           <height>75</height>
          </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">#verifyButtonWidget { background-color: #092f41; }</string>
         </property>
         <layout class="QHBoxLayout" name="verifyButtonWidgetLayout">
          <property name="spacing">
@@ -774,6 +734,12 @@ QToolButton:pressed { border-top-width: 3px; border-bottom-width: 1px; }</string
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QCustomButton</class>

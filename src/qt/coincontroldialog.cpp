@@ -129,6 +129,14 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
 
     // default view is sorted by amount desc
     sortView(COLUMN_AMOUNT_INT64, Qt::DescendingOrder);
+
+    if (fUseBlackTheme)
+        setStyleSheet("#CoinControlDialog { background-color: #212121; }");
+    else {
+        setStyleSheet("#CoinControlDialog { background-color: #f3f4f7; }");
+    }
+
+    ui->cancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
 }
 
 CoinControlDialog::~CoinControlDialog()

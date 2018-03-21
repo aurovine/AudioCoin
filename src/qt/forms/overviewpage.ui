@@ -13,48 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#OverviewPage { background-color: #f3f4f7; }
-
-QComboBox {
-	border: none;
-	border-bottom: 2px solid #3cb0e5;
-	padding: 0;
-	background: white;
-	outline: none;
-} 
-
-QComboBox {
-	border: none;
-	padding-right: 5px;
-	text-align: right;
-}
-
-QComboBox:editable {
-	background: white;
-}
-
-QComboBox:on {
-	padding-top: 3px;
-	padding-left: 4px;
-	padding-right: 15px;
-}
-
-QComboBox::drop-down {
-	subcontrol-origin: padding;
-	subcontrol-position: top right;
-	width: 15px;
-	border: none;
-}
-
-QComboBox::down-arrow {
-	image: url(:/icons/material/black/arrow_down);
-}
-
-QComboBox::down-arrow:on {
-	image: url(:/icons/material/black/arrow_up);
-}</string>
-  </property>
   <layout class="QVBoxLayout" name="topLayout" stretch="1,0">
    <property name="spacing">
     <number>0</number>
@@ -125,9 +83,6 @@ QComboBox::down-arrow:on {
         </property>
         <item>
          <widget class="QWidget" name="totalBalance" native="true">
-          <property name="styleSheet">
-           <string notr="true">#totalBalanceTitle, #totalBalanceBody { background-color: white; }</string>
-          </property>
           <layout class="QVBoxLayout" name="totalBalanceLayout" stretch="0,1">
            <property name="spacing">
             <number>1</number>
@@ -145,7 +100,7 @@ QComboBox::down-arrow:on {
             <number>0</number>
            </property>
            <item>
-            <widget class="QWidget" name="totalBalanceTitle" native="true">
+            <widget class="QThemedPanel" name="totalBalanceTitle" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                <horstretch>0</horstretch>
@@ -250,7 +205,7 @@ QComboBox::down-arrow:on {
             </widget>
            </item>
            <item>
-            <widget class="QWidget" name="totalBalanceBody" native="true">
+            <widget class="QThemedPanel" name="totalBalanceBody" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                <horstretch>0</horstretch>
@@ -308,9 +263,6 @@ QComboBox::down-arrow:on {
         </item>
         <item>
          <widget class="QWidget" name="balance" native="true">
-          <property name="styleSheet">
-           <string notr="true">#balanceTitle, #balanceBody { background-color: white; }</string>
-          </property>
           <layout class="QVBoxLayout" name="balanceLayout" stretch="0,1">
            <property name="spacing">
             <number>1</number>
@@ -328,7 +280,7 @@ QComboBox::down-arrow:on {
             <number>0</number>
            </property>
            <item>
-            <widget class="QWidget" name="balanceTitle" native="true">
+            <widget class="QThemedPanel" name="balanceTitle" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                <horstretch>0</horstretch>
@@ -424,7 +376,7 @@ QComboBox::down-arrow:on {
             </widget>
            </item>
            <item>
-            <widget class="QWidget" name="balanceBody" native="true">
+            <widget class="QThemedPanel" name="balanceBody" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -483,9 +435,6 @@ QComboBox::down-arrow:on {
                   <property name="toolTip">
                    <string>Your current spendable balance</string>
                   </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel { color: #757575; }</string>
-                  </property>
                   <property name="text">
                    <string notr="true">0 ADC</string>
                   </property>
@@ -538,9 +487,6 @@ QComboBox::down-arrow:on {
                   <property name="toolTip">
                    <string>Total of coins that was staked, and do not yet count toward the current balance</string>
                   </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel { color: #757575; }</string>
-                  </property>
                   <property name="text">
                    <string notr="true">0 ADC</string>
                   </property>
@@ -592,9 +538,6 @@ QComboBox::down-arrow:on {
                   </property>
                   <property name="toolTip">
                    <string>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</string>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel { color: #757575; }</string>
                   </property>
                   <property name="text">
                    <string notr="true">0 ADC</string>
@@ -669,9 +612,6 @@ QComboBox::down-arrow:on {
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="styleSheet">
-           <string notr="true">#recentTransactionsTitle, #recentTransactionsBody, #scrollAreaContents, #listTransactions { background-color: white; }</string>
-          </property>
           <layout class="QVBoxLayout" name="recentTransactionsLayout" stretch="0,1">
            <property name="spacing">
             <number>1</number>
@@ -689,7 +629,7 @@ QComboBox::down-arrow:on {
             <number>0</number>
            </property>
            <item>
-            <widget class="QWidget" name="recentTransactionsTitle" native="true">
+            <widget class="QThemedPanel" name="recentTransactionsTitle" native="true">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -775,58 +715,12 @@ QComboBox::down-arrow:on {
                </spacer>
               </item>
               <item>
-               <widget class="QComboBox" name="transactionCountSelect">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+               <widget class="QValueComboBox" name="transactionCountSelect">
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="focusPolicy">
                  <enum>Qt::NoFocus</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    border: none;
-    border-bottom: 2px solid #3cb0e5;
-    padding: 3px 0;
-    background: white;
-    outline: none;
-}
-
-QComboBox {
-    border: none;
-    padding-right: 5px;
-    text-align: right;
-}
-
-QComboBox:editable {
-    background: white;
-}
-
-QComboBox:on { /* shift the text when the popup opens */
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 15px;
-}
-
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border: none;
-}
-
-QComboBox::down-arrow {
-    image: url(:/icons/material/black/arrow_down);
-}
-
-QComboBox::down-arrow:on { /* shift the arrow when popup is open */
-    image: url(:/icons/material/black/arrow_up);
-}</string>
                 </property>
                 <property name="editable">
                  <bool>true</bool>
@@ -868,7 +762,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
             </widget>
            </item>
            <item>
-            <widget class="QWidget" name="recentTransactionsBody" native="true">
+            <widget class="QThemedPanel" name="recentTransactionsBody" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
@@ -914,7 +808,7 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
                 <property name="widgetResizable">
                  <bool>true</bool>
                 </property>
-                <widget class="QWidget" name="scrollAreaContents">
+                <widget class="QThemedPanel" name="scrollAreaContents">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
@@ -997,6 +891,19 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qvaluecombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

@@ -1,6 +1,7 @@
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
 #include "clientmodel.h"
+#include "optionsmodel.h"
 
 #include "version.h"
 
@@ -11,6 +12,11 @@ AboutDialog::AboutDialog(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->confirmButton, SIGNAL(clicked()), this, SLOT(accept()));
+
+    if (fUseBlackTheme)
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #212121; }");
+    else
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #092f41; }");
 }
 
 void AboutDialog::setModel(ClientModel *model)
