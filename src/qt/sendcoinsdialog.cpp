@@ -41,7 +41,6 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->lineEditCoinControlChange->setPlaceholderText(tr("Audiocoin address (e.g. AeAiLyyJHVZEi92rzk3HjSRWRAUDGeLXWf)"));
 #endif
 
-    setStyleSheet(INPUT_STYLE);
     addEntry();
 
     QScrollBar *scrollBar = ui->scrollArea->verticalScrollBar();
@@ -82,6 +81,11 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->labelCoinControlChange->addAction(clipboardChangeAction);
 
     fNewRecipientAllowed = true;
+
+    if (fUseBlackTheme)
+        ui->scrollAreaWidgetContents->setStyleSheet("#scrollAreaWidgetContents { background-color: #212121; }");
+    else
+        ui->scrollAreaWidgetContents->setStyleSheet("#scrollAreaWidgetContents { background-color: #f3f4f7; }");
 }
 
 void SendCoinsDialog::setModel(WalletModel *model)
@@ -107,7 +111,7 @@ void SendCoinsDialog::setModel(WalletModel *model)
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(coinControlUpdateLabels()));
         connect(model->getOptionsModel(), SIGNAL(coinControlFeaturesChanged(bool)), this, SLOT(coinControlFeatureChanged(bool)));
         connect(model->getOptionsModel(), SIGNAL(transactionFeeChanged(qint64)), this, SLOT(coinControlUpdateLabels()));
-        ui->coinControlFrame->setVisible(model->getOptionsModel()->getCoinControlFeatures());
+        ui->coinControlWidget->setVisible(model->getOptionsModel()->getCoinControlFeatures());
         ui->pushButtonCoinControl->setVisible(model->getOptionsModel()->getCoinControlFeatures());
         coinControlUpdateLabels();
     }
@@ -454,7 +458,7 @@ void SendCoinsDialog::coinControlClipboardChange()
 // Coin Control: settings menu - coin control enabled/disabled by user
 void SendCoinsDialog::coinControlFeatureChanged(bool checked)
 {
-    ui->coinControlFrame->setVisible(checked);
+    ui->coinControlWidget->setVisible(checked);
     ui->pushButtonCoinControl->setVisible(checked);
 
     if (!checked && model) // coin control features disabled
@@ -494,17 +498,17 @@ void SendCoinsDialog::coinControlChangeEdited(const QString & text)
         CoinControlDialog::coinControl->destChange = CBitcoinAddress(text.toStdString()).Get();
 
         if (text.isEmpty()) {
-            ui->lineEditCoinControlChange->setStyleSheet(INPUT_STYLE);
+            ui->lineEditCoinControlChange->setValid(false);
             ui->labelCoinControlChangeLabel->setText("");
         }
         else if (!CBitcoinAddress(text.toStdString()).IsValid())
         {
-            ui->lineEditCoinControlChange->setStyleSheet(INPUT_STYLE_INVALID);
+            ui->lineEditCoinControlChange->setValid(false);
             ui->labelCoinControlChangeLabel->setText(tr("change address: invalid"));
         }
         else
         {
-            ui->lineEditCoinControlChange->setStyleSheet(INPUT_STYLE);
+            ui->lineEditCoinControlChange->setValid(true);
             QString associatedLabel = model->getAddressTableModel()->labelForAddress(text);
             if (!associatedLabel.isEmpty())
             {

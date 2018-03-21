@@ -81,6 +81,18 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(Mode mode, QString addr, QWidge
 
     connect(ui->signCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
     connect(ui->verifyCancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+
+    if (fUseBlackTheme) {
+        ui->signButtonWidget->setStyleSheet("#signButtonWidget { background-color: #212121; }");
+        ui->verifyButtonWidget->setStyleSheet("#signButtonWidget { background-color: #212121; }");
+    }
+    else {
+        ui->signButtonWidget->setStyleSheet("#verifyButtonWidget { background-color: #092f41; }");
+        ui->verifyButtonWidget->setStyleSheet("#verifyButtonWidget { background-color: #092f41; }");
+    }
+
+    ui->signCancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
+    ui->verifyCancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
 }
 
 SignVerifyMessageDialog::~SignVerifyMessageDialog()

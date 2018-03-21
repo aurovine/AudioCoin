@@ -146,9 +146,6 @@
    </item>
    <item>
     <widget class="QWidget" name="bodyWidget" native="true">
-     <property name="styleSheet">
-      <string notr="true">#bodyWidget { background-color: white; }</string>
-     </property>
      <layout class="QVBoxLayout" name="bodyWidgetLayout">
       <property name="spacing">
        <number>0</number>
@@ -166,7 +163,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="inputWidget" native="true">
+       <widget class="QThemedPanel" name="inputWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -301,9 +298,6 @@
        <height>75</height>
       </size>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#buttonWidget { background-color: #092f41; }</string>
-     </property>
      <layout class="QHBoxLayout" name="buttonWidgetLayout">
       <property name="spacing">
        <number>2</number>
@@ -375,14 +369,20 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QCustomButton</class>
-   <extends>QPushButton</extends>
-   <header>qcustombutton.h</header>
-  </customwidget>
-  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QThemedPanel</class>
+   <extends>QWidget</extends>
+   <header>qthemedpanel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QCustomButton</class>
+   <extends>QPushButton</extends>
+   <header>qcustombutton.h</header>
   </customwidget>
   <customwidget>
    <class>FaderDialog</class>

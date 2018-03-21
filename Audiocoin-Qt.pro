@@ -229,6 +229,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/tinyformat.h \
     src/qt/qcustombutton.h \
+    src/qt/qthemedpanel.h \
     src/qt/faderdialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
@@ -308,6 +309,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
     src/qt/qcustombutton.cpp \
+    src/qt/qthemedpanel.cpp \
     src/qt/faderdialog.cpp
 
 RESOURCES += \

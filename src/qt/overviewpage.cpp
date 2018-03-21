@@ -58,7 +58,7 @@ public:
         QIcon icon = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
         icon.paint(painter, txTypeRect);
 
-        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : QColor(75, 75, 75));
+        painter->setPen(fUseBlackTheme ? QColor(Qt::white) : QColor(21, 21, 21));
         // painter->drawText(txTypeRect, Qt::AlignHCenter|Qt::AlignVCenter, qvariant_cast<QString>(index.data(TransactionTableModel::TransactionType)));
 
         QString dateStr = GUIUtil::dateTimeStr(index.data(TransactionTableModel::DateRole).toDateTime());
@@ -77,9 +77,14 @@ public:
             painter->setPen(COLOR_UNCONFIRMED);
             amountStr = QString("[") + amountStr + QString("]");
         }
-        else if (amount < 0)
+
+        if (amount < 0)
         {
             painter->setPen(COLOR_NEGATIVE);
+        }
+        else if (amount > 0)
+        {
+            painter->setPen(COLOR_POSITIVE);
         }
         
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, amountStr);
@@ -138,7 +143,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     if (fUseBlackTheme)
     {
-        const char* whiteLabelQSS = "QLabel { color: rgb(255,255,255); }";
+        const char *whiteLabelQSS = "QLabel { color: rgb(255,255,255); }";
         ui->labelSpendableAmount->setStyleSheet(whiteLabelQSS);
         ui->labelStakeAmount->setStyleSheet(whiteLabelQSS);
         ui->labelUnconfirmedAmount->setStyleSheet(whiteLabelQSS);

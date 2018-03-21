@@ -30,6 +30,11 @@ QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enabl
     ui->saveButton->setEnabled(false);
 
     genCode();
+
+    if (fUseBlackTheme)
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #212121; }");
+    else
+        ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #092f41; }");
 }
 
 QRCodeDialog::~QRCodeDialog()

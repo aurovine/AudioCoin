@@ -117,6 +117,7 @@ namespace GUIUtil
     };
 
     void SetBlackThemeQSS(QApplication& app);
+    void SetWhiteThemeQSS(QApplication& app);
 
 } // namespace GUIUtil
 

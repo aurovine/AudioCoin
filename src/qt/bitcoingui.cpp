@@ -100,7 +100,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     //setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
-    qApp->setStyleSheet(TOOLTIP_STYLE);
+
     // Accept D&D of URIs
     setAcceptDrops(true);
 
@@ -140,8 +140,12 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QVBoxLayout *centralLayout = new QVBoxLayout(centralWidget);
 
     centralWidget->setObjectName(QStringLiteral("centralLayout"));
-    centralWidget->setStyleSheet("QWidget#centralLayout { background-color: #f3f4f7; }");
-    
+
+    if (fUseBlackTheme)
+        centralWidget->setStyleSheet("QWidget#centralLayout { background-color: #212121; }");
+    else
+        centralWidget->setStyleSheet("QWidget#centralLayout { background-color: #f3f4f7; }");
+
     centralLayout->setContentsMargins(0, 0, 0, 0);
     centralLayout->setSpacing(0);
 
@@ -193,17 +197,18 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     progressBar->setAlignment(Qt::AlignCenter);
     progressBar->setVisible(false);
 
-    if (!fUseBlackTheme)
-    {
+    // if (!fUseBlackTheme)
+    // {
         // Override style sheet for progress bar for styles that have a segmented progress bar,
         // as they make the text unreadable (workaround for issue #1071)
         // See https://qt-project.org/doc/qt-4.8/gallery.html
-        QString curStyle = qApp->style()->metaObject()->className();
-        if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
-        {
-            progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
-        }
-    }
+
+    //     QString curStyle = qApp->style()->metaObject()->className();
+    //     if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
+    //     {
+    //         progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
+    //     }
+    // }
 
     statusBar()->addWidget(progressBarLabel);
     statusBar()->addWidget(progressBar);
@@ -243,37 +248,37 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(QIcon(":/icons/material/black/big_dashboard"), tr("&DASHBOARD"), this);
+    overviewAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_dashboard" : ":/icons/material/black/big_dashboard"), tr("&DASHBOARD"), this);
     overviewAction->setToolTip(tr("Show dashboard of wallet"));
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    receiveCoinsAction = new QAction(QIcon(":/icons/material/black/big_receive"), tr("&RECEIVE"), this);
+    receiveCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_receive" : ":/icons/material/black/big_receive"), tr("&RECEIVE"), this);
     receiveCoinsAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(receiveCoinsAction);
 
-    sendCoinsAction = new QAction(QIcon(":/icons/material/black/big_send"), tr("&SEND"), this);
+    sendCoinsAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_send" : ":/icons/material/black/big_send"), tr("&SEND"), this);
     sendCoinsAction->setToolTip(tr("Send coins to a Audiocoin address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(sendCoinsAction);
 
-    historyAction = new QAction(QIcon(":/icons/material/black/big_history"), tr("&TRANSACTIONS"), this);
+    historyAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_history" : ":/icons/material/black/big_history"), tr("&TRANSACTIONS"), this);
     historyAction->setToolTip(tr("Browse transaction history"));
     historyAction->setCheckable(true);
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
-    addressBookAction = new QAction(QIcon(":/icons/material/black/big_label"), tr("&ADDRESS BOOK"), this);
+    addressBookAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_label" : ":/icons/material/black/big_label"), tr("&ADDRESS BOOK"), this);
     addressBookAction->setToolTip(tr("Edit the list of stored addresses and labels"));
     addressBookAction->setCheckable(true);
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    settingsPageAction = new QAction(QIcon(":/icons/material/black/big_settings"), tr("&SETTINGS"), this);
+    settingsPageAction = new QAction(QIcon(fUseBlackTheme ? ":/icons/material/white/big_settings" : ":/icons/material/black/big_settings"), tr("&SETTINGS"), this);
     settingsPageAction->setToolTip(tr("Edit settings"));
     settingsPageAction->setCheckable(true);
     settingsPageAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
@@ -394,19 +399,17 @@ void BitcoinGUI::createToolBars()
 {
     toolbar = new QToolBar(tr("Tabs toolbar"));
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu);
-    toolbar->setStyleSheet("QToolBar { padding: 0; margin: 0; } QToolButton { padding-bottom: 20px; font-family: 'Montserrat'; font-size: 10px; }");
     toolbar->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
 
-    if (fUseBlackTheme)
-    {
-        QWidget* header = new QWidget();
-        header->setMinimumSize(160, 116);
-        header->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        header->setStyleSheet("QWidget { background-color: rgb(24,26,30); background-repeat: no-repeat; background-image: url(:/images/header); background-position: top center; }");
-        toolbar->addWidget(header);
-        toolbar->addWidget(makeToolBarSpacer());
-    }
-
+    // if (fUseBlackTheme)
+    // {
+    //     QWidget* header = new QWidget();
+    //     header->setMinimumSize(160, 116);
+    //     header->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    //     header->setStyleSheet("QWidget { background-color: rgb(24,26,30); background-repeat: no-repeat; background-image: url(:/images/header); background-position: top center; }");
+    //     toolbar->addWidget(header);
+    //     toolbar->addWidget(makeToolBarSpacer());
+    // }
 
     QToolButton *overviewButton = new QToolButton();
     overviewButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
