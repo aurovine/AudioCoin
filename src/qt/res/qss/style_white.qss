@@ -179,10 +179,6 @@ QDoubleSpinBox::up-arrow {
   height: 12px;
 }
 
-QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
-  color: #212121;
-}
-
 QComboBox, QValueComboBox {
   border: none;
   color: #212121;
@@ -211,9 +207,13 @@ QComboBox::drop-down, QValueComboBox::drop-down {
   height: 12px;
 }
 
-QValueComboBox QAbstractItemView {
+QComboBox QAbstractItemView, QValueComboBox QAbstractItemView {
   border: 1px solid lightgray;
   background-color: white;
+}
+
+QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
+  color: #212121;
 }
 
 QDoubleSpinBox::down-arrow, QComboBox::down-arrow, QValueComboBox::down-arrow {
