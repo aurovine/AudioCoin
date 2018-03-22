@@ -81,13 +81,16 @@ void QRCodeDialog::genCode()
             return;
         }
         myImage = QImage(code->width + 8, code->width + 8, QImage::Format_RGB32);
-        myImage.fill(0xffffff);
+        myImage.fill(fUseBlackTheme ? 0x292c30 : 0xffffff);
         unsigned char *p = code->data;
         for (int y = 0; y < code->width; y++)
         {
             for (int x = 0; x < code->width; x++)
             {
-                myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0x0 : 0xffffff));
+                if (fUseBlackTheme)
+                    myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0xffffff : 0x292c30));
+                else
+                    myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0x0 : 0xffffff));
                 p++;
             }
         }
