@@ -68,23 +68,21 @@ public:
         painter->drawText(dateRect, Qt::AlignLeft|Qt::AlignVCenter, dateStr);
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, addressStr);
 
-        if (fUseBlackTheme)
+        if (confirmed)
         {
-            painter->setPen(Qt::white);
+            if (amount < 0)
+            {
+                painter->setPen(COLOR_NEGATIVE);
+            }
+            else if (amount > 0)
+            {
+                painter->setPen(COLOR_POSITIVE);
+            }            
         }
-        else if (!confirmed)
+        else 
         {
-            painter->setPen(COLOR_UNCONFIRMED);
+            painter->setPen(fUseBlackTheme ? QColor(Qt::white) : COLOR_UNCONFIRMED);
             amountStr = QString("[") + amountStr + QString("]");
-        }
-
-        if (amount < 0)
-        {
-            painter->setPen(COLOR_NEGATIVE);
-        }
-        else if (amount > 0)
-        {
-            painter->setPen(COLOR_POSITIVE);
         }
         
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, amountStr);
