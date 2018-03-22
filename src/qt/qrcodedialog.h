@@ -1,6 +1,8 @@
 #ifndef QRCODEDIALOG_H
 #define QRCODEDIALOG_H
 
+#include "faderdialog.h"
+
 #include <QDialog>
 #include <QImage>
 
@@ -9,7 +11,7 @@ namespace Ui {
 }
 class OptionsModel;
 
-class QRCodeDialog : public QDialog
+class QRCodeDialog : public FaderDialog
 {
     Q_OBJECT
 
@@ -24,6 +26,7 @@ private slots:
     void on_label_textChanged();
     void on_message_textChanged();
     void on_saveButton_clicked();
+    void on_copyButton_clicked();
     void on_chkReqPayment_toggled(bool fChecked);
 
     void updateDisplayUnit();
