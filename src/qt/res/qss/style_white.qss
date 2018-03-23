@@ -104,6 +104,10 @@ QCheckBox, QRadioButton {
   color: #212121;
 }
 
+QCheckBox:disabled, QRadioButton:disabled {
+  color: gray;
+}
+
 QMenu {
   background: #212121;
   color: rgb(222,222,222);
