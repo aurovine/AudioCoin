@@ -104,6 +104,10 @@ QCheckBox, QRadioButton {
   color: #212121;
 }
 
+QCheckBox:disabled, QRadioButton:disabled {
+  color: gray;
+}
+
 QMenu {
   background: #212121;
   color: rgb(222,222,222);
@@ -179,10 +183,6 @@ QDoubleSpinBox::up-arrow {
   height: 12px;
 }
 
-QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
-  color: #212121;
-}
-
 QComboBox, QValueComboBox {
   border: none;
   color: #212121;
@@ -211,9 +211,13 @@ QComboBox::drop-down, QValueComboBox::drop-down {
   height: 12px;
 }
 
-QValueComboBox QAbstractItemView {
+QComboBox QAbstractItemView, QValueComboBox QAbstractItemView {
   border: 1px solid lightgray;
   background-color: white;
+}
+
+QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
+  color: #212121;
 }
 
 QDoubleSpinBox::down-arrow, QComboBox::down-arrow, QValueComboBox::down-arrow {
@@ -262,7 +266,7 @@ QTreeWidget::item, QTableView::item {
   font-size: 12px;
 }
 
-QTableView::item:selected {
+QTreeWidget::item:selected, QTableView::item:selected {
   background-color: #3cb0e5;
   color: white;
 }
@@ -287,7 +291,7 @@ QTreeView::branch:closed:has-children:has-siblings {
 QTreeView::branch:selected:has-children:!has-siblings:closed,
 QTreeView::branch:selected:closed:has-children:has-siblings {
   border-image: none;
-  image: url(:/icons/material/black/arrow_right);
+  image: url(:/icons/material/white/arrow_right);
   width: 12px;
   height: 12px;
 }
@@ -303,7 +307,7 @@ QTreeView::branch:open:has-children:has-siblings  {
 QTreeView::branch:selected:open:has-children:!has-siblings,
 QTreeView::branch:selected:open:has-children:has-siblings  {
   border-image: none;
-  image: url(:/icons/material/black/arrow_down);
+  image: url(:/icons/material/white/arrow_down);
   width: 12px;
   height: 12px;
 }

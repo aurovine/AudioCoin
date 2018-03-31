@@ -120,7 +120,7 @@ TransactionsPage::TransactionsPage(QWidget *parent) :
     ui->typeWidget->addItem(tr("Sent to"), TransactionFilterProxy::TYPE(TransactionRecord::SendToAddress) |
                                            TransactionFilterProxy::TYPE(TransactionRecord::SendToOther));
     ui->typeWidget->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
-    ui->typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
+    ui->typeWidget->addItem(tr("Mined/Staked"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     ui->typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
 
 #if QT_VERSION >= 0x040700

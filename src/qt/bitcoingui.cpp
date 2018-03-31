@@ -163,7 +163,6 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QWidget *frameBlocks = new QWidget();
     frameBlocks->setContentsMargins(0,0,0,0);
     frameBlocks->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    frameBlocks->setStyleSheet("QWidget { background: none; margin-bottom: 20px; ");
     QHBoxLayout *frameBlocksLayout = new QHBoxLayout(frameBlocks);
     frameBlocksLayout->setSpacing(10);
     frameBlocksLayout->setAlignment(Qt::AlignHCenter);

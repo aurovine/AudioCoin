@@ -100,6 +100,10 @@ QCheckBox, QRadioButton {
   color: #e0e0e0;
 }
 
+QCheckBox:disabled, QRadioButton:disabled {
+  color: gray;
+}
+
 QStatusBar {
   background-color: black;
 }
@@ -176,10 +180,6 @@ QDoubleSpinBox::up-arrow {
   height: 12px;
 }
 
-QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
-  color: #e0e0e0;
-}
-
 QComboBox, QValueComboBox {
   border: none;
   color: white;
@@ -208,9 +208,13 @@ QComboBox::drop-down, QValueComboBox::drop-down {
   height: 12px;
 }
 
-QValueComboBox QAbstractItemView {
+QComboBox QAbstractItemView, QValueComboBox QAbstractItemView {
   border: 1px solid black;
   background-color: #212121;
+}
+
+QComboBox QAbstractItemView::item, QValueComboBox QAbstractItemView::item {
+  color: #e0e0e0;
 }
 
 QDoubleSpinBox::down-arrow, QComboBox::down-arrow, QValueComboBox::down-arrow {
