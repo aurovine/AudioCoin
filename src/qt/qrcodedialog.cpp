@@ -8,16 +8,24 @@
 
 #include <QPixmap>
 #include <QUrl>
+#include <QMenu>
+#include <QApplication>
+#include <QClipboard>
 
 #include <qrencode.h>
 
 QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enableReq, QWidget *parent) :
-    QDialog(parent),
+    FaderDialog(parent),
     ui(new Ui::QRCodeDialog),
     model(0),
     address(addr)
 {
     ui->setupUi(this);
+
+#ifdef Q_OS_MAC
+    ui->label->setAttribute(Qt::WA_MacShowFocusRect, false);
+    ui->message->setAttribute(Qt::WA_MacShowFocusRect, false);
+#endif
 
     setWindowTitle(QString("%1").arg(address));
 
@@ -28,13 +36,18 @@ QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enabl
     ui->label->setText(label);
 
     ui->saveButton->setEnabled(false);
+    ui->outUri->setVisible(false);
 
     genCode();
+
+    connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
 
     if (fUseBlackTheme)
         ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #212121; }");
     else
         ui->buttonWidget->setStyleSheet("#buttonWidget { background-color: #092f41; }");
+
+    ui->cancelButton->setIcon(QIcon(fUseBlackTheme ? ":/icons/material/white/close" : ":/icons/material/black/close"));
 }
 
 QRCodeDialog::~QRCodeDialog()
@@ -68,13 +81,16 @@ void QRCodeDialog::genCode()
             return;
         }
         myImage = QImage(code->width + 8, code->width + 8, QImage::Format_RGB32);
-        myImage.fill(0xffffff);
+        myImage.fill(fUseBlackTheme ? 0x292c30 : 0xffffff);
         unsigned char *p = code->data;
         for (int y = 0; y < code->width; y++)
         {
             for (int x = 0; x < code->width; x++)
             {
-                myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0x0 : 0xffffff));
+                if (fUseBlackTheme)
+                    myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0xffffff : 0x292c30));
+                else
+                    myImage.setPixel(x + 4, y + 4, ((*p & 1) ? 0x0 : 0xffffff));
                 p++;
             }
         }
@@ -148,6 +164,11 @@ void QRCodeDialog::on_label_textChanged()
 void QRCodeDialog::on_message_textChanged()
 {
     genCode();
+}
+
+void QRCodeDialog::on_copyButton_clicked()
+{
+    QApplication::clipboard()->setText(getURI());
 }
 
 void QRCodeDialog::on_saveButton_clicked()
