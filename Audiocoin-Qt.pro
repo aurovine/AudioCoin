@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = audiocoin-qt
-VERSION = 1.2.2
+VERSION = 1.3.1
 INCLUDEPATH += src src/json src/qt
 QT += network
 QT += svg

@@ -1082,10 +1082,10 @@ void BitcoinGUI::updateWeight()
 void BitcoinGUI::updateStakingIcon()
 {
     updateWeight();
+    uint64_t nWeight = this->nWeight / COIN;
 
-    if (nLastCoinStakeSearchInterval && nWeight)
+    if (nLastCoinStakeSearchInterval && nWeight > 0)
     {
-        uint64_t nWeight = this->nWeight / COIN;
         uint64_t nNetworkWeight = GetPoSKernelPS();
         double nEstimateTime = GetTargetSpacing(nBestHeight) * nNetworkWeight / nWeight;
 
