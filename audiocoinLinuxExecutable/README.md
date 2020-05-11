@@ -1,4 +1,4 @@
-# audiocoin_shell_script
+# audiocoin_shell_script audiocoinLinuxExecutable
 
 ## How to run the script - 
 
